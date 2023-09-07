@@ -37,6 +37,7 @@ namespace SA.FPS
             #endif
                 .Add(new HeroSpawnSystem())
                 .Add(new HeroInputSystem())
+                .Add(new HeroMovementSystem())
                 .Init();
 
             

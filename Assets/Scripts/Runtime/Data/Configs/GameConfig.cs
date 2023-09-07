@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
 namespace SA.FPS
@@ -7,6 +8,7 @@ namespace SA.FPS
     public sealed class GameConfig : ScriptableObject
     {
         [field: SerializeField] public HeroView HeroPrefab {get; private set;}
+        [field: SerializeField] public CinemachineVirtualCamera CameraPrefab  {get; private set;}
         [field: SerializeField] public ControlConfig Control {get; private set;}
 
         [Serializable]

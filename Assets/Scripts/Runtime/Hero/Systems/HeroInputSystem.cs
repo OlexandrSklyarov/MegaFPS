@@ -34,8 +34,8 @@ namespace SA.FPS
                 ref var input = ref inputPool.Get(ent);
 
                 var movement = _inputService.Controls.Player.Movement.ReadValue<Vector2>();
-                input.Vertical = movement.y;
-                input.Horizontal = movement.x;
+                input.Vertical = movement.x;
+                input.Horizontal = movement.y;
             }
         }
     }
