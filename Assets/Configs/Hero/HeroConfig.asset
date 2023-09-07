@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ae95814747c82bdb9db0cbca08f150, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 5
+  <WalkSpeed>k__BackingField: 250
+  <RunMultiplier>k__BackingField: 2

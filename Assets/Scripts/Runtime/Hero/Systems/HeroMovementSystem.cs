@@ -32,9 +32,9 @@ namespace SA.FPS
 
                 var velocity = new Vector3
                 (
-                    input.Vertical * config.Prm.WalkSpeed, 
+                    input.Vertical * config.Prm.WalkSpeed * Time.deltaTime, 
                     0f, 
-                    input.Horizontal * config.Prm.WalkSpeed
+                    input.Horizontal * config.Prm.WalkSpeed * Time.deltaTime
                 );
 
                 velocity = cc.CharacterController.transform.rotation * velocity;
