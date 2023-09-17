@@ -33,9 +33,21 @@ namespace SA.FPS
             {
                 ref var input = ref inputPool.Get(ent);
 
+                //direction
                 var movement = _inputService.Controls.Player.Movement.ReadValue<Vector2>();
-                input.Vertical = movement.x;
-                input.Horizontal = movement.y;
+                input.Horizontal = movement.x;
+                input.Vertical = movement.y;
+
+                //rotation
+                var rotation = _inputService.Controls.Player.Look.ReadValue<Vector2>();
+                input.MouseX = rotation.x;
+                input.MouseY = rotation.y;
+
+                //run
+                input.IsRun = _inputService.Controls.Player.Run.ReadValue<float>() > 0;
+
+                //jump
+                input.IsJump = _inputService.Controls.Player.Jump.ReadValue<float>() > 0;
             }
         }
     }

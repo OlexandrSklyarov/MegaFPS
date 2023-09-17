@@ -8,7 +8,8 @@ namespace SA.FPS
     public sealed class GameConfig : ScriptableObject
     {
         [field: SerializeField] public HeroView HeroPrefab {get; private set;}
-        [field: SerializeField] public CinemachineVirtualCamera CameraPrefab  {get; private set;}
+        [field: SerializeField] public CinemachineVirtualCamera VirtualCameraPrefab  {get; private set;}
+        [field: SerializeField] public TPSCamera TPSCameraPrefab  {get; private set;}
         [field: SerializeField] public ControlConfig Control {get; private set;}
 
         [Serializable]

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Leopotam.EcsLite;
+using System;
 
 namespace SA.FPS
 {
@@ -22,12 +23,20 @@ namespace SA.FPS
             };
 
             _world = new EcsWorld();
-
             _updateSystems = new EcsSystems(_world, data);
             _fixedUpdateSystems = new EcsSystems(_world, data);
 
-            AddSystems();   
+            PrepareWorld(); 
+            AddSystems();  
         }
+
+
+        private void PrepareWorld()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
 
         private void AddSystems()
         {
@@ -37,7 +46,9 @@ namespace SA.FPS
             #endif
                 .Add(new HeroSpawnSystem())
                 .Add(new HeroInputSystem())
+                .Add(new HeroJumpingSystem())
                 .Add(new HeroMovementSystem())
+                .Add(new HeroFPSLookCameraSystem())
                 .Init();
 
             
@@ -47,6 +58,7 @@ namespace SA.FPS
             #endif
                 .Init();
         }
+
 
         private void Update() => _updateSystems?.Run();   
 

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <HeroPrefab>k__BackingField: {fileID: 9174714417950309788, guid: 5cb0b334c276732c9bd5eb2640dc2c3d,
     type: 3}
-  <CameraPrefab>k__BackingField: {fileID: 759784616973252797, guid: fcd9cb348515fe5148973415ae8189d6,
+  <VirtualCameraPrefab>k__BackingField: {fileID: 759784616973252797, guid: fcd9cb348515fe5148973415ae8189d6,
+    type: 3}
+  <TPSCameraPrefab>k__BackingField: {fileID: 6550983210350669388, guid: 90d0b4f54a8f06f378586c328322a500,
     type: 3}
   <Control>k__BackingField:
-    <MouseSensitivity>k__BackingField: 2
+    <MouseSensitivity>k__BackingField: 1.1
     <UpDownAngle>k__BackingField: 80

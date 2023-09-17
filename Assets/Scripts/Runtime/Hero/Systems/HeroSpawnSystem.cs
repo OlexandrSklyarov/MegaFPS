@@ -26,24 +26,43 @@ namespace SA.FPS
             ref var config = ref world.GetPool<CharacterConfigComponent>().Add(entity);
             config.Prm = heroView.Config;
 
-            //config
-            ref var camera = ref world.GetPool<CameraComponent>().Add(entity);
-            camera.Virtual = GetCamera(data, heroView);
+            //tps camera
+            ref var tpsCamera = ref world.GetPool<TPSCameraComponent>().Add(entity);
+            tpsCamera.Virtual = GetCamera(data, heroView);
+            tpsCamera.TPS_Camera = GetTPSCamera(data);
 
             //input
             world.GetPool<InputComponent>().Add(entity);
+
+            //look (fps camera)
+            ref var look = ref world.GetPool<CharacterLookComponent>().Add(entity);
+            look.Body = heroView.transform;
+            look.FPS_Camera = heroView.HeroCamera;
+        }
+
+        private TPSCamera GetTPSCamera(SharedData data)
+        {
+            var camera = UnityEngine.Object.Instantiate
+            (
+                data.Config.TPSCameraPrefab,
+                null
+            );
+
+            camera.Off();
+            return camera;
         }
 
         private CinemachineVirtualCamera GetCamera(SharedData data, HeroView heroView)
         {
             var camera = UnityEngine.Object.Instantiate
             (
-                data.Config.CameraPrefab,
+                data.Config.VirtualCameraPrefab,
                 null
             );
 
             camera.Follow = heroView.FollowTarget;
             camera.LookAt = heroView.LookTarget;
+            camera.enabled = false;
 
             return camera;
         }

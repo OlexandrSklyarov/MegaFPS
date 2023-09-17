@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SA.FPS
 {
-    public sealed class HeroMovementSystem : IEcsInitSystem, IEcsRunSystem
+    public sealed class HeroJumpingSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsFilter _filter;  
 
@@ -16,6 +16,7 @@ namespace SA.FPS
                 .Inc<InputComponent>()
                 .End();
         }
+
 
         public void Run(IEcsSystems systems)
         {
@@ -30,18 +31,19 @@ namespace SA.FPS
                 ref var input = ref inputPool.Get(ent);
                 ref var config = ref configPool.Get(ent);
 
-                var speed = (input.IsRun) ? 
-                    config.Prm.WalkSpeed * config.Prm.RunMultiplier : 
-                    config.Prm.WalkSpeed;
+                if (engine.CharacterController.isGrounded)
+                {
+                    engine.CurrentMovement.y = -0.5f;
 
-                var velocity = new Vector3(input.Horizontal, 0f, input.Vertical);
-                velocity = velocity.normalized * speed * Time.deltaTime;
-                velocity = engine.CharacterController.transform.rotation * velocity;
-
-                engine.CurrentMovement.x = velocity.x;
-                engine.CurrentMovement.z = velocity.z;
-                
-                engine.CharacterController.Move(engine.CurrentMovement * Time.deltaTime);
+                    if (input.IsJump)
+                    {
+                        engine.CurrentMovement.y = config.Prm.JumpForce;
+                    }
+                }
+                else
+                {
+                    engine.CurrentMovement.y -= config.Prm.Gravity * Time.deltaTime;
+                }
             }
         }
     }
