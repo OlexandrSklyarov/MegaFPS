@@ -19,7 +19,7 @@ namespace SA.FPS
             {
                 Config = _config,
                 WorldData = _worldData,
-                Services = new ServicesPool()              
+                Services = new ServicesPool()     
             };
 
             _world = new EcsWorld();
@@ -49,6 +49,7 @@ namespace SA.FPS
                 .Add(new HeroJumpingSystem())
                 .Add(new HeroMovementSystem())
                 .Add(new HeroFPSLookCameraSystem())
+                .Add(new HeroFootStepAudioSystem())
                 .Init();
 
             

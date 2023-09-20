@@ -16,5 +16,15 @@ namespace Util
         {
             return items[Rand.Next(0, items.Count)];
         }
+
+        public static int RandomIndex<T>(this T[]items)
+        {
+            return Rand.Next(0, items.Length);
+        }
+
+        public static int RandomIndex<T>(this List<T> items)
+        {
+            return Rand.Next(0, items.Count);
+        }
     }
 }

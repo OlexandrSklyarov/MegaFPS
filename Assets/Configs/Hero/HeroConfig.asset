@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WalkSpeed>k__BackingField: 250
   <RunMultiplier>k__BackingField: 2
+  <JumpForce>k__BackingField: 5
+  <Gravity>k__BackingField: 9.81
+  <FootSteVelocityThreshold>k__BackingField: 2
+  <SprintStepInterval>k__BackingField: 0.2
+  <WalkStepInterval>k__BackingField: 0.4

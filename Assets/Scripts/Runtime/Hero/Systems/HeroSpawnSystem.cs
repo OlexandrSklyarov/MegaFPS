@@ -38,6 +38,9 @@ namespace SA.FPS
             ref var look = ref world.GetPool<CharacterLookComponent>().Add(entity);
             look.Body = heroView.transform;
             look.FPS_Camera = heroView.HeroCamera;
+
+            //audio
+            world.GetPool<HeroFootStepComponent>().Add(entity);
         }
 
         private TPSCamera GetTPSCamera(SharedData data)

@@ -1,22 +1,23 @@
 using Cinemachine;
+using FMODUnity;
 using UnityEngine;
 
 namespace SA.FPS
 {    
-    [RequireComponent(typeof(Camera), typeof(AudioListener), typeof(CinemachineBrain))]
+    [RequireComponent(typeof(Camera), typeof(StudioListener), typeof(CinemachineBrain))]
     public class TPSCamera : MonoBehaviour   
     {
         public Camera TargetCamera => _camera;
 
         private Camera _camera;
         private CinemachineBrain _brain;
-        private AudioListener _audioListener;
+        private StudioListener _audioListener;
 
         private void Awake() 
         {
             _camera = GetComponent<Camera>();
             _brain = GetComponent<CinemachineBrain>();
-            _audioListener = GetComponent<AudioListener>();
+            _audioListener = GetComponent<StudioListener>();
         }
 
         public void On()
