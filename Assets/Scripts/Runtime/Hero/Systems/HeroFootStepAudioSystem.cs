@@ -1,8 +1,6 @@
-using System;
 using FMODUnity;
 using Leopotam.EcsLite;
 using UnityEngine;
-using Util;
 
 namespace SA.FPS
 {
