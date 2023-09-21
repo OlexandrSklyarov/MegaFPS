@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace SA.FPS
@@ -9,6 +8,7 @@ namespace SA.FPS
         [field: SerializeField] public CharacterController CharacterController {get; private set;}
         [field: SerializeField] public Transform LookTarget {get; private set;}
         [field: SerializeField] public Camera HeroCamera {get; private set;}
+        [field: SerializeField] public Animator Animator {get; private set;}
         public Transform FollowTarget => transform;
 
         public void Init()

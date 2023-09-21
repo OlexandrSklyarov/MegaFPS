@@ -9,5 +9,6 @@ namespace SA.FPS
         public float MouseY;
         public bool IsRun ;
         public bool IsJump;
+        public bool IsFire;
     }
 }

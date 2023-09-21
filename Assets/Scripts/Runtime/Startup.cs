@@ -50,6 +50,7 @@ namespace SA.FPS
                 .Add(new HeroMovementSystem())
                 .Add(new HeroFPSLookCameraSystem())
                 .Add(new HeroFootStepAudioSystem())
+                .Add(new HeroAnimationSystem())
                 .Init();
 
             

@@ -41,6 +41,10 @@ namespace SA.FPS
 
             //audio
             world.GetPool<HeroFootStepComponent>().Add(entity);
+            
+            //audio
+            ref var anim = ref world.GetPool<CharacterAnimationComponent>().Add(entity);
+            anim.AnimatorRef = heroView.Animator;
         }
 
         private TPSCamera GetTPSCamera(SharedData data)

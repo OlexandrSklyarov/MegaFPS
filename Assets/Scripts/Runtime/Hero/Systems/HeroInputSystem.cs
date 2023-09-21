@@ -48,6 +48,9 @@ namespace SA.FPS
 
                 //jump
                 input.IsJump = _inputService.Controls.Player.Jump.ReadValue<float>() > 0;
+
+                //fire
+                input.IsFire = _inputService.Controls.Player.Fire.ReadValue<float>() > 0;
             }
         }
     }
