@@ -8,5 +8,7 @@ namespace SA.FPS
         public Camera FPS_Camera;
         public Transform Body;
         public float VerticalRotation;
+        public float VerticalVelocity;
+        public float HorizontalVelocity;
     }
 }

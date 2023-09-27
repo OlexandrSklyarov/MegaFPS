@@ -34,19 +34,42 @@ namespace SA.FPS
                 ref var input = ref inputPool.Get(ent);
                 ref var config = ref configPool.Get(ent);
 
-                var horRotation = input.MouseX * _gameConfig.Control.MouseSensitivity;
-                look.Body.Rotate(0f, horRotation, 0f);
+                HorizontalRotation(ref look, ref input);
 
-                look.VerticalRotation -= input.MouseY * _gameConfig.Control.MouseSensitivity;
-                look.VerticalRotation = Mathf.Clamp
-                (
-                    look.VerticalRotation, 
-                    -_gameConfig.Control.UpDownAngle, 
-                    _gameConfig.Control.UpDownAngle
-                );
-
-                look.FPS_Camera.transform.localRotation = Quaternion.Euler(look.VerticalRotation, 0f, 0f);
+                VerticalRotation(ref look, ref input);
             }
+        }
+
+        private void HorizontalRotation(ref CharacterLookComponent look, ref InputComponent input)
+        {
+            var targetHorizontalRotation = input.MouseX * _gameConfig.Control.MouseSensitivity;
+            var curRot = look.Body.rotation;
+            var newRot = curRot * Quaternion.Euler(0f, targetHorizontalRotation, 0f);            
+
+            look.Body.rotation = Quaternion.Slerp(curRot, newRot, Time.deltaTime * _gameConfig.Control.SmoothHorizontalRotationSpeed);
+        }
+
+        private void VerticalRotation(ref CharacterLookComponent look, ref InputComponent input)
+        {
+            var newVertRotation = look.VerticalRotation;
+            newVertRotation -= input.MouseY * _gameConfig.Control.MouseSensitivity;
+            newVertRotation = Mathf.Clamp
+            (
+                newVertRotation,
+                -_gameConfig.Control.UpDownAngle,
+                _gameConfig.Control.UpDownAngle
+            );
+
+            look.VerticalRotation = Mathf.SmoothDampAngle
+            (
+                look.VerticalRotation,
+                newVertRotation,
+                ref look.VerticalVelocity,
+                _gameConfig.Control.SmoothRotationTime,
+                _gameConfig.Control.SmoothVerticalRotationSpeed
+            );
+
+            look.FPS_Camera.transform.localRotation = Quaternion.Euler(look.VerticalRotation, 0f, 0f);
         }
     }
 }

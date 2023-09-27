@@ -41,13 +41,13 @@ namespace SA.FPS
                 vel.y = 0f;
 
                 var normSpeed = 0f;
-                
+
                 if (isGrounded && vel.sqrMagnitude > 0f) 
                 {
                     normSpeed = (input.IsRun) ? 1f : 0.5f;
                 }
                 
-                animation.AnimatorRef.SetFloat("SPEED", normSpeed, 0.1f, Time.deltaTime);   
+                animation.AnimatorRef.SetFloat("SPEED", normSpeed, 0.2f, Time.deltaTime);   
 
                 //fire            
                 animation.AnimatorRef.SetBool("SHOOT", input.IsFire);                
