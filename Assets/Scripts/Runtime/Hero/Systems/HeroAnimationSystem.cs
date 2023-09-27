@@ -40,15 +40,17 @@ namespace SA.FPS
                 var vel = engine.CharacterController.velocity;
                 vel.y = 0f;
 
-                var normSpeed = (isGrounded) ? Mathf.Clamp01(vel.sqrMagnitude) : 0f;
-                var multiplier = (input.IsRun) ? config.Prm.RunMultiplier : 1;
+                var normSpeed = 0f;
+                
+                if (isGrounded && vel.sqrMagnitude > 0f) 
+                {
+                    normSpeed = (input.IsRun) ? 1f : 0.5f;
+                }
                 
                 animation.AnimatorRef.SetFloat("SPEED", normSpeed, 0.1f, Time.deltaTime);   
-                animation.AnimatorRef.SetFloat("SPEED_MULT", multiplier);   
 
-                //fire
-                if (input.IsFire)             
-                    animation.AnimatorRef.SetTrigger("SHOOT");                
+                //fire            
+                animation.AnimatorRef.SetBool("SHOOT", input.IsFire);                
             }
         }      
     }

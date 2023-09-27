@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02b0c2d7f35e330c92ac11e3b44ff81, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  <HeroPrefab>k__BackingField: {fileID: 9174714417950309788, guid: 5cb0b334c276732c9bd5eb2640dc2c3d,
+  <HeroPrefab>k__BackingField: {fileID: 4588815991571764513, guid: 51dd9034e845ba6bda9c856428450f67,
     type: 3}
   <VirtualCameraPrefab>k__BackingField: {fileID: 759784616973252797, guid: fcd9cb348515fe5148973415ae8189d6,
     type: 3}
