@@ -98,10 +98,10 @@ MonoBehaviour:
     m_Value: 1
   m_DenoiserRadius:
     m_OverrideState: 1
-    m_Value: 0.75
-  m_DenoiserAntiFlickeringStrength:
-    m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
+  m_AffectSmoothSurfaces:
+    m_OverrideState: 0
+    m_Value: 0
   mode:
     m_OverrideState: 1
     m_Value: 2
@@ -133,9 +133,27 @@ MonoBehaviour:
   enable:
     m_OverrideState: 1
     m_Value: 1
-  triangleSize:
-    m_OverrideState: 1
-    m_Value: 30
+  minGridSize:
+    m_OverrideState: 0
+    m_Value: 75
+  maxGridSize:
+    m_OverrideState: 0
+    m_Value: 2500
+  elevationTransition:
+    m_OverrideState: 0
+    m_Value: 1000
+  numLevelOfDetails:
+    m_OverrideState: 0
+    m_Value: 3
+  maxTessellationFactor:
+    m_OverrideState: 0
+    m_Value: 3
+  tessellationFactorFadeStart:
+    m_OverrideState: 0
+    m_Value: 150
+  tessellationFactorFadeRange:
+    m_OverrideState: 0
+    m_Value: 1850
   ambientProbeDimmer:
     m_OverrideState: 1
     m_Value: 0.5
@@ -1170,13 +1188,6 @@ MonoBehaviour:
   type:
     m_OverrideState: 1
     m_Value: 1
-  renderingMode:
-    m_OverrideState: 1
-    m_Value: 0
-  material:
-    m_OverrideState: 1
-    m_Value: {fileID: -876546973899608171, guid: 02532cbb810fb404db49da84f1efe41e,
-      type: 3}
   sphericalMode:
     m_OverrideState: 1
     m_Value: 1
@@ -1343,12 +1354,6 @@ MonoBehaviour:
       customValue: 100
       additiveValue: 0
       multiplyValue: 1
-  sunInitialRotation:
-    m_OverrideState: 1
-    m_Value: -Infinity
-  lockSun:
-    m_OverrideState: 1
-    m_Value: 0
   enableBackplate:
     m_OverrideState: 1
     m_Value: 0
@@ -2558,6 +2563,9 @@ MonoBehaviour:
   shadowResolution:
     m_OverrideState: 1
     m_Value: 256
+  shadowPlaneHeightOffset:
+    m_OverrideState: 0
+    m_Value: 0
   shadowDistance:
     m_OverrideState: 1
     m_Value: 8000
