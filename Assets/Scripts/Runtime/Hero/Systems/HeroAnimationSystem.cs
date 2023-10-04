@@ -24,16 +24,16 @@ namespace SA.FPS
         {
             var world = systems.GetWorld();
             var animationPool = world.GetPool<CharacterAnimationComponent>();
+            var attackPool = world.GetPool<CharacterAttackComponent>();
             var configPool = world.GetPool<CharacterConfigComponent>();
             var enginePool = world.GetPool<CharacterEngineComponent>();
-            var inputPool = world.GetPool<InputComponent>();
 
             foreach(var ent in _filter)
             {
                 ref var animation = ref animationPool.Get(ent);
                 ref var config = ref configPool.Get(ent);
                 ref var engine = ref enginePool.Get(ent);
-                ref var input = ref inputPool.Get(ent);   
+                ref var attack = ref attackPool.Get(ent); 
 
                 //movement
                 var isGrounded = engine.CharacterController.isGrounded;
@@ -44,13 +44,10 @@ namespace SA.FPS
 
                 if (isGrounded && vel.sqrMagnitude > 0f) 
                 {
-                    normSpeed = (input.IsRun) ? 1f : 0.5f;
+                    normSpeed = (engine.Speed > config.Prm.WalkSpeed) ? 1f : 0.5f;
                 }
                 
                 animation.AnimatorRef.SetFloat("SPEED", normSpeed, 0.2f, Time.deltaTime);   
-
-                //fire            
-                animation.AnimatorRef.SetBool("SHOOT", input.IsFire);                
             }
         }      
     }

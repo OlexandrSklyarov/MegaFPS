@@ -51,6 +51,12 @@ namespace SA.FPS
 
                 //fire
                 input.IsFire = _inputService.Controls.Player.Fire.ReadValue<float>() > 0;
+
+                //melle attack
+                input.IsAttack = _inputService.Controls.Player.Attack.ReadValue<float>() > 0;
+
+                //reload
+                input.IsReload = _inputService.Controls.Player.Reload.ReadValue<float>() > 0;
             }
         }
     }

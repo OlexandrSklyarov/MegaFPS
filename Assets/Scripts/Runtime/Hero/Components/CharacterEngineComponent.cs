@@ -6,5 +6,6 @@ namespace SA.FPS
     {
         public CharacterController CharacterController;
         public Vector3 CurrentMovement;
+        public float Speed;
     }
 }

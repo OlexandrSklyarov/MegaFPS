@@ -19,3 +19,4 @@ MonoBehaviour:
   <FootSteVelocityThreshold>k__BackingField: 2
   <SprintStepInterval>k__BackingField: 0.2
   <WalkStepInterval>k__BackingField: 0.4
+  <MelleAttackCooldown>k__BackingField: 0.9

@@ -1,6 +1,5 @@
 using UnityEngine;
 using Leopotam.EcsLite;
-using System;
 
 namespace SA.FPS
 {
@@ -41,23 +40,29 @@ namespace SA.FPS
         private void AddSystems()
         {
             _updateSystems  
+
             #if UNITY_EDITOR
                 .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
             #endif
+
                 .Add(new HeroSpawnSystem())
                 .Add(new HeroInputSystem())
                 .Add(new HeroJumpingSystem())
                 .Add(new HeroMovementSystem())
                 .Add(new HeroFPSLookCameraSystem())
+                .Add(new HeroAttackSystem())
                 .Add(new HeroFootStepAudioSystem())
+                .Add(new HeroShootShakeFXSystem())
                 .Add(new HeroAnimationSystem())
+
+                .Add(new TakeWeaponSystem())
+                .Add(new WeaponMelleAttackSystem())
+                .Add(new WeaponShootingSystem())
+
                 .Init();
 
             
             _fixedUpdateSystems 
-            #if UNITY_EDITOR
-                .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
-            #endif
                 .Init();
         }
 

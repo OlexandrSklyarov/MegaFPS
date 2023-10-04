@@ -130,23 +130,6 @@ MonoBehaviour:
   m_RenderPipelineResources: {fileID: 11400000, guid: 3ce144cff5783da45aa5d4fdc2da14b7,
     type: 2}
   m_RenderPipelineRayTracingResources: {fileID: 0}
-  m_CustomPostProcessOrdersSettings:
-    m_Version: 0
-    m_BeforeTransparentCustomPostProcesses:
-      m_InjectionPoint: 0
-      m_CustomPostProcessTypesAsString: []
-    m_BeforeTAACustomPostProcesses:
-      m_InjectionPoint: 3
-      m_CustomPostProcessTypesAsString: []
-    m_BeforePostProcessCustomPostProcesses:
-      m_InjectionPoint: 1
-      m_CustomPostProcessTypesAsString: []
-    m_AfterPostProcessBlursCustomPostProcesses:
-      m_InjectionPoint: 4
-      m_CustomPostProcessTypesAsString: []
-    m_AfterPostProcessCustomPostProcesses:
-      m_InjectionPoint: 2
-      m_CustomPostProcessTypesAsString: []
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
   afterPostProcessBlursCustomPostProcesses: []

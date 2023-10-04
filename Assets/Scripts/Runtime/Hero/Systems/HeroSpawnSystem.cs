@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using Leopotam.EcsLite;
 using UnityEngine;
@@ -13,6 +12,8 @@ namespace SA.FPS
             var data = systems.GetShared<SharedData>();          
 
             var heroView = GetView(data.Config.HeroPrefab, data.WorldData.HeroSpawnPoint);
+            heroView.Init();
+            
             var entity = world.NewEntity();
             
             //cc
@@ -37,6 +38,8 @@ namespace SA.FPS
             //look (fps camera)
             ref var look = ref world.GetPool<CharacterLookComponent>().Add(entity);
             look.Body = heroView.transform;
+            look.HeadRoot = heroView.HeadRoot;
+            look.Head = heroView.Head;
             look.FPS_Camera = heroView.HeroCamera;
 
             //audio
@@ -45,6 +48,22 @@ namespace SA.FPS
             //audio
             ref var anim = ref world.GetPool<CharacterAnimationComponent>().Add(entity);
             anim.AnimatorRef = heroView.Animator;
+
+            //attack
+            ref var attack = ref world.GetPool<CharacterAttackComponent>().Add(entity);
+        
+            HeroTakeWeaponEvent(world, entity, heroView);
+        }
+
+
+        private void HeroTakeWeaponEvent(EcsWorld world, int heroEntity, HeroView heroView)
+        {
+            var weapon = heroView.WeaponViews[0];
+
+            var ent = world.NewEntity();
+            ref var evt = ref world.GetPool<TakeWeaponEvent>().Add(ent);
+            evt.OwnerEntity = heroEntity;
+            evt.WeaponView = weapon;
         }
 
         private TPSCamera GetTPSCamera(SharedData data)
@@ -58,6 +77,7 @@ namespace SA.FPS
             camera.Off();
             return camera;
         }
+
 
         private CinemachineVirtualCamera GetCamera(SharedData data, HeroView heroView)
         {
@@ -73,6 +93,7 @@ namespace SA.FPS
 
             return camera;
         }
+
 
         private HeroView GetView(HeroView heroPrefab, Transform heroSpawnPoint)
         {

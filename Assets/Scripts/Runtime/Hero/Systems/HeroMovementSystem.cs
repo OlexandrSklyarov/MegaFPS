@@ -30,12 +30,12 @@ namespace SA.FPS
                 ref var input = ref inputPool.Get(ent);
                 ref var config = ref configPool.Get(ent);
 
-                var speed = (input.IsRun) ? 
+                engine.Speed = (input.IsRun) ? 
                     config.Prm.WalkSpeed * config.Prm.RunMultiplier : 
                     config.Prm.WalkSpeed;
 
                 var velocity = new Vector3(input.Horizontal, 0f, input.Vertical);
-                velocity = velocity.normalized * speed * Time.deltaTime;
+                velocity = velocity.normalized * engine.Speed * Time.deltaTime;
                 velocity = engine.CharacterController.transform.rotation * velocity;
 
                 engine.CurrentMovement.x = velocity.x;
