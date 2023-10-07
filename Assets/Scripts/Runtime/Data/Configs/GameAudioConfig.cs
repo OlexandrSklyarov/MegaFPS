@@ -12,8 +12,7 @@ namespace SA.FPS
         [Serializable]
         public sealed class HeroSfx
         {
-            [field: SerializeField] public EventReference FootSteps {get; private set;}
-
+            [field: SerializeField] public EventReference FootSteps {get; private set;}  
         }
     }
 }

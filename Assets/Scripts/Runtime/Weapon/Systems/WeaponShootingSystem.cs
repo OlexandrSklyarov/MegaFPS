@@ -9,7 +9,7 @@ namespace SA.FPS
         private EcsFilter _weaponFilter;  
 
         public void Init(IEcsSystems systems)
-        {
+        {            
             _shootFilter = systems.GetWorld()
                 .Filter<CharacterTryShootEvent>()
                 .End();
@@ -71,14 +71,15 @@ namespace SA.FPS
 
         private void Shoot(ref WeaponComponent weapon)
         {
-            Util.DebugUtility.Print("Shoot");            
+            Util.DebugUtility.Print("Shoot");
+            FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);   
         }
 
 
         private void AddOwnerShakeFX(EcsWorld world, ref CharacterTryShootEvent evt, ref WeaponComponent weapon)
         {
             ref var shake = ref world.GetPool<CameraShakeComponent>().Add(evt.ShootEntity);
-            shake.Duration = weapon.Settings.Duration;
+            shake.Duration = weapon.Settings.ShakeDuration;
             shake.Strength = weapon.Settings.Strength;
             shake.Vibrato = weapon.Settings.Vibrato;
             shake.Randomness = weapon.Settings.Randomness;

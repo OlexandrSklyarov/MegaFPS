@@ -27,10 +27,6 @@ namespace SA.FPS
         private void CreateWeaponEntity(EcsWorld world, ref TakeWeaponEvent takeEvt)
         {
             var ent = world.NewEntity();
-
-            //owner
-            ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(ent);
-            weaponOwner.MyOwner = takeEvt.OwnerEntity;
             
             //weapon
             ref var weapon = ref world.GetPool<WeaponComponent>().Add(ent);            
@@ -43,6 +39,10 @@ namespace SA.FPS
             ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
             ammunition.Count = takeEvt.WeaponView.Settings.StartAmmo;
             UnityEngine.Debug.Log(ammunition.Count);            
+            
+            //owner
+            ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(ent);
+            weaponOwner.MyOwner = takeEvt.OwnerEntity;
         }
     }
 }

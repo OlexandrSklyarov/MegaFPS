@@ -69,6 +69,7 @@ namespace SA.FPS
                 _gameConfig.Control.SmoothVerticalRotationSpeed
             );
 
+            //rotate Head
             look.HeadRoot.transform.localRotation = Quaternion.Euler(look.VerticalRotation, 0f, 0f);
         }
     }
