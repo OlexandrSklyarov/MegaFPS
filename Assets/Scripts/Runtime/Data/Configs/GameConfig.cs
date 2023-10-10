@@ -12,6 +12,7 @@ namespace SA.FPS
         [field: SerializeField] public TPSCamera TPSCameraPrefab  {get; private set;}
         [field: Space, SerializeField] public ControlConfig Control {get; private set;}
         [field: Space, SerializeField] public GameAudioConfig Audio {get; private set;}
+        [field: Space, SerializeField] public InventoryConfig InventoryData {get; private set;}
 
         [Serializable]
         public sealed class ControlConfig
