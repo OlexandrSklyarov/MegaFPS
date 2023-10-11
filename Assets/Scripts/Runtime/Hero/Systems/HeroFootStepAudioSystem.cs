@@ -14,7 +14,7 @@ namespace SA.FPS
             _data = systems.GetShared<SharedData>();
             
             _filter = systems.GetWorld()
-                .Filter<HeroTag>()
+                .Filter<HeroComponent>()
                 .Inc<HeroFootStepComponent>()
                 .Inc<CharacterConfigComponent>()
                 .Inc<CharacterEngineComponent>()

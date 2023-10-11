@@ -10,7 +10,7 @@ namespace SA.FPS
         public void Init(IEcsSystems systems)
         {
             _filter = systems.GetWorld()
-                .Filter<HeroTag>()
+                .Filter<HeroComponent>()
                 .Inc<CharacterLookComponent>()
                 .Inc<CameraShakeComponent>()
                 .End();

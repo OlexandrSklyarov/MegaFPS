@@ -14,7 +14,7 @@ namespace SA.FPS
             _inputService.Controls.Enable();
 
             _filter = systems.GetWorld()
-                .Filter<HeroTag>()
+                .Filter<HeroComponent>()
                 .Inc<InputComponent>()
                 .End();
         }

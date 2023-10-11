@@ -1,5 +1,7 @@
+using System;
 using Cinemachine;
 using Leopotam.EcsLite;
+using Runtime.Services.Inventory;
 using UnityEngine;
 
 namespace SA.FPS
@@ -11,17 +13,18 @@ namespace SA.FPS
             var world = systems.GetWorld();
             var data = systems.GetShared<SharedData>();          
 
-            var heroView = GetView(data.Config.HeroPrefab, data.WorldData.HeroSpawnPoint);
-            heroView.Init();
-            
             var entity = world.NewEntity();
+
+            var heroView = GetView(data.Config.HeroPrefab, data.WorldData.HeroSpawnPoint);
+            heroView.Init(entity, world);            
             
+            //hero
+            ref var hero = ref world.GetPool<HeroComponent>().Add(entity);
+            hero.View = heroView;
+
             //cc
             ref var engine = ref world.GetPool<CharacterEngineComponent>().Add(entity);
             engine.CharacterController = heroView.CharacterController;
-
-            //tag
-            world.GetPool<HeroTag>().Add(entity);
 
             //config
             ref var config = ref world.GetPool<CharacterConfigComponent>().Add(entity);
@@ -51,19 +54,19 @@ namespace SA.FPS
 
             //attack
             ref var attack = ref world.GetPool<CharacterAttackComponent>().Add(entity);
-        
-            HeroTakeWeaponEvent(world, entity, heroView);
+
+            //inventory
+            ref var inventory = ref world.GetPool<InventoryComponent>().Add(entity);
+            inventory.InventoryRef = CreateInventory(data);
         }
 
-
-        private void HeroTakeWeaponEvent(EcsWorld world, int heroEntity, HeroView heroView)
+        private IInventory CreateInventory(SharedData data)
         {
-            var weapon = heroView.WeaponViews[0];
+            var inventory = new InventoryWithSlots(data.Config.InventoryData.MaxSlots);
 
-            var ent = world.NewEntity();
-            ref var evt = ref world.GetPool<TakeWeaponEvent>().Add(ent);
-            evt.OwnerEntity = heroEntity;
-            evt.WeaponView = weapon;
+            data.WorldData.HUD.Init(inventory);
+
+            return inventory;
         }
 
         private TPSCamera GetTPSCamera(SharedData data)
@@ -103,8 +106,6 @@ namespace SA.FPS
                 heroSpawnPoint.position,
                 heroSpawnPoint.rotation
             );
-
-            hero.Init();
 
             return hero;
         }

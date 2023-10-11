@@ -1,4 +1,5 @@
 using Leopotam.EcsLite;
+using UnityEngine;
 
 namespace SA.FPS
 {
@@ -37,7 +38,10 @@ namespace SA.FPS
 
             //ammo
             ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
-            ammunition.Count = takeEvt.WeaponView.Settings.StartAmmo;
+            ammunition.Count = (takeEvt.StartAmmo > 0) ?
+                Mathf.Min(takeEvt.StartAmmo, takeEvt.WeaponView.Settings.StartAmmo) :
+                takeEvt.WeaponView.Settings.StartAmmo;
+
             UnityEngine.Debug.Log(ammunition.Count);            
             
             //owner

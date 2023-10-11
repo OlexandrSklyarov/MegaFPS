@@ -5,5 +5,6 @@ namespace SA.FPS
     {
         public int OwnerEntity;
         public FireWeaponView WeaponView;
+        public int StartAmmo;
     }
 }

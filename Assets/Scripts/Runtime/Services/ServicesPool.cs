@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Runtime.Services.WeaponsFactory;
 
 namespace SA.FPS
 {
@@ -7,11 +8,12 @@ namespace SA.FPS
     {
         private readonly Dictionary<Type, IService> _services;
 
-        public ServicesPool()
-        {
+        public ServicesPool(GameConfig _config)
+        {            
             _services = new Dictionary<Type, IService>()
             {
-                {typeof(InputService), new InputService()}
+                {typeof(InputService), new InputService()},
+                {typeof(IWeaponItemFactory), new WeaponItemFactory(_config.InventoryData)}
             };
         }
 

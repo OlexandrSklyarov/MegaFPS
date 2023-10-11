@@ -1,4 +1,3 @@
-using System;
 using Leopotam.EcsLite;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ namespace SA.FPS
         public void Init(IEcsSystems systems)
         {            
             _filter = systems.GetWorld()
-                .Filter<HeroTag>()
+                .Filter<HeroComponent>()
                 .Inc<InputComponent>()
                 .Inc<CharacterAttackComponent>()
                 .Inc<CharacterConfigComponent>()

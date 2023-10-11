@@ -7,6 +7,10 @@ namespace Runtime.Services.Inventory
         int Capacity {get;}
         bool IsFull {get;}
 
+        event Action<object, IInventoryItem, int> InventoryItemAddedEvent;
+        event Action<object, Type, int> InventoryItemRemovedEvent;
+        event Action<object> InventoryStateChangedEvent;
+
         IInventoryItem GetItem(Type itemType);
         IInventoryItem[] GetAllItems();
         IInventoryItem[] GetAllItems(Type itemType);

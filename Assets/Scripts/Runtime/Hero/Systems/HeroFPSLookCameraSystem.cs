@@ -13,7 +13,7 @@ namespace SA.FPS
             _gameConfig = systems.GetShared<SharedData>().Config;
 
             _filter = systems.GetWorld()
-                .Filter<HeroTag>()
+                .Filter<HeroComponent>()
                 .Inc<CharacterLookComponent>()
                 .Inc<CharacterConfigComponent>()
                 .Inc<InputComponent>()
