@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using Leopotam.EcsLite;
+using Runtime.Extensions;
 using Runtime.Services.WeaponsFactory;
 using Util;
 
@@ -50,15 +52,68 @@ namespace SA.FPS
 
         private void HeroTakeWeaponEvent(EcsWorld world, int heroEntity, ref CharacterPickupWeaponEvent evt, ref HeroComponent hero)
         {
-            var weaponType = evt.Type;
-            var weapon = hero.View.WeaponViews.First(x => x.Type == weaponType);
-            weapon.Show();
+            var pickupWeaponType = evt.Type;  
 
+            ref var hasWeapon = ref GetHasWeaponComponent(world, heroEntity);       
+            
+            //weapon not found
+            if (!IsHasWeaponInInventory(pickupWeaponType, ref hasWeapon))
+            {
+                //try hide previous weapon
+                var curWeaponType = hasWeapon.CurrentWeaponType;
+                var perviousWeaponView = hero.View.WeaponViews.First(x => x.Type == curWeaponType);
+                if (perviousWeaponView != null) perviousWeaponView.Hide();
+
+                //try show new weapon
+                var weaponView = hero.View.WeaponViews.First(x => x.Type == pickupWeaponType); 
+                weaponView.Show();            
+
+                var newWeaponEntity = CreateWeaponEntity(world, weaponView, heroEntity);  
+
+                //save weapon
+                hasWeapon.CurrentWeaponType = pickupWeaponType;
+                hasWeapon.MyWeapons.Add(pickupWeaponType, newWeaponEntity);
+            }
+        }
+
+
+        private bool IsHasWeaponInInventory(WeaponType type, ref HasWeaponComponent hasWeapon)
+        {
+            return hasWeapon.MyWeapons.TryGetValue(type, out var value);
+        }
+
+
+        private ref HasWeaponComponent GetHasWeaponComponent(EcsWorld world, int heroEntity)
+        {
+            ref var hasWeapon = ref world.GetOrAddComponent<HasWeaponComponent>(heroEntity);
+            hasWeapon.MyWeapons ??= new Dictionary<WeaponType, int>();
+            return ref hasWeapon;
+        }
+
+        private int CreateWeaponEntity(EcsWorld world, FireWeaponView weaponView, int ownerEntity)
+        {
             var ent = world.NewEntity();
-            ref var newEvt = ref world.GetPool<TakeWeaponEvent>().Add(ent);
-            newEvt.OwnerEntity = heroEntity;
-            newEvt.WeaponView = weapon;        
-            newEvt.StartAmmo = weapon.Settings.StartAmmo;        
+            
+            //weapon
+            ref var weapon = ref world.GetPool<WeaponComponent>().Add(ent);            
+            weapon.Settings = weaponView.Settings;
+            weapon.FirePoint = weaponView.FirePoint;
+            weapon.Center = weaponView.transform;
+            weapon.AnimatorRef = weaponView.WeaponAnimator;
+
+            //ammo
+            ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
+            ammunition.Count = weaponView.Settings.StartAmmo;
+            UnityEngine.Debug.Log(ammunition.Count);            
+            
+            //owner
+            ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(ent);
+            weaponOwner.MyOwnerEntity = ownerEntity;
+
+            //owner
+            world.GetPool<WeaponChangeStateComponentTag>().Add(ent);
+
+            return ent;
         }
     }
 }

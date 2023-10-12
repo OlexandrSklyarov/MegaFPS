@@ -1,4 +1,5 @@
 using Leopotam.EcsLite;
+using Runtime.Extensions;
 using UnityEngine;
 
 namespace SA.FPS
@@ -43,7 +44,17 @@ namespace SA.FPS
                     continue;
                 }
 
-                if (input.IsFire) CreateShootEvent(world, ent);                
+                var pool = world.GetPool<HasWeaponComponent>();
+
+                //is can shoot
+                if (input.IsFire && pool.Has(ent)) 
+                {
+                    ref var weapon = ref pool.Get(ent);
+                    var type = weapon.CurrentWeaponType;
+                    var weaponEntity = weapon.MyWeapons[type];
+
+                    CreateShootEvent(world, weaponEntity);     
+                }           
             }
         }
 
@@ -54,11 +65,9 @@ namespace SA.FPS
             evt.AttackEntity = attackEntity;
         }
 
-        private void CreateShootEvent(EcsWorld world, int shootEntity)
+        private void CreateShootEvent(EcsWorld world, int weaponEntity)
         {
-            var ent = world.NewEntity();
-            ref var evt = ref world.GetPool<CharacterTryShootEvent>().Add(ent);
-            evt.ShootEntity = shootEntity;
+            world.GetOrAddComponent<TryShootComponent>(weaponEntity);
         }
     }
 }

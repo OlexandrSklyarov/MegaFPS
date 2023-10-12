@@ -38,7 +38,7 @@ namespace SA.FPS
                     ref var owner = ref ownerPool.Get(w);
 
                     //skip
-                    if (owner.MyOwner != evt.AttackEntity) continue;                                                            
+                    if (owner.MyOwnerEntity != evt.AttackEntity) continue;                                                            
                     
                     Attack(ref weapon);
                                         

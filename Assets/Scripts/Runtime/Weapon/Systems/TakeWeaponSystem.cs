@@ -1,5 +1,5 @@
 using Leopotam.EcsLite;
-using UnityEngine;
+using Util;
 
 namespace SA.FPS
 {
@@ -18,35 +18,9 @@ namespace SA.FPS
             foreach(var ent in filter)
             {
                 ref var takeEvt = ref evtPool.Get(ent);
-
-                CreateWeaponEntity(world, ref takeEvt);
-
+                DebugUtility.Print("Take weapon event... ");
                 evtPool.Del(ent);
             }
-        }
-
-        private void CreateWeaponEntity(EcsWorld world, ref TakeWeaponEvent takeEvt)
-        {
-            var ent = world.NewEntity();
-            
-            //weapon
-            ref var weapon = ref world.GetPool<WeaponComponent>().Add(ent);            
-            weapon.Settings = takeEvt.WeaponView.Settings;
-            weapon.FirePoint = takeEvt.WeaponView.FirePoint;
-            weapon.Center = takeEvt.WeaponView.transform;
-            weapon.AnimatorRef = takeEvt.WeaponView.WeaponAnimator;
-
-            //ammo
-            ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
-            ammunition.Count = (takeEvt.StartAmmo > 0) ?
-                Mathf.Min(takeEvt.StartAmmo, takeEvt.WeaponView.Settings.StartAmmo) :
-                takeEvt.WeaponView.Settings.StartAmmo;
-
-            UnityEngine.Debug.Log(ammunition.Count);            
-            
-            //owner
-            ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(ent);
-            weaponOwner.MyOwner = takeEvt.OwnerEntity;
-        }
+        }       
     }
 }
