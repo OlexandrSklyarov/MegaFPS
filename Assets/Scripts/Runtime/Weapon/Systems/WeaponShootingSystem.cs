@@ -77,12 +77,26 @@ namespace SA.FPS
 
 
         private void AddOwnerShakeFX(EcsWorld world, ref CharacterTryShootEvent evt, ref WeaponComponent weapon)
-        {
-            ref var shake = ref world.GetPool<CameraShakeComponent>().Add(evt.ShootEntity);
+        {    
+            ref var shake = ref GetShakeComponent(world, ref evt, ref weapon);
+
             shake.Duration = weapon.Settings.ShakeDuration;
             shake.Strength = weapon.Settings.Strength;
             shake.Vibrato = weapon.Settings.Vibrato;
             shake.Randomness = weapon.Settings.Randomness;
+        }
+
+
+        private ref CameraShakeComponent GetShakeComponent(EcsWorld world, ref CharacterTryShootEvent evt, ref WeaponComponent weapon)
+        {
+            var shakePool = world.GetPool<CameraShakeComponent>();
+
+            if (shakePool.Has(evt.ShootEntity)) 
+            {
+                return ref shakePool.Get(evt.ShootEntity);
+            }   
+            
+            return ref shakePool.Add(evt.ShootEntity);            
         }
     }
 }
