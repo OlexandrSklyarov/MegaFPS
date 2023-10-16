@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using Leopotam.EcsLite;
 using Runtime.Services.Inventory;
@@ -62,11 +61,7 @@ namespace SA.FPS
 
         private IInventory CreateInventory(SharedData data)
         {
-            var inventory = new InventoryWithSlots(data.Config.InventoryData.MaxSlots);
-
-            data.WorldData.HUD.Init(inventory);
-
-            return inventory;
+            return new InventoryWithSlots(data.Config.InventoryData.MaxSlots);
         }
 
         private TPSCamera GetTPSCamera(SharedData data)

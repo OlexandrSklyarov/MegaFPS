@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/HudStyle.uss?fileID=7433441132597879392&amp;guid=79e824c0a00382d00a9dfdb2d2a8cbfc&amp;type=3#HudStyle" />
-    <ui:VisualElement name="main-screen" class="hud-screen" style="width: auto; height: auto; background-image: none; -unity-background-scale-mode: scale-to-fit;">
-        <ui:VisualElement name="cross-holder" class="cross-icon holder-cross" style="max-width: 10%; max-height: 5%;">
-            <ui:VisualElement name="cross-icon" class="cross-icon" style="width: 100px; height: 100%; min-width: auto; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=1169890249420208065&amp;guid=d84bffb61ad3bbf7e84be893d0b341dd&amp;type=3#arrow-up&apos;); min-height: auto; max-height: 50%; max-width: 50%; -unity-background-scale-mode: scale-to-fit;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-</ui:UXML>

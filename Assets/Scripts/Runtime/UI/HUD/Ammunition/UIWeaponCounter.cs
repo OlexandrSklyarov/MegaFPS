@@ -12,7 +12,7 @@ namespace SA.FPS.Runtime.UI.HUD
 
         public void SetCount(int count)
         {
-            _counter.text = (_isGrenade) ? $"{count} x" : $"{count}";
+            _counter.text = (_isGrenade) ? $"{count} x" : $"x {count}";
         }
 
         public void SetIcon(Sprite icon)
