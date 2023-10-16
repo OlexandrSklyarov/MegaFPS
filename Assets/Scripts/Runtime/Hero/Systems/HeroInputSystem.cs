@@ -6,7 +6,8 @@ namespace SA.FPS
     public sealed class HeroInputSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private InputService _inputService;
-        private EcsFilter _filter;        
+        private EcsFilter _filter;
+        private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -17,6 +18,9 @@ namespace SA.FPS
                 .Filter<HeroComponent>()
                 .Inc<InputComponent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _inputPool = world.GetPool<InputComponent>();
         }
 
         public void Destroy(IEcsSystems systems)
@@ -25,13 +29,10 @@ namespace SA.FPS
         }
 
         public void Run(IEcsSystems systems)
-        {
-            var world = systems.GetWorld();
-            var inputPool = world.GetPool<InputComponent>();
-
+        {     
             foreach(var ent in _filter)
             {
-                ref var input = ref inputPool.Get(ent);
+                ref var input = ref _inputPool.Get(ent);
 
                 //direction
                 var movement = _inputService.Controls.Player.Movement.ReadValue<Vector2>();

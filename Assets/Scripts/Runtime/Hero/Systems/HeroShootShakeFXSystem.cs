@@ -5,7 +5,9 @@ namespace SA.FPS
 {
     public sealed class HeroShootShakeFXSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilter _filter;  
+        private EcsFilter _filter;
+        private EcsPool<CameraShakeComponent> _shakePool;
+        private EcsPool<CharacterLookComponent> _lookPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -14,18 +16,18 @@ namespace SA.FPS
                 .Inc<CharacterLookComponent>()
                 .Inc<CameraShakeComponent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _shakePool = world.GetPool<CameraShakeComponent>();
+            _lookPool = world.GetPool<CharacterLookComponent>();
         }
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
-            var shakePool = world.GetPool<CameraShakeComponent>();
-            var lookPool = world.GetPool<CharacterLookComponent>();
-
             foreach(var ent in _filter)
             {
-                ref var shake = ref shakePool.Get(ent);
-                ref var look = ref lookPool.Get(ent);
+                ref var shake = ref _shakePool.Get(ent);
+                ref var look = ref _lookPool.Get(ent);
 
                 var tr = look.FPS_Camera.transform;
 
@@ -37,7 +39,7 @@ namespace SA.FPS
                     .SetEase(Ease.InOutBounce)
                     .SetLink(tr.gameObject);                
 
-                shakePool.Del(ent);
+                _shakePool.Del(ent);
             }
         }
     }

@@ -6,7 +6,10 @@ namespace SA.FPS
 {
     public sealed class HeroAttackSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilter _filter;  
+        private EcsFilter _filter;
+        private EcsPool<CharacterAttackComponent> _attackPool;
+        private EcsPool<CharacterConfigComponent> _configPool;
+        private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
         {            
@@ -16,20 +19,22 @@ namespace SA.FPS
                 .Inc<CharacterAttackComponent>()
                 .Inc<CharacterConfigComponent>()
                 .End();
+            
+            var world = systems.GetWorld();
+            _attackPool = world.GetPool<CharacterAttackComponent>();
+            _configPool = world.GetPool<CharacterConfigComponent>();
+            _inputPool = world.GetPool<InputComponent>();
         }
 
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var attackPool = world.GetPool<CharacterAttackComponent>();
-            var configPool = world.GetPool<CharacterConfigComponent>();
-            var inputPool = world.GetPool<InputComponent>();
 
             foreach(var ent in _filter)
             {
-                ref var input = ref inputPool.Get(ent);
-                ref var attack = ref attackPool.Get(ent);
-                ref var config = ref configPool.Get(ent);
+                ref var input = ref _inputPool.Get(ent);
+                ref var attack = ref _attackPool.Get(ent);
+                ref var config = ref _configPool.Get(ent);
 
                 if (attack.MelleAttackTimer > 0f)
                 {

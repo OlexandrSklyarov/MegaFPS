@@ -5,7 +5,10 @@ namespace SA.FPS
 {
     public sealed class HeroJumpingSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilter _filter;  
+        private EcsFilter _filter;
+        private EcsPool<CharacterEngineComponent> _enginePool;
+        private EcsPool<CharacterConfigComponent> _configPool;
+        private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -15,21 +18,23 @@ namespace SA.FPS
                 .Inc<CharacterConfigComponent>()
                 .Inc<InputComponent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _enginePool = world.GetPool<CharacterEngineComponent>();
+            _configPool = world.GetPool<CharacterConfigComponent>();
+            _inputPool = world.GetPool<InputComponent>();
+
         }
 
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
-            var enginePool = world.GetPool<CharacterEngineComponent>();
-            var configPool = world.GetPool<CharacterConfigComponent>();
-            var inputPool = world.GetPool<InputComponent>();
-
+            
             foreach(var ent in _filter)
             {
-                ref var engine = ref enginePool.Get(ent);
-                ref var input = ref inputPool.Get(ent);
-                ref var config = ref configPool.Get(ent);
+                ref var engine = ref _enginePool.Get(ent);
+                ref var input = ref _inputPool.Get(ent);
+                ref var config = ref _configPool.Get(ent);
 
                 if (engine.CharacterController.isGrounded)
                 {

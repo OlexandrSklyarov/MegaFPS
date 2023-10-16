@@ -7,7 +7,11 @@ namespace SA.FPS
     public sealed class HeroFootStepAudioSystem : IEcsInitSystem, IEcsRunSystem
     {
         private SharedData _data;
-        private EcsFilter _filter;  
+        private EcsFilter _filter;
+        private EcsPool<HeroFootStepComponent> _footStepPool;
+        private EcsPool<CharacterConfigComponent> _configPool;
+        private EcsPool<CharacterEngineComponent> _enginePool;
+        private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -20,22 +24,22 @@ namespace SA.FPS
                 .Inc<CharacterEngineComponent>()
                 .Inc<InputComponent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _footStepPool = world.GetPool<HeroFootStepComponent>();
+            _configPool = world.GetPool<CharacterConfigComponent>();
+            _enginePool = world.GetPool<CharacterEngineComponent>();
+            _inputPool = world.GetPool<InputComponent>();
         }
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
-            var footStepPool = world.GetPool<HeroFootStepComponent>();
-            var configPool = world.GetPool<CharacterConfigComponent>();
-            var enginePool = world.GetPool<CharacterEngineComponent>();
-            var inputPool = world.GetPool<InputComponent>();
-
             foreach(var ent in _filter)
             {
-                ref var footStep = ref footStepPool.Get(ent);
-                ref var config = ref configPool.Get(ent);
-                ref var engine = ref enginePool.Get(ent);
-                ref var input = ref inputPool.Get(ent);
+                ref var footStep = ref _footStepPool.Get(ent);
+                ref var config = ref _configPool.Get(ent);
+                ref var engine = ref _enginePool.Get(ent);
+                ref var input = ref _inputPool.Get(ent);
 
                 var sprintInterval = (input.IsRun) ? config.Prm.SprintStepInterval : config.Prm.WalkStepInterval;
 

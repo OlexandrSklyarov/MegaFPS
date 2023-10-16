@@ -6,7 +6,11 @@ namespace SA.FPS
     public sealed class HeroAnimationSystem: IEcsInitSystem, IEcsRunSystem
     {
         private SharedData _data;
-        private EcsFilter _filter;  
+        private EcsFilter _filter;
+        private EcsPool<CharacterAnimationComponent> _animationPool;
+        private EcsPool<CharacterAttackComponent> _attackPool;
+        private EcsPool<CharacterConfigComponent> _configPool;
+        private EcsPool<CharacterEngineComponent> _enginePool;
 
         public void Init(IEcsSystems systems)
         {
@@ -18,22 +22,22 @@ namespace SA.FPS
                 .Inc<CharacterEngineComponent>()
                 .Inc<InputComponent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _animationPool = world.GetPool<CharacterAnimationComponent>();
+            _attackPool = world.GetPool<CharacterAttackComponent>();
+            _configPool = world.GetPool<CharacterConfigComponent>();
+            _enginePool = world.GetPool<CharacterEngineComponent>();
         }
 
         public void Run(IEcsSystems systems)
-        {
-            var world = systems.GetWorld();
-            var animationPool = world.GetPool<CharacterAnimationComponent>();
-            var attackPool = world.GetPool<CharacterAttackComponent>();
-            var configPool = world.GetPool<CharacterConfigComponent>();
-            var enginePool = world.GetPool<CharacterEngineComponent>();
-
+        {      
             foreach(var ent in _filter)
             {
-                ref var animation = ref animationPool.Get(ent);
-                ref var config = ref configPool.Get(ent);
-                ref var engine = ref enginePool.Get(ent);
-                ref var attack = ref attackPool.Get(ent); 
+                ref var animation = ref _animationPool.Get(ent);
+                ref var config = ref _configPool.Get(ent);
+                ref var engine = ref _enginePool.Get(ent);
+                ref var attack = ref _attackPool.Get(ent); 
 
                 //movement
                 var isGrounded = engine.CharacterController.isGrounded;

@@ -5,7 +5,9 @@ namespace SA.FPS
     public sealed class WeaponUpdateStateSystem: IEcsInitSystem, IEcsRunSystem
     {
         private HUDController _uiController;
-        private EcsFilter _weaponFilter;   
+        private EcsFilter _weaponFilter;
+        private EcsPool<AmmunitionComponent> _ammoPool;
+        private EcsPool<WeaponChangeStateComponentTag> _updateStatePool;
 
         public void Init(IEcsSystems systems)
         {     
@@ -17,22 +19,22 @@ namespace SA.FPS
                 .Inc<AmmunitionComponent>()
                 .Inc<WeaponChangeStateComponentTag>()
                 .End();
+
+            var world = systems.GetWorld();
+            _ammoPool = world.GetPool<AmmunitionComponent>();
+            _updateStatePool = world.GetPool<WeaponChangeStateComponentTag>();
         }
 
         public void Run(IEcsSystems systems)
-        {
-            var world = systems.GetWorld();
-            var ammoPool = world.GetPool<AmmunitionComponent>();
-            var updateStatePool = world.GetPool<WeaponChangeStateComponentTag>();
-
+        {            
             //EVENT
             foreach(var ent in _weaponFilter)
             {
-                ref var ammo = ref ammoPool.Get(ent);
+                ref var ammo = ref _ammoPool.Get(ent);
                 
                 _uiController.UpdateWeaponPanel(ammo.Count);
 
-                updateStatePool.Del(ent);
+                _updateStatePool.Del(ent);
             }
         }        
     }

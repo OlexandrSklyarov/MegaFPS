@@ -6,7 +6,10 @@ namespace SA.FPS
     public sealed class HeroFPSLookCameraSystem : IEcsInitSystem, IEcsRunSystem
     {
         private GameConfig _gameConfig;
-        private EcsFilter _filter;  
+        private EcsFilter _filter;
+        private EcsPool<CharacterLookComponent> _lookPool;
+        private EcsPool<CharacterConfigComponent> _configPool;
+        private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -19,20 +22,20 @@ namespace SA.FPS
                 .Inc<InputComponent>()
                 .Exc<TPSCameraTag>()
                 .End();
+
+            var world = systems.GetWorld();
+            _lookPool = world.GetPool<CharacterLookComponent>();
+            _configPool = world.GetPool<CharacterConfigComponent>();
+            _inputPool = world.GetPool<InputComponent>();
         }
 
         public void Run(IEcsSystems systems)
         {
-            var world = systems.GetWorld();
-            var lookPool = world.GetPool<CharacterLookComponent>();
-            var configPool = world.GetPool<CharacterConfigComponent>();
-            var inputPool = world.GetPool<InputComponent>();
-
             foreach(var ent in _filter)
             {
-                ref var look = ref lookPool.Get(ent);
-                ref var input = ref inputPool.Get(ent);
-                ref var config = ref configPool.Get(ent);
+                ref var look = ref _lookPool.Get(ent);
+                ref var input = ref _inputPool.Get(ent);
+                ref var config = ref _configPool.Get(ent);
 
                 HorizontalRotation(ref look, ref input);
 

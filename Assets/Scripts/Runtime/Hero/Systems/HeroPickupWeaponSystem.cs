@@ -11,6 +11,9 @@ namespace SA.FPS
     {
         private IWeaponItemFactory _weaponFactory;
         private EcsFilter _filter;
+        private EcsPool<HeroComponent> _heroPool;
+        private EcsPool<InventoryComponent> _inventoryPool;
+        private EcsPool<CharacterPickupWeaponEvent> _evtPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -21,20 +24,23 @@ namespace SA.FPS
                 .Inc<InventoryComponent>()
                 .Inc<CharacterPickupWeaponEvent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _heroPool = world.GetPool<HeroComponent>();
+            _inventoryPool = world.GetPool<InventoryComponent>();
+            _evtPool = world.GetPool<CharacterPickupWeaponEvent>();
         }
+
 
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var heroPool = world.GetPool<HeroComponent>();
-            var inventoryPool = world.GetPool<InventoryComponent>();
-            var evtPool = world.GetPool<CharacterPickupWeaponEvent>();
 
             foreach(var ent in _filter)
             {
-                ref var hero = ref heroPool.Get(ent);
-                ref var inventory = ref inventoryPool.Get(ent);
-                ref var evt = ref evtPool.Get(ent);
+                ref var hero = ref _heroPool.Get(ent);
+                ref var inventory = ref _inventoryPool.Get(ent);
+                ref var evt = ref _evtPool.Get(ent);
 
                 var weapon = _weaponFactory.CreateWeaponItem(evt.Type);
                 weapon.State.Amount = evt.Amount;
@@ -45,7 +51,7 @@ namespace SA.FPS
                     HeroTakeWeaponEvent(world, ent, ref evt, ref hero);
                 }
 
-                evtPool.Del(ent);
+                _evtPool.Del(ent);
             }
         }
 

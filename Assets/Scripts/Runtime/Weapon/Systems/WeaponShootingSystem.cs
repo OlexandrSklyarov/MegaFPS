@@ -6,7 +6,11 @@ namespace SA.FPS
 {
     public sealed class WeaponShootingSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilter _weaponFilter;  
+        private EcsFilter _weaponFilter;
+        private EcsPool<TryShootComponent> _tryShootEvtPool;
+        private EcsPool<WeaponComponent> _weaponPool;
+        private EcsPool<WeaponOwnerComponent> _ownerPool;
+        private EcsPool<AmmunitionComponent> _ammoPool;
 
         public void Init(IEcsSystems systems)
         {     
@@ -16,24 +20,26 @@ namespace SA.FPS
                 .Inc<AmmunitionComponent>()
                 .Inc<TryShootComponent>()
                 .End();
+
+            var world = systems.GetWorld();
+            _tryShootEvtPool = world.GetPool<TryShootComponent>();
+            _weaponPool = world.GetPool<WeaponComponent>();
+            _ownerPool = world.GetPool<WeaponOwnerComponent>();
+            _ammoPool = world.GetPool<AmmunitionComponent>();
         }
 
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var tryShootEvtPool = world.GetPool<TryShootComponent>();
-            var weaponPool = world.GetPool<WeaponComponent>();
-            var ownerPool = world.GetPool<WeaponOwnerComponent>();
-            var ammoPool = world.GetPool<AmmunitionComponent>();
 
             //WEAPON
             foreach(var ent in _weaponFilter)
             {
-                tryShootEvtPool.Del(ent); 
+                _tryShootEvtPool.Del(ent); 
 
-                ref var weapon = ref weaponPool.Get(ent);
-                ref var owner = ref ownerPool.Get(ent);
-                ref var ammo = ref ammoPool.Get(ent);                 
+                ref var weapon = ref _weaponPool.Get(ent);
+                ref var owner = ref _ownerPool.Get(ent);
+                ref var ammo = ref _ammoPool.Get(ent);                 
 
                 if (weapon.CurrentCooldown > 0f)
                 {
@@ -45,7 +51,6 @@ namespace SA.FPS
                 Shoot(ref weapon);
                 AddOwnerShakeFX(world, ref owner, ref weapon);
                 weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
-
                 ammo.Count--;
 
                 //update ui event
@@ -54,7 +59,7 @@ namespace SA.FPS
                 //remove ammo
                 if (ammo.Count <= 0)
                 {
-                    ammoPool.Del(ent);
+                    _ammoPool.Del(ent);
                 }                    
             }         
         }
