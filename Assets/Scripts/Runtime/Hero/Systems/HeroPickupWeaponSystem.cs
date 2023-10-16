@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Leopotam.EcsLite;
 using Runtime.Extensions;
 using Runtime.Services.WeaponsFactory;
+using UnityEngine;
 using Util;
 
 namespace SA.FPS
@@ -12,7 +14,6 @@ namespace SA.FPS
         private IWeaponItemFactory _weaponFactory;
         private EcsFilter _filter;
         private EcsPool<HeroComponent> _heroPool;
-        private EcsPool<InventoryComponent> _inventoryPool;
         private EcsPool<CharacterPickupWeaponEvent> _evtPool;
 
         public void Init(IEcsSystems systems)
@@ -21,13 +22,11 @@ namespace SA.FPS
 
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()
-                .Inc<InventoryComponent>()
                 .Inc<CharacterPickupWeaponEvent>()
                 .End();
 
             var world = systems.GetWorld();
             _heroPool = world.GetPool<HeroComponent>();
-            _inventoryPool = world.GetPool<InventoryComponent>();
             _evtPool = world.GetPool<CharacterPickupWeaponEvent>();
         }
 
@@ -39,16 +38,19 @@ namespace SA.FPS
             foreach(var ent in _filter)
             {
                 ref var hero = ref _heroPool.Get(ent);
-                ref var inventory = ref _inventoryPool.Get(ent);
                 ref var evt = ref _evtPool.Get(ent);
 
                 var weapon = _weaponFactory.CreateWeaponItem(evt.Type);
                 weapon.State.Amount = evt.Amount;
 
-                if (inventory.InventoryRef.TryAdd(this, weapon))
+                if (!TryHeroTakeWeaponEvent(world, ent, ref evt, ref hero))
                 {
-                    DebugUtility.Print($"Pickup weapon {evt.Type}");
-                    HeroTakeWeaponEvent(world, ent, ref evt, ref hero);
+                    DebugUtility.Print($"Try add ammo: {evt.Type}");
+                    TryAddAmmo(world, ent, ref evt);  
+                }
+                else 
+                {
+                    DebugUtility.Print($"Pickup weapon {evt.Type}");                                      
                 }
 
                 _evtPool.Del(ent);
@@ -56,7 +58,22 @@ namespace SA.FPS
         }
 
 
-        private void HeroTakeWeaponEvent(EcsWorld world, int heroEntity, ref CharacterPickupWeaponEvent evt, ref HeroComponent hero)
+        private void TryAddAmmo(EcsWorld world, int heroEntity, ref CharacterPickupWeaponEvent evt)
+        {
+            ref var hasWeaponComp = ref GetHasWeaponComponent(world, heroEntity); 
+
+            if (!hasWeaponComp.MyWeapons.TryGetValue(evt.Type, out int weaponEntity)) return;
+
+            ref var weaponAmmo = ref world.GetOrAddComponent<AmmunitionComponent>(weaponEntity);
+            weaponAmmo.Count += evt.Amount;
+            weaponAmmo.Count = Mathf.Min(weaponAmmo.Count, weaponAmmo.MaxAmmo);
+
+            //update weapon event
+            world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEntity);
+        }
+
+
+        private bool TryHeroTakeWeaponEvent(EcsWorld world, int heroEntity, ref CharacterPickupWeaponEvent evt, ref HeroComponent hero)
         {
             var pickupWeaponType = evt.Type;  
 
@@ -65,21 +82,26 @@ namespace SA.FPS
             //weapon not found
             if (!IsHasWeaponInInventory(pickupWeaponType, ref hasWeapon))
             {
+                var newWeaponView = hero.View.WeaponViews.First(x => x.Type == pickupWeaponType); 
+
                 //try hide previous weapon
                 var curWeaponType = hasWeapon.CurrentWeaponType;
                 var perviousWeaponView = hero.View.WeaponViews.First(x => x.Type == curWeaponType);
-                if (perviousWeaponView != null) perviousWeaponView.Hide();
+                if (perviousWeaponView != null && perviousWeaponView != newWeaponView) perviousWeaponView.Hide();
 
                 //try show new weapon
-                var weaponView = hero.View.WeaponViews.First(x => x.Type == pickupWeaponType); 
-                weaponView.Show();            
+                newWeaponView.Show();            
 
-                var newWeaponEntity = CreateWeaponEntity(world, weaponView, heroEntity);  
+                var weaponEntity = CreateWeaponEntity(world, newWeaponView, heroEntity);  
 
                 //save weapon
                 hasWeapon.CurrentWeaponType = pickupWeaponType;
-                hasWeapon.MyWeapons.Add(pickupWeaponType, newWeaponEntity);
+                hasWeapon.MyWeapons.Add(pickupWeaponType, weaponEntity);
+
+                return true;
             }
+
+            return false;
         }
 
 
@@ -110,6 +132,7 @@ namespace SA.FPS
             //ammo
             ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
             ammunition.Count = weaponView.Settings.StartAmmo;
+            ammunition.MaxAmmo = weaponView.Settings.StartAmmo;
             UnityEngine.Debug.Log(ammunition.Count);            
             
             //owner

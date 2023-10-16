@@ -20,8 +20,8 @@ namespace SA.FPS
             [field: SerializeField, Min(0.1f)] public float MouseSensitivity {get; private set;} = 0.7f;
             [field: SerializeField, Min(1f)] public float UpDownAngle {get; private set;} = 80f;
             [field: SerializeField, Min(0.01f)] public float SmoothRotationTime {get; private set;} = 0.1f;
-            [field: SerializeField, Min(0.1f)] public float SmoothVerticalRotationSpeed {get; private set;} = 300f;
-            [field: SerializeField, Min(0.1f)] public float SmoothHorizontalRotationSpeed {get; private set;} = 15f;
+            [field: SerializeField, Min(0.1f)] public float SmoothVerticalRotation {get; private set;} = 300f;
+            [field: SerializeField, Min(0.1f)] public float SmoothHorizontalRotation {get; private set;} = 15f;
         }
     }
 }

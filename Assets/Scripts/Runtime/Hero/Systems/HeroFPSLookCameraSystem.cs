@@ -29,6 +29,7 @@ namespace SA.FPS
             _inputPool = world.GetPool<InputComponent>();
         }
 
+
         public void Run(IEcsSystems systems)
         {
             foreach(var ent in _filter)
@@ -43,14 +44,16 @@ namespace SA.FPS
             }
         }
 
+
         private void HorizontalRotation(ref CharacterLookComponent look, ref InputComponent input)
         {
             var targetHorizontalRotation = input.MouseX * _gameConfig.Control.MouseSensitivity;
             var curRot = look.Body.rotation;
             var newRot = curRot * Quaternion.Euler(0f, targetHorizontalRotation, 0f);            
 
-            look.Body.rotation = Quaternion.Slerp(curRot, newRot, Time.deltaTime * _gameConfig.Control.SmoothHorizontalRotationSpeed);
+            look.Body.rotation = Quaternion.Slerp(curRot, newRot, Time.deltaTime * _gameConfig.Control.SmoothHorizontalRotation);
         }
+
 
         private void VerticalRotation(ref CharacterLookComponent look, ref InputComponent input)
         {
@@ -69,7 +72,7 @@ namespace SA.FPS
                 newVertRotation,
                 ref look.VerticalVelocity,
                 _gameConfig.Control.SmoothRotationTime,
-                _gameConfig.Control.SmoothVerticalRotationSpeed
+                _gameConfig.Control.SmoothVerticalRotation
             );
 
             //rotate Head

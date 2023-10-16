@@ -1,10 +1,11 @@
 using Leopotam.EcsLite;
+using Runtime.Services.WeaponsFactory;
 using UnityEngine;
 using Util;
 
 namespace SA.FPS
 {
-    public sealed class HeroView : MonoBehaviour 
+    public sealed class HeroView : MonoBehaviour, IPickupVisitor
     {
         [field: SerializeField] public CharacterConfig Config {get; private set;}
         [field: SerializeField] public CharacterController CharacterController {get; private set;}
@@ -14,7 +15,7 @@ namespace SA.FPS
         [field: SerializeField] public Camera HeroCamera {get; private set;}
         [field: SerializeField] public Animator Animator {get; private set;}
 
-        private int _heroEntity;
+        private EcsPackedEntity _heroEntity;
         private EcsWorld _world;
 
         public FireWeaponView[] WeaponViews {get; private set;}
@@ -22,22 +23,31 @@ namespace SA.FPS
 
         public void Init(int entity, EcsWorld world)
         {
-            _heroEntity = entity;
+            _heroEntity = world.PackEntity(entity);
             _world = world;
             WeaponViews = GetComponentsInChildren<FireWeaponView>(true);
         }
 
+
         private void OnTriggerEnter(Collider other) 
         {
             DebugUtility.PrintColor($"OnTrigger obj: {other.name}", Color.yellow);   
-            if (other.TryGetComponent(out BasePickupItem item))
-            {
-                ref var evt = ref _world.GetPool<CharacterPickupWeaponEvent>().Add(_heroEntity);
-                evt.Type = item.Type;
-                evt.Amount = item.Amount;
-
-                item.Reclaim();
+            if (other.TryGetComponent(out IPickupItem item))
+            {      
+                item.Pickup(this);
             } 
         }
+
+
+    #region Pickup methods
+        void IPickupVisitor.PickupWeapon(WeaponType type, int amount)
+        {
+            if (!_heroEntity.Unpack(_world, out int ent)) return;
+
+            ref var evt = ref _world.GetPool<CharacterPickupWeaponEvent>().Add(ent);
+            evt.Type = type;
+            evt.Amount = amount;
+        }
+    #endregion
     }
 }

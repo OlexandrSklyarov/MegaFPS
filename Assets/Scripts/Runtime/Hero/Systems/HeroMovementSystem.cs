@@ -9,6 +9,7 @@ namespace SA.FPS
         private EcsPool<CharacterEngineComponent> _enginePool;
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<InputComponent> _inputPool;
+        
 
         public void Init(IEcsSystems systems)
         {
@@ -25,10 +26,9 @@ namespace SA.FPS
             _inputPool = world.GetPool<InputComponent>();
         }
 
-        public void Run(IEcsSystems systems)
-        {
-            
 
+        public void Run(IEcsSystems systems)
+        {        
             foreach(var ent in _filter)
             {
                 ref var engine = ref _enginePool.Get(ent);
