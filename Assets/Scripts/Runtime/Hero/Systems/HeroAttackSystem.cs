@@ -10,6 +10,7 @@ namespace SA.FPS
         private EcsPool<CharacterAttackComponent> _attackPool;
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<InputComponent> _inputPool;
+        private EcsPool<HeroLookComponent> _lookPool;
 
         public void Init(IEcsSystems systems)
         {            
@@ -18,12 +19,14 @@ namespace SA.FPS
                 .Inc<InputComponent>()
                 .Inc<CharacterAttackComponent>()
                 .Inc<CharacterConfigComponent>()
+                .Inc<HeroLookComponent>()
                 .End();
             
             var world = systems.GetWorld();
             _attackPool = world.GetPool<CharacterAttackComponent>();
             _configPool = world.GetPool<CharacterConfigComponent>();
             _inputPool = world.GetPool<InputComponent>();
+            _lookPool = world.GetPool<HeroLookComponent>();
         }
 
         public void Run(IEcsSystems systems)
@@ -35,6 +38,7 @@ namespace SA.FPS
                 ref var input = ref _inputPool.Get(ent);
                 ref var attack = ref _attackPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
+                ref var look = ref _lookPool.Get(ent);
 
                 if (attack.MelleAttackTimer > 0f)
                 {
@@ -58,10 +62,11 @@ namespace SA.FPS
                     var type = weapon.CurrentWeaponType;
                     var weaponEntity = weapon.MyWeapons[type];
 
-                    CreateShootEvent(world, weaponEntity);     
+                    CreateShootEvent(world, weaponEntity, ref look);     
                 }           
             }
         }
+
 
         private void CreateWeaponMelleAttack(EcsWorld world, int attackEntity)
         {
@@ -70,9 +75,12 @@ namespace SA.FPS
             evt.AttackEntity = attackEntity;
         }
 
-        private void CreateShootEvent(EcsWorld world, int weaponEntity)
+
+        private void CreateShootEvent(EcsWorld world, int weaponEntity, ref HeroLookComponent look)
         {
-            world.GetOrAddComponent<TryShootComponent>(weaponEntity);
+            ref var evt = ref world.GetOrAddComponent<TryShootComponent>(weaponEntity);
+            evt.ShootPoint = look.FPS_Camera.transform.position;
+            evt.Direction = look.FPS_Camera.transform.forward;
         }
     }
 }

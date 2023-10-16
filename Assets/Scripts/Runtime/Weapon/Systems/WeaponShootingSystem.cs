@@ -1,6 +1,8 @@
+using System;
 using Leopotam.EcsLite;
 using Runtime.Extensions;
 using UnityEngine;
+using Util;
 
 namespace SA.FPS
 {
@@ -35,40 +37,62 @@ namespace SA.FPS
             //WEAPON
             foreach(var ent in _weaponFilter)
             {
-                _tryShootEvtPool.Del(ent); 
-
                 ref var weapon = ref _weaponPool.Get(ent);
                 ref var owner = ref _ownerPool.Get(ent);
                 ref var ammo = ref _ammoPool.Get(ent);                 
+                ref var shootEvt = ref _tryShootEvtPool.Get(ent);                 
 
-                if (weapon.CurrentCooldown > 0f)
+                if (weapon.CurrentCooldown > 0f) //cooldown
                 {
-                    weapon.CurrentCooldown -= Time.deltaTime;
-                    continue;
+                    weapon.CurrentCooldown -= Time.deltaTime;                    
                 }
-                                    
-                //fire
-                Shoot(ref weapon);
-                AddOwnerShakeFX(world, ref owner, ref weapon);
-                weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
-                ammo.Count--;
-
-                //update ui event
-                world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);
-                
-                //remove ammo
-                if (ammo.Count <= 0)
+                else //fire
                 {
-                    _ammoPool.Del(ent);
-                }                    
+                    
+                    Shoot(ref weapon, ref shootEvt);
+                    AddOwnerShakeFX(world, ref owner, ref weapon);
+                    weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
+                    ammo.Count--;
+
+                    //update ui event
+                    world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);
+                    
+                    //remove ammo
+                    if (ammo.Count <= 0)
+                    {
+                        _ammoPool.Del(ent);
+                    }  
+                }
+
+                _tryShootEvtPool.Del(ent);                                     
             }         
         }
 
 
-        private void Shoot(ref WeaponComponent weapon)
+        private void Shoot(ref WeaponComponent weapon, ref TryShootComponent shootEvt)
         {
-            Util.DebugUtility.Print("Shoot");
-            FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);   
+            FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);  
+
+            var dir = AddShootSpread(weapon.Settings.Spread, shootEvt.Direction);
+
+            if (Physics.Raycast(shootEvt.ShootPoint, dir, out var hit, float.MaxValue, weapon.Settings.TargetLayerMask))
+            {
+                Util.DebugUtility.Print($"Hit!!! -- {hit.collider.name} pos {hit.normal}");
+                UnityEngine.Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.yellow, 0.1f);
+            }
+        }
+
+
+        private Vector3 AddShootSpread(Vector3 spread, Vector3 dir)
+        {
+            var modifierDir =  dir + new Vector3
+            (
+                UnityEngine.Random.Range(-spread.x, spread.x),
+                UnityEngine.Random.Range(-spread.y, spread.y),
+                UnityEngine.Random.Range(-spread.z, spread.z)
+            );
+
+            return modifierDir.normalized;
         }
 
 

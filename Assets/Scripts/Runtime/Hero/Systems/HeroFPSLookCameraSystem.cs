@@ -7,7 +7,7 @@ namespace SA.FPS
     {
         private GameConfig _gameConfig;
         private EcsFilter _filter;
-        private EcsPool<CharacterLookComponent> _lookPool;
+        private EcsPool<HeroLookComponent> _lookPool;
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<InputComponent> _inputPool;
 
@@ -17,14 +17,14 @@ namespace SA.FPS
 
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()
-                .Inc<CharacterLookComponent>()
+                .Inc<HeroLookComponent>()
                 .Inc<CharacterConfigComponent>()
                 .Inc<InputComponent>()
                 .Exc<TPSCameraTag>()
                 .End();
 
             var world = systems.GetWorld();
-            _lookPool = world.GetPool<CharacterLookComponent>();
+            _lookPool = world.GetPool<HeroLookComponent>();
             _configPool = world.GetPool<CharacterConfigComponent>();
             _inputPool = world.GetPool<InputComponent>();
         }
@@ -45,7 +45,7 @@ namespace SA.FPS
         }
 
 
-        private void HorizontalRotation(ref CharacterLookComponent look, ref InputComponent input)
+        private void HorizontalRotation(ref HeroLookComponent look, ref InputComponent input)
         {
             var targetHorizontalRotation = input.MouseX * _gameConfig.Control.MouseSensitivity;
             var curRot = look.Body.rotation;
@@ -55,7 +55,7 @@ namespace SA.FPS
         }
 
 
-        private void VerticalRotation(ref CharacterLookComponent look, ref InputComponent input)
+        private void VerticalRotation(ref HeroLookComponent look, ref InputComponent input)
         {
             var newVertRotation = look.VerticalRotation;
             newVertRotation -= input.MouseY * _gameConfig.Control.MouseSensitivity;

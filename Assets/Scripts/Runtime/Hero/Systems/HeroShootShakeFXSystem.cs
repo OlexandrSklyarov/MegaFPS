@@ -7,19 +7,19 @@ namespace SA.FPS
     {
         private EcsFilter _filter;
         private EcsPool<CameraShakeComponent> _shakePool;
-        private EcsPool<CharacterLookComponent> _lookPool;
+        private EcsPool<HeroLookComponent> _lookPool;
 
         public void Init(IEcsSystems systems)
         {
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()
-                .Inc<CharacterLookComponent>()
+                .Inc<HeroLookComponent>()
                 .Inc<CameraShakeComponent>()
                 .End();
 
             var world = systems.GetWorld();
             _shakePool = world.GetPool<CameraShakeComponent>();
-            _lookPool = world.GetPool<CharacterLookComponent>();
+            _lookPool = world.GetPool<HeroLookComponent>();
         }
 
         public void Run(IEcsSystems systems)

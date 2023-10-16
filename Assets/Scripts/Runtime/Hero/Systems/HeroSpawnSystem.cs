@@ -38,7 +38,7 @@ namespace SA.FPS
             world.GetPool<InputComponent>().Add(entity);
 
             //look (fps camera)
-            ref var look = ref world.GetPool<CharacterLookComponent>().Add(entity);
+            ref var look = ref world.GetPool<HeroLookComponent>().Add(entity);
             look.Body = heroView.transform;
             look.HeadRoot = heroView.HeadRoot;
             look.Head = heroView.Head;

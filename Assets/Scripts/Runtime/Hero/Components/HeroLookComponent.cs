@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SA.FPS
 {
-    public struct CharacterLookComponent
+    public struct HeroLookComponent
     {
         public Transform Body;
         public Transform HeadRoot;

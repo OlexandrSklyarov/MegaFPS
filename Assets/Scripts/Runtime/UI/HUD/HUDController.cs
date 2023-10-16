@@ -1,5 +1,3 @@
-using System;
-using Runtime.Services.Inventory;
 using SA.FPS.Runtime.UI.HUD;
 using UnityEngine;
 using Util;

@@ -11,8 +11,12 @@ namespace SA.FPS
         [field: PropertyOrder(0), SerializeField] public float Strength {get; private set;} = 1f;
         [field: PropertyOrder(0), SerializeField] public float Randomness {get; private set;} = 90f;
         [field: PropertyOrder(0), SerializeField] public int Vibrato {get; private set;} = 10;
+
         [field: Space, PropertyOrder(0), SerializeField] public float ShootCooldown {get; private set;} = 0.5f;
         [field: PropertyOrder(0), SerializeField] public int StartAmmo {get; private set;} = 60;
-        [field: SerializeField] public EventReference FireSfx{get; private set;}
+        [field: PropertyOrder(0), SerializeField] public Vector3 Spread {get; private set;} = Vector3.one * 0.01f;
+        [field: PropertyOrder(0), SerializeField] public LayerMask TargetLayerMask {get; private set;} 
+
+        [field: Space, SerializeField] public EventReference FireSfx{get; private set;}
     }
 }
