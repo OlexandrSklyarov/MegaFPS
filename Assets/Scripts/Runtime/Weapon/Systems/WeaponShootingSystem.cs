@@ -73,23 +73,39 @@ namespace SA.FPS
         {
             FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);  
 
-            var dir = AddShootSpread(weapon.Settings.Spread, shootEvt.Direction);
-
-            if (Physics.Raycast(shootEvt.ShootPoint, dir, out var hit, float.MaxValue, weapon.Settings.TargetLayerMask))
+            for (int i = 0; i < weapon.Settings.RayCountPerShoot; i++)
             {
-                Util.DebugUtility.Print($"Hit!!! -- {hit.collider.name} pos {hit.normal}");
-                UnityEngine.Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.yellow, 0.1f);
+                //spread
+                var dir = (weapon.Settings.IsUseSpread) ?
+                    AddShootSpread(weapon.Settings.SpreadFactor, shootEvt.Direction) :
+                    shootEvt.Direction;
+
+                //ray
+                if (Physics.Raycast(shootEvt.ShootPoint, dir, out var hit, float.MaxValue, weapon.Settings.TargetLayerMask))
+                {
+                    UnityEngine.Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.yellow, 0.15f);
+
+                    if (hit.collider.TryGetComponent(out IDamageable target))
+                    {
+                        target.ApplyDamage(weapon.Settings.Damage, shootEvt.ShootPoint);
+                        Util.DebugUtility.PrintColor($"Enemy damaged!!!", Color.red);
+                    }
+                    else
+                    {
+                        Util.DebugUtility.Print($"Draw decal {hit.collider.name} pos {hit.normal}");
+                    }
+                }                
             }
         }
+        
 
-
-        private Vector3 AddShootSpread(Vector3 spread, Vector3 dir)
+        private Vector3 AddShootSpread(float spread, Vector3 dir)
         {
             var modifierDir =  dir + new Vector3
             (
-                UnityEngine.Random.Range(-spread.x, spread.x),
-                UnityEngine.Random.Range(-spread.y, spread.y),
-                UnityEngine.Random.Range(-spread.z, spread.z)
+                UnityEngine.Random.Range(-spread, spread),
+                UnityEngine.Random.Range(-spread, spread),
+                UnityEngine.Random.Range(-spread, spread)
             );
 
             return modifierDir.normalized;

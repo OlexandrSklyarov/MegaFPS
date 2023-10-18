@@ -17,10 +17,14 @@ MonoBehaviour:
   <Vibrato>k__BackingField: 10
   <ShootCooldown>k__BackingField: 0.1
   <StartAmmo>k__BackingField: 1000
-  <Spread>k__BackingField: {x: 0.01, y: 0.01, z: 0.01}
+  <Damage>k__BackingField: 15
+  <RayCountPerShoot>k__BackingField: 1
+  <Distance>k__BackingField: 1000
+  <IsUseSpread>k__BackingField: 1
+  <SpreadFactor>k__BackingField: 0.1
   <TargetLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
   <FireSfx>k__BackingField:
     Guid:
       Data1: 1406286586

@@ -161,7 +161,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 23
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -509,6 +509,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460576090799609007, guid: 0568d795db49e557fb2c269f367d8cff,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.80881184
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460576090799609007, guid: 0568d795db49e557fb2c269f367d8cff,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5880676
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460576090799609007, guid: 0568d795db49e557fb2c269f367d8cff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 72.04
       objectReference: {fileID: 0}
     - target: {fileID: 5973478672337925038, guid: 0568d795db49e557fb2c269f367d8cff,
         type: 3}
