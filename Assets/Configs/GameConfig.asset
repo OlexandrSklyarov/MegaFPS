@@ -28,3 +28,5 @@ MonoBehaviour:
     type: 2}
   <InventoryData>k__BackingField: {fileID: 11400000, guid: 6780bd3a17ba4e5df8a4881768ee3c38,
     type: 2}
+  <PoolData>k__BackingField: {fileID: 11400000, guid: f59867c377364b37ababdb0ec0cdc262,
+    type: 2}

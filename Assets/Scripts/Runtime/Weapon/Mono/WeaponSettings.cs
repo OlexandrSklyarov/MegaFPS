@@ -18,6 +18,7 @@ namespace SA.FPS
         [field: SerializeField, Min(1)] public int Damage {get; private set;} = 15;
         [field: SerializeField, Min(1)] public int RayCountPerShoot {get; private set;} = 1;
         [field: SerializeField, Min(1f)] public float Distance {get; private set;} = Mathf.Infinity;
+        [field: SerializeField] public DecalType DecalType {get; private set;}
         [field: SerializeField] public bool IsUseSpread {get; private set;}
         [field: EnableIf("IsUseSpread"), SerializeField, Min(0f)] public float SpreadFactor {get; private set;}
         [field: SerializeField] public LayerMask TargetLayerMask {get; private set;} 
