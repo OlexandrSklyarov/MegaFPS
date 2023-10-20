@@ -1,11 +1,10 @@
 using Leopotam.EcsLite;
-using Runtime.Services.WeaponsFactory;
 using UnityEngine;
 using Util;
 
 namespace SA.FPS
 {
-    public sealed class HeroView : MonoBehaviour, IPickupVisitor
+    public sealed class HeroView : MonoBehaviour
     {
         [field: SerializeField] public CharacterConfig Config {get; private set;}
         [field: SerializeField] public CharacterController CharacterController {get; private set;}
@@ -17,14 +16,17 @@ namespace SA.FPS
 
         private EcsPackedEntity _heroEntity;
         private EcsWorld _world;
+        private WorldItemInteractor _worldItemInteractor;
 
         public FireWeaponView[] WeaponViews {get; private set;}
         public Transform FollowTarget => transform;
 
         public void Init(int entity, EcsWorld world)
-        {
+        {            
             _heroEntity = world.PackEntity(entity);
             _world = world;
+
+            _worldItemInteractor = new WorldItemInteractor(_world, _heroEntity);
             WeaponViews = GetComponentsInChildren<FireWeaponView>(true);
         }
 
@@ -32,22 +34,11 @@ namespace SA.FPS
         private void OnTriggerEnter(Collider other) 
         {
             DebugUtility.PrintColor($"OnTrigger obj: {other.name}", Color.yellow);   
+            
             if (other.TryGetComponent(out IPickupItem item))
             {      
-                item.Pickup(this);
+                item.Pickup(_worldItemInteractor);
             } 
         }
-
-
-    #region Pickup methods
-        void IPickupVisitor.PickupWeapon(WeaponType type, int amount)
-        {
-            if (!_heroEntity.Unpack(_world, out int ent)) return;
-
-            ref var evt = ref _world.GetPool<CharacterPickupWeaponEvent>().Add(ent);
-            evt.Type = type;
-            evt.Amount = amount;
-        }
-    #endregion
     }
 }
