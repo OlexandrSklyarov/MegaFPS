@@ -1,7 +1,7 @@
 
 namespace SA.FPS
 {
-    public interface IPickupItem
+    public interface IPickupItemVisitable
     {
         void Pickup(IPickupVisitor visitor);
     }

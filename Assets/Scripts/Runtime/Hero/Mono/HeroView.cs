@@ -35,7 +35,7 @@ namespace SA.FPS
         {
             DebugUtility.PrintColor($"OnTrigger obj: {other.name}", Color.yellow);   
             
-            if (other.TryGetComponent(out IPickupItem item))
+            if (other.TryGetComponent(out IPickupItemVisitable item))
             {      
                 item.Pickup(_worldItemInteractor);
             } 

@@ -1,5 +1,4 @@
 using Leopotam.EcsLite;
-using Runtime.Services.WeaponsFactory;
 
 namespace SA.FPS
 {
@@ -14,13 +13,13 @@ namespace SA.FPS
             _world = world;
         }
 
-        void IPickupVisitor.PickupWeapon(WeaponType type, int amount)
+        void IPickupVisitor.Visit(WeaponPickupItem weapon)
         {
             if (!_heroEntity.Unpack(_world, out int ent)) return;
 
             ref var evt = ref _world.GetPool<CharacterPickupWeaponEvent>().Add(ent);
-            evt.Type = type;
-            evt.Amount = amount;
+            evt.Type = weapon.Type;
+            evt.Amount = weapon.Amount;
         }
     }
 }

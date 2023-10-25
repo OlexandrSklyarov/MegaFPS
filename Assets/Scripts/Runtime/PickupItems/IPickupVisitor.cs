@@ -5,6 +5,6 @@ namespace SA.FPS
 {
     public interface IPickupVisitor
     {
-        void PickupWeapon(WeaponType type, int amount);
+        void Visit(WeaponPickupItem weapon);
     }
 }

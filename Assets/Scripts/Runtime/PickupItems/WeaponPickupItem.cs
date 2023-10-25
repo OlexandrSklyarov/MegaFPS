@@ -4,14 +4,17 @@ using UnityEngine;
 namespace SA.FPS
 {
     [RequireComponent(typeof(SphereCollider))]
-    public class WeaponPickupItem : MonoBehaviour, IPickupItem
+    public class WeaponPickupItem : MonoBehaviour, IPickupItemVisitable
     {
+        public WeaponType Type => _type;
+        public int Amount => _amount;
+
         [SerializeField] private WeaponType _type;
         [SerializeField, Min(1)] private int _amount;
 
         public void Pickup(IPickupVisitor visitor)
         {
-            visitor.PickupWeapon(_type, _amount);
+            visitor.Visit(this);
             Reclaim();
         }
 
