@@ -13,7 +13,7 @@ namespace SA.FPS
             _services = new Dictionary<Type, IService>()
             {
                 {typeof(InputService), new InputService()},
-                {typeof(IWeaponItemFactory), new WeaponItemFactory(_config.InventoryData)},
+                {typeof(IWeaponItemFactory), new WeaponItemFactory(_config.WeaponData)},
                 {typeof(IPoolManager), new PoolManager(_config.PoolData)}
             };
         }

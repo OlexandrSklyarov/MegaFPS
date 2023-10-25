@@ -26,7 +26,7 @@ MonoBehaviour:
     <SmoothHorizontalRotation>k__BackingField: 10
   <Audio>k__BackingField: {fileID: 11400000, guid: d0d469581237d7726be15aaf596c05d1,
     type: 2}
-  <InventoryData>k__BackingField: {fileID: 11400000, guid: 6780bd3a17ba4e5df8a4881768ee3c38,
+  <WeaponData>k__BackingField: {fileID: 11400000, guid: 403d5cf3f6bc2774f9fb92b26ccf2bbf,
     type: 2}
   <PoolData>k__BackingField: {fileID: 11400000, guid: f59867c377364b37ababdb0ec0cdc262,
     type: 2}

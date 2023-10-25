@@ -1,6 +1,5 @@
 using Cinemachine;
 using Leopotam.EcsLite;
-using Runtime.Services.Inventory;
 using UnityEngine;
 
 namespace SA.FPS
@@ -47,22 +46,14 @@ namespace SA.FPS
             //audio
             world.GetPool<HeroFootStepComponent>().Add(entity);
             
-            //audio
+            //animation
             ref var anim = ref world.GetPool<CharacterAnimationComponent>().Add(entity);
             anim.AnimatorRef = heroView.Animator;
 
             //attack
             ref var attack = ref world.GetPool<CharacterAttackComponent>().Add(entity);
-
-            //inventory
-            ref var inventory = ref world.GetPool<InventoryComponent>().Add(entity);
-            inventory.InventoryRef = CreateInventory(data);
         }
-
-        private IInventory CreateInventory(SharedData data)
-        {
-            return new InventoryWithSlots(data.Config.InventoryData.MaxSlots);
-        }
+       
 
         private TPSCamera GetTPSCamera(SharedData data)
         {

@@ -38,10 +38,7 @@ namespace SA.FPS
             foreach(var ent in _filter)
             {
                 ref var hero = ref _heroPool.Get(ent);
-                ref var evt = ref _evtPool.Get(ent);
-
-                var weapon = _weaponFactory.CreateWeaponItem(evt.Type);
-                weapon.State.Amount = evt.Amount;
+                ref var evt = ref _evtPool.Get(ent);                
 
                 if (!TryHeroTakeWeaponEvent(world, ent, ref evt, ref hero))
                 {
@@ -82,16 +79,12 @@ namespace SA.FPS
             //weapon not found
             if (!IsHasWeaponInInventory(pickupWeaponType, ref hasWeapon))
             {
-                var newWeaponView = hero.View.WeaponViews.First(x => x.Type == pickupWeaponType); 
-
                 //try hide previous weapon
-                var curWeaponType = hasWeapon.CurrentWeaponType;
-                var perviousWeaponView = hero.View.WeaponViews.First(x => x.Type == curWeaponType);
-                if (perviousWeaponView != null && perviousWeaponView != newWeaponView) perviousWeaponView.Hide();
-
-                //try show new weapon
-                newWeaponView.Show();            
-
+                foreach(Transform weapon in hero.View.WeaponsRoot.transform)  
+                    weapon.gameObject.SetActive(false);                       
+                
+                //new weapon
+                var newWeaponView = _weaponFactory.CreateWeaponItem(evt.Type, hero.View.WeaponsRoot);
                 var weaponEntity = CreateWeaponEntity(world, newWeaponView, heroEntity);  
 
                 //save weapon

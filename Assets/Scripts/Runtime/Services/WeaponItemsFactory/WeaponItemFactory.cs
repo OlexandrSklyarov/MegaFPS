@@ -1,29 +1,35 @@
-using System;
+using System.Collections.Generic;
 using System.Linq;
-using Runtime.Services.Inventory;
-using Runtime.Services.WeaponsFactory.Items;
 using SA.FPS;
+using UnityEngine;
 
 namespace Runtime.Services.WeaponsFactory
 {
     public class WeaponItemFactory : IWeaponItemFactory
     {
-        private readonly InventoryConfig _config;
+        private readonly WeaponsConfig _config;
+        private readonly Dictionary<WeaponType, FireWeaponView> _weaponsCache;
 
-        public WeaponItemFactory(InventoryConfig config)
+        public WeaponItemFactory(WeaponsConfig config)
         {
             _config = config;   
+            _weaponsCache = new Dictionary<WeaponType, FireWeaponView>();
         }
 
 
-        public IInventoryItem CreateWeaponItem(WeaponType type)
+        public FireWeaponView CreateWeaponItem(WeaponType type, Transform parent)
         {
-            return type switch 
+            var prefab = _config.Weapons.First(x => x.Key == type).Value;
+
+            if (!_weaponsCache.TryGetValue(type, out var instance))
             {
-                WeaponType.MachineGun => new MachineGun(_config.Items.First(x => x.Type == type)),
-                
-                _=> throw new ArgumentNullException($"This type of weapon {type} is not processed.")
-            };
+                instance = UnityEngine.Object.Instantiate(prefab, parent); 
+                _weaponsCache.Add(type, instance);
+            }            
+
+            instance.gameObject.SetActive(true);
+            
+            return instance;           
         }
     }
 }

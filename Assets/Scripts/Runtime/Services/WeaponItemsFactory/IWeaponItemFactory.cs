@@ -1,10 +1,10 @@
-using Runtime.Services.Inventory;
 using SA.FPS;
+using UnityEngine;
 
 namespace Runtime.Services.WeaponsFactory
 {
     public interface IWeaponItemFactory : IService
     {
-        IInventoryItem CreateWeaponItem(WeaponType type);
+        FireWeaponView CreateWeaponItem(WeaponType type, Transform weaponsRoot);
     }
 }

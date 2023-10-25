@@ -11,15 +11,16 @@ namespace SA.FPS
         [field: SerializeField] public Transform LookTarget {get; private set;}
         [field: SerializeField] public Transform HeadRoot {get; private set;}
         [field: SerializeField] public Transform Head {get; private set;}
+        [field: SerializeField] public Transform WeaponsRoot {get; private set;}
         [field: SerializeField] public Camera HeroCamera {get; private set;}
         [field: SerializeField] public Animator Animator {get; private set;}
+
+        public Transform FollowTarget => transform;
 
         private EcsPackedEntity _heroEntity;
         private EcsWorld _world;
         private WorldItemInteractor _worldItemInteractor;
 
-        public FireWeaponView[] WeaponViews {get; private set;}
-        public Transform FollowTarget => transform;
 
         public void Init(int entity, EcsWorld world)
         {            
@@ -27,7 +28,6 @@ namespace SA.FPS
             _world = world;
 
             _worldItemInteractor = new WorldItemInteractor(_world, _heroEntity);
-            WeaponViews = GetComponentsInChildren<FireWeaponView>(true);
         }
 
 

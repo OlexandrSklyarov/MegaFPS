@@ -14,7 +14,7 @@ namespace SA.FPS
         
         [field: BoxGroup("Control hero prm"), Space, SerializeField] public ControlConfig Control {get; private set;}
         [field: Space, BoxGroup("Audio"), SerializeField] public GameAudioConfig Audio {get; private set;}
-        [field: Space, BoxGroup("Inventory"), SerializeField] public InventoryConfig InventoryData {get; private set;}
+        [field: Space, BoxGroup("Weapons"), SerializeField] public WeaponsConfig WeaponData {get; private set;}
         [field: Space, BoxGroup("Pool GO"), SerializeField] public PoolObjectConfig PoolData {get; private set;}
         
 
