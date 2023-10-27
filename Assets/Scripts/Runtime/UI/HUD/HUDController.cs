@@ -1,6 +1,5 @@
 using SA.FPS.Runtime.UI.HUD;
 using UnityEngine;
-using Util;
 
 namespace SA.FPS
 {
@@ -10,16 +9,15 @@ namespace SA.FPS
         [SerializeField] private UIWeaponCounter _grenadeCounter;     
         
         //weapon count
-        public void UpdateWeaponPanel(int count)
+        public void UpdateWeaponView(int count)
         {
             _weaponCounter.SetCount(count);
-            DebugUtility.PrintColor($"UpdateWeaponPanel count{count}", Color.yellow);
         }
 
         //change weapon
-        public void UpdateWeaponPanel(int count, Sprite icon)
+        public void UpdateWeaponView(int count, Sprite icon)
         {
-            UpdateWeaponPanel(count);
+            UpdateWeaponView(count);
             _weaponCounter.SetIcon(icon);
         }
     }

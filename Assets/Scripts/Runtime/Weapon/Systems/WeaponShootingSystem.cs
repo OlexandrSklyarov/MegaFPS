@@ -1,6 +1,7 @@
 using Leopotam.EcsLite;
 using Runtime.Extensions;
 using UnityEngine;
+using Util;
 
 namespace SA.FPS
 {
@@ -45,24 +46,18 @@ namespace SA.FPS
 
                 if (weapon.CurrentCooldown > 0f) //cooldown
                 {
-                    weapon.CurrentCooldown -= Time.deltaTime;                    
+                    weapon.CurrentCooldown -= Time.deltaTime;                                     
                 }
-                else //fire
-                {
-                    
+                
+                else if (ammo.Count > 0) //fire                
+                {                    
                     Shoot(ref weapon, ref shootEvt);
                     AddOwnerShakeFX(world, ref owner, ref weapon);
                     weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
                     ammo.Count--;
 
                     //update ui event
-                    world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);
-                    
-                    //remove ammo
-                    if (ammo.Count <= 0)
-                    {
-                        _ammoPool.Del(ent);
-                    }  
+                    world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);                                         
                 }
 
                 _tryShootEvtPool.Del(ent);                                     

@@ -20,6 +20,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 15
   <RayCountPerShoot>k__BackingField: 1
   <Distance>k__BackingField: 1000
+  <DecalType>k__BackingField: 0
   <IsUseSpread>k__BackingField: 1
   <SpreadFactor>k__BackingField: 0.1
   <TargetLayerMask>k__BackingField:
@@ -32,3 +33,5 @@ MonoBehaviour:
       Data3: 247088792
       Data4: -1850713825
     Path: event:/MAcineGunFire
+  <Sprite>k__BackingField: {fileID: 21300024, guid: 5acb27b603af6d44ea6113c4b7b15385,
+    type: 3}

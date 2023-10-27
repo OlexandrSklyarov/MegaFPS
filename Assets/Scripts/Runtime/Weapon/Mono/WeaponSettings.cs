@@ -24,6 +24,7 @@ namespace SA.FPS
         [field: SerializeField] public LayerMask TargetLayerMask {get; private set;} 
 
      
-        [field: Space, Header("Audio"), SerializeField] public EventReference FireSfx{get; private set;}
+        [field: Space, Header("Audio"), SerializeField] public EventReference FireSfx {get; private set;}
+        [field: Space, Header("Icon"), SerializeField] public Sprite Sprite {get; private set;}
     }
 }
