@@ -7,14 +7,14 @@ namespace SA.FPS
     [CreateAssetMenu(fileName = "WeaponsConfig", menuName = "SO/WeaponsConfig")]
     public class WeaponsConfig : ScriptableObject
     {
-        [field: SerializeField] public WeaponKeyValuePair[] Weapons {get; private set;}
+        [field: SerializeField] public WeaponItem[] Weapons {get; private set;}
 
         [Serializable]
-        public class WeaponKeyValuePair
+        public class WeaponItem
         {
-            [field: SerializeField] public WeaponType Key {get; private set;}
-            [field: SerializeField] public FireWeaponView Value {get; private set;}
-
+            [field: SerializeField] public WeaponType Type {get; private set;}
+            [field: SerializeField] public WeaponView Prefab {get; private set;}
+            [field: SerializeField] public WeaponSettings Settings {get; private set;}
         }
     }
 }

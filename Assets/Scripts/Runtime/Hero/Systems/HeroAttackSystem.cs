@@ -60,7 +60,7 @@ namespace SA.FPS
                 {
                     ref var weapon = ref pool.Get(ent);
                     var type = weapon.CurrentWeaponType;
-                    var weaponEntity = weapon.MyWeapons[type];
+                    var weaponEntity = weapon.MyWeaponEntities[type];
 
                     CreateShootEvent(world, weaponEntity, ref look);     
                 }           

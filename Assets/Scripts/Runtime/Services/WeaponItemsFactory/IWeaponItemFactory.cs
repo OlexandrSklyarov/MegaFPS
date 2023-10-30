@@ -5,6 +5,6 @@ namespace Runtime.Services.WeaponsFactory
 {
     public interface IWeaponItemFactory : IService
     {
-        FireWeaponView CreateWeaponItem(WeaponType type, Transform weaponsRoot);
+        (IWeaponView, WeaponSettings) CreateWeaponItem(WeaponType type, Transform weaponsRoot);
     }
 }

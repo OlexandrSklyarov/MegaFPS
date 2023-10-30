@@ -5,7 +5,7 @@ namespace SA.FPS
 {
     public struct HasWeaponComponent
     {        
-        public Dictionary<WeaponType, int> MyWeapons;        
+        public Dictionary<WeaponType, int> MyWeaponEntities;        
         public WeaponType CurrentWeaponType;
     }
 }

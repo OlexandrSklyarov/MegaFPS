@@ -8,28 +8,28 @@ namespace Runtime.Services.WeaponsFactory
     public class WeaponItemFactory : IWeaponItemFactory
     {
         private readonly WeaponsConfig _config;
-        private readonly Dictionary<WeaponType, FireWeaponView> _weaponsCache;
+        private readonly Dictionary<WeaponType, WeaponView> _weaponsCache;
 
         public WeaponItemFactory(WeaponsConfig config)
         {
             _config = config;   
-            _weaponsCache = new Dictionary<WeaponType, FireWeaponView>();
+            _weaponsCache = new Dictionary<WeaponType, WeaponView>();
         }
 
 
-        public FireWeaponView CreateWeaponItem(WeaponType type, Transform parent)
+        public (IWeaponView, WeaponSettings) CreateWeaponItem(WeaponType type, Transform parent)
         {
-            var prefab = _config.Weapons.First(x => x.Key == type).Value;
+            var currentItem = _config.Weapons.First(x => x.Type == type);
 
             if (!_weaponsCache.TryGetValue(type, out var instance))
             {
-                instance = UnityEngine.Object.Instantiate(prefab, parent); 
+                instance = UnityEngine.Object.Instantiate(currentItem.Prefab, parent); 
                 _weaponsCache.Add(type, instance);
             }            
 
             instance.gameObject.SetActive(true);
             
-            return instance;           
+            return (instance, currentItem.Settings);           
         }
     }
 }

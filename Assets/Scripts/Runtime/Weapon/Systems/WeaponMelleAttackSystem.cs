@@ -54,7 +54,6 @@ namespace SA.FPS
         private void Attack(ref WeaponComponent weapon)
         {
             Util.DebugUtility.Print("Attack");
-            weapon.AnimatorRef.SetTrigger("MELLE_ATTACK");
         }
     }
 }

@@ -59,7 +59,7 @@ namespace SA.FPS
         {
             ref var hasWeaponComp = ref GetHasWeaponComponent(world, heroEntity); 
 
-            if (!hasWeaponComp.MyWeapons.TryGetValue(evt.Type, out int weaponEntity)) return;
+            if (!hasWeaponComp.MyWeaponEntities.TryGetValue(evt.Type, out int weaponEntity)) return;
 
             ref var weaponAmmo = ref world.GetOrAddComponent<AmmunitionComponent>(weaponEntity);
             weaponAmmo.Count += evt.Amount;
@@ -70,26 +70,27 @@ namespace SA.FPS
         }
 
 
-        private bool TryHeroTakeWeaponEvent(EcsWorld world, int heroEntity, ref CharacterPickupWeaponEvent evt, ref HeroComponent hero)
-        {
-            var pickupWeaponType = evt.Type;  
+        private bool TryHeroTakeWeaponEvent(EcsWorld world, int heroEntity, ref CharacterPickupWeaponEvent pickupEvent, ref HeroComponent hero)
+        {            
+            ref var hasWeapon = ref GetHasWeaponComponent(world, heroEntity);   
 
-            ref var hasWeapon = ref GetHasWeaponComponent(world, heroEntity);       
+            var handsTargets = hero.View.HandsWeaponTargetView;  
             
             //weapon not found
-            if (!IsHasWeaponInInventory(pickupWeaponType, ref hasWeapon))
+            if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
             {
                 //try hide previous weapon
-                foreach(Transform weapon in hero.View.WeaponsRoot.transform)  
-                    weapon.gameObject.SetActive(false);                       
+                foreach(Transform curWeapon in handsTargets.WeaponsRoot)  
+                    curWeapon.gameObject.SetActive(false);                       
                 
                 //new weapon
-                var newWeaponView = _weaponFactory.CreateWeaponItem(evt.Type, hero.View.WeaponsRoot);
-                var weaponEntity = CreateWeaponEntity(world, newWeaponView, heroEntity);  
+                var (weapon, settings) = _weaponFactory.CreateWeaponItem(pickupEvent.Type, handsTargets.WeaponsRoot);
+                handsTargets.SetTargets(weapon);
+                var weaponEntity = CreateWeaponEntity(world, handsTargets, settings, heroEntity);  
 
                 //save weapon
-                hasWeapon.CurrentWeaponType = pickupWeaponType;
-                hasWeapon.MyWeapons.Add(pickupWeaponType, weaponEntity);
+                hasWeapon.CurrentWeaponType = pickupEvent.Type;
+                hasWeapon.MyWeaponEntities.Add(pickupEvent.Type, weaponEntity);
 
                 return true;
             }
@@ -100,32 +101,31 @@ namespace SA.FPS
 
         private bool IsHasWeaponInInventory(WeaponType type, ref HasWeaponComponent hasWeapon)
         {
-            return hasWeapon.MyWeapons.TryGetValue(type, out var value);
+            return hasWeapon.MyWeaponEntities.TryGetValue(type, out var value);
         }
 
 
         private ref HasWeaponComponent GetHasWeaponComponent(EcsWorld world, int heroEntity)
         {
             ref var hasWeapon = ref world.GetOrAddComponent<HasWeaponComponent>(heroEntity);
-            hasWeapon.MyWeapons ??= new Dictionary<WeaponType, int>();
+            hasWeapon.MyWeaponEntities ??= new Dictionary<WeaponType, int>();
             return ref hasWeapon;
         }
 
-        private int CreateWeaponEntity(EcsWorld world, FireWeaponView weaponView, int ownerEntity)
+        private int CreateWeaponEntity(EcsWorld world, HandsWeaponTargetView handsWeaponTargetView, WeaponSettings settings, int ownerEntity)
         {
             var ent = world.NewEntity();
             
             //weapon
             ref var weapon = ref world.GetPool<WeaponComponent>().Add(ent);            
-            weapon.Settings = weaponView.Settings;
-            weapon.FirePoint = weaponView.FirePoint;
-            weapon.Center = weaponView.transform;
-            weapon.AnimatorRef = weaponView.WeaponAnimator;
+            weapon.Settings = settings;
+            weapon.FirePoint = handsWeaponTargetView.FirePoint;
+            weapon.Center = handsWeaponTargetView.transform;
 
             //ammo
             ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
-            ammunition.Count = weaponView.Settings.StartAmmo;
-            ammunition.MaxAmmo = weaponView.Settings.StartAmmo;
+            ammunition.Count = settings.StartAmmo;
+            ammunition.MaxAmmo = settings.StartAmmo;
             UnityEngine.Debug.Log(ammunition.Count);            
             
             //owner
