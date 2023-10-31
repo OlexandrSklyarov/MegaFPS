@@ -15,8 +15,8 @@ namespace SA.FPS
         public void SetTargets(IWeaponView weaponView)
         {
             _firePoint.SetLocalPositionAndRotation(weaponView.FirePoint.localPosition, weaponView.FirePoint.localRotation);
-            _leftHandTarget.SetLocalPositionAndRotation(weaponView.LeftHand.localPosition, weaponView.LeftHand.localRotation);
-            _rightHandTarget.SetLocalPositionAndRotation(weaponView.RightHand.localPosition, weaponView.RightHand.localRotation);           
+            _leftHandTarget.position = weaponView.LeftHand.position;
+            _rightHandTarget.position = weaponView.RightHand.position;
         }        
     }
 }

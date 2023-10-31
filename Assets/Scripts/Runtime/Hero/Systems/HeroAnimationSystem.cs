@@ -50,8 +50,8 @@ namespace SA.FPS
                 if (engine.IsGrounded && vel.sqrMagnitude > 0f) 
                 {
                     normSpeed = (vel.sqrMagnitude > config.Prm.WalkSpeed) ? 1f : 0.5f;
-                    hor = engine.RB.velocity.x;
-                    vert = engine.RB.velocity.z;
+                    vert = Vector3.Dot(engine.RB.velocity, engine.RB.transform.forward);
+                    hor = Vector3.Dot(engine.RB.velocity, engine.RB.transform.right);
                 }
                 
                 animation.HeadAnimatorRef.SetFloat(animation.SpeedPrm, normSpeed, 0.2f, Time.deltaTime);   
