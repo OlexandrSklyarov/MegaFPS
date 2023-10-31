@@ -40,18 +40,23 @@ namespace SA.FPS
                 ref var attack = ref _attackPool.Get(ent); 
 
                 //movement
-                var isGrounded = engine.CharacterController.isGrounded;
-                var vel = engine.CharacterController.velocity;
+                var vel = engine.RB.velocity;
                 vel.y = 0f;
 
                 var normSpeed = 0f;
+                var hor = 0f;
+                var vert = 0f;
 
-                if (isGrounded && vel.sqrMagnitude > 0f) 
+                if (engine.IsGrounded && vel.sqrMagnitude > 0f) 
                 {
-                    normSpeed = (engine.Speed > config.Prm.WalkSpeed) ? 1f : 0.5f;
+                    normSpeed = (vel.sqrMagnitude > config.Prm.WalkSpeed) ? 1f : 0.5f;
+                    hor = engine.RB.velocity.x;
+                    vert = engine.RB.velocity.z;
                 }
                 
-                animation.AnimatorRef.SetFloat("SPEED", normSpeed, 0.2f, Time.deltaTime);   
+                animation.HeadAnimatorRef.SetFloat(animation.SpeedPrm, normSpeed, 0.2f, Time.deltaTime);   
+                animation.BodyAnimatorRef.SetFloat(animation.VertPrm, vert);   
+                animation.BodyAnimatorRef.SetFloat(animation.HorPrm, hor);   
             }
         }      
     }

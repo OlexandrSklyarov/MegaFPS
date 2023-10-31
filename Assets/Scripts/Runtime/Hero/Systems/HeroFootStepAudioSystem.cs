@@ -53,10 +53,10 @@ namespace SA.FPS
 
         private bool IsPlayStepTime(ref CharacterEngineComponent engine, ref HeroFootStepComponent footStep, ref CharacterConfigComponent config)
         {
-            var isGrounded = engine.CharacterController.isGrounded;
-            var isMoving = engine.CurrentMovement.x != 0f || engine.CurrentMovement.z != 0f;
+            var isGrounded = engine.IsGrounded;
+            var isMoving = engine.RB.velocity.x != 0f || engine.RB.velocity.z != 0f;
             var isNextStep = Time.time > footStep.NextStepTime;
-            var isThresholdReached = engine.CharacterController.velocity.magnitude > config.Prm.FootSteVelocityThreshold;
+            var isThresholdReached = engine.RB.velocity.magnitude > config.Prm.FootSteVelocityThreshold;
          
             return isGrounded && isMoving && isNextStep && isThresholdReached;
         }        

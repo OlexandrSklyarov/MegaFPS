@@ -4,8 +4,7 @@ namespace SA.FPS
 {
     public struct CharacterEngineComponent
     {
-        public CharacterController CharacterController;
-        public Vector3 CurrentMovement;
-        public float Speed;
+        public Rigidbody RB;
+        public bool IsGrounded;
     }
 }

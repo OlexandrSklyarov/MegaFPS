@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ae95814747c82bdb9db0cbca08f150, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  <WalkSpeed>k__BackingField: 250
-  <RunMultiplier>k__BackingField: 2
-  <JumpForce>k__BackingField: 5
-  <Gravity>k__BackingField: 9.81
+  <WalkSpeed>k__BackingField: 2
+  <RunSpeed>k__BackingField: 6
+  <MinSpeed>k__BackingField: 0.1
+  <JumpForce>k__BackingField: 100
+  <HeroLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
+  <MouseSensitivity>k__BackingField: 22
+  <UpAngle>k__BackingField: -70
+  <DownAngle>k__BackingField: 70
   <FootSteVelocityThreshold>k__BackingField: 2
   <SprintStepInterval>k__BackingField: 0.2
   <WalkStepInterval>k__BackingField: 0.4
   <MelleAttackCooldown>k__BackingField: 0.9
+  <AnimationBlendSpeed>k__BackingField: 8.9

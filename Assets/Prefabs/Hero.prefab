@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 4588815991571764513}
   - component: {fileID: 5787893437072427318}
   - component: {fileID: 8005867852081326094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -432,11 +432,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Config>k__BackingField: {fileID: 11400000, guid: ca2039a7ad3bdcfd2b867432b51a5dce,
     type: 2}
-  <CharacterController>k__BackingField: {fileID: 5787893437072427318}
+  <RB>k__BackingField: {fileID: 8005867852081326094}
+  <HandsWeaponTargetView>k__BackingField: {fileID: 0}
   <LookTarget>k__BackingField: {fileID: 6197389786600486624}
   <HeadRoot>k__BackingField: {fileID: 2260229402850345855}
   <Head>k__BackingField: {fileID: 913289492066904094}
-  <WeaponsRoot>k__BackingField: {fileID: 1761148183764695234}
   <HeroCamera>k__BackingField: {fileID: 34459543299370154}
   <Animator>k__BackingField: {fileID: 1948362830932633534}
 --- !u!143 &5787893437072427318

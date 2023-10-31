@@ -11,6 +11,7 @@ namespace SA.FPS
         private EcsWorld _world;
         private IEcsSystems _updateSystems;
         private IEcsSystems _fixedUpdateSystems;
+        private IEcsSystems _lateUpdateSystems;
 
         private void Start()
         {
@@ -24,6 +25,7 @@ namespace SA.FPS
             _world = new EcsWorld();
             _updateSystems = new EcsSystems(_world, data);
             _fixedUpdateSystems = new EcsSystems(_world, data);
+            _lateUpdateSystems = new EcsSystems(_world, data);
 
             PrepareWorld(); 
             AddSystems();  
@@ -46,10 +48,9 @@ namespace SA.FPS
             #endif
 
                 .Add(new HeroSpawnSystem())
+                .Add(new HeroCheckGroundSystem())
                 .Add(new HeroInputSystem())
                 .Add(new HeroJumpingSystem())
-                .Add(new HeroMovementSystem())
-                .Add(new HeroFPSLookCameraSystem())
                 .Add(new HeroAttackSystem())
                 .Add(new HeroFootStepAudioSystem())
                 .Add(new HeroShootShakeFXSystem())
@@ -64,6 +65,11 @@ namespace SA.FPS
 
             
             _fixedUpdateSystems 
+                .Add(new HeroPhysicsMovementSystem())
+                .Init();
+
+            _lateUpdateSystems
+                .Add(new HeroFPSLookCameraSystem())
                 .Init();
         }
 
@@ -74,16 +80,21 @@ namespace SA.FPS
         private void FixedUpdate() => _fixedUpdateSystems?.Run(); 
 
 
+        private void LateUpdate() => _lateUpdateSystems?.Run(); 
+
+
         private void OnDestroy()
         {
             _updateSystems?.Destroy();
             _updateSystems = null;   
 
             _fixedUpdateSystems?.Destroy();
-            _fixedUpdateSystems = null;         
+            _fixedUpdateSystems = null;  
+
+            _lateUpdateSystems?.Destroy();
+            _lateUpdateSystems = null;        
 
             _world?.Destroy();
-            _fixedUpdateSystems?.Destroy();
             _world = null;
         }
     }
