@@ -1,7 +1,6 @@
 using Leopotam.EcsLite;
 using Runtime.Extensions;
 using UnityEngine;
-using Util;
 
 namespace SA.FPS
 {
@@ -47,14 +46,11 @@ namespace SA.FPS
                 if (weapon.CurrentCooldown > 0f) //cooldown
                 {
                     weapon.CurrentCooldown -= Time.deltaTime;                                     
-                }
-                
+                }                
                 else if (ammo.Count > 0) //fire                
                 {                    
-                    Shoot(ref weapon, ref shootEvt);
-                    AddOwnerShakeFX(world, ref owner, ref weapon);
-                    weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
-                    ammo.Count--;
+                    Shoot(ref weapon, ref ammo, ref shootEvt);
+                    AddOwnerShakeFXComponent(world, ref owner, ref weapon);                    
 
                     //update ui event
                     world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);                                         
@@ -65,10 +61,8 @@ namespace SA.FPS
         }
 
 
-        private void Shoot(ref WeaponComponent weapon, ref TryShootComponent shootEvt)
+        private void Shoot(ref WeaponComponent weapon, ref AmmunitionComponent ammo, ref TryShootComponent shootEvt)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);  
-
             for (int i = 0; i < weapon.Settings.RayCountPerShoot; i++)
             {
                 //spread
@@ -93,6 +87,11 @@ namespace SA.FPS
                     }
                 }                
             }
+
+            ammo.Count--;
+            weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
+
+            FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);  
         }
         
 
@@ -109,7 +108,7 @@ namespace SA.FPS
         }
 
 
-        private void AddOwnerShakeFX(EcsWorld world, ref WeaponOwnerComponent owner, ref WeaponComponent weapon)
+        private void AddOwnerShakeFXComponent(EcsWorld world, ref WeaponOwnerComponent owner, ref WeaponComponent weapon)
         {    
             ref var shake = ref world.GetOrAddComponent<CameraShakeComponent>(owner.MyOwnerEntity);  
 

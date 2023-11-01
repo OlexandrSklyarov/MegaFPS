@@ -59,8 +59,8 @@ namespace SA.FPS
                 if (input.IsFire && pool.Has(ent)) 
                 {
                     ref var weapon = ref pool.Get(ent);
-                    var type = weapon.CurrentWeaponType;
-                    var weaponEntity = weapon.MyWeaponEntities[type];
+                    var type = weapon.CurrentUsedWeaponType;
+                    var weaponEntity = weapon.MyWeaponCollections[type];
 
                     CreateShootEvent(world, weaponEntity, ref look);     
                 }           
