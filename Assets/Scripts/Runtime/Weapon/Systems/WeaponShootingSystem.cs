@@ -84,7 +84,7 @@ namespace SA.FPS
                     if (hit.collider.TryGetComponent(out IDamageable target))
                     {
                         target.ApplyDamage(weapon.Settings.Damage, shootEvt.ShootPoint);
-                        Util.DebugUtility.PrintColor($"Enemy damaged!!!", Color.red);
+                        Util.DebugUtil.PrintColor($"Enemy damaged!!!", Color.red);
                     }
                     else
                     {

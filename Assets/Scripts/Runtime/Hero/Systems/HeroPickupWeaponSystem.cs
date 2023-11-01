@@ -42,12 +42,12 @@ namespace SA.FPS
 
                 if (!TryHeroTakeWeaponEvent(world, ent, ref evt, ref hero))
                 {
-                    DebugUtility.Print($"Try add ammo: {evt.Type}");
+                    DebugUtil.Print($"Try add ammo: {evt.Type}");
                     TryAddAmmo(world, ent, ref evt);  
                 }
                 else 
                 {
-                    DebugUtility.Print($"Pickup weapon {evt.Type}");                                      
+                    DebugUtil.Print($"Pickup weapon {evt.Type}");                                      
                 }
 
                 _evtPool.Del(ent);

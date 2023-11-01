@@ -33,7 +33,7 @@ namespace SA.FPS
 
         private void OnTriggerEnter(Collider other) 
         {
-            DebugUtility.PrintColor($"OnTrigger obj: {other.name}", Color.yellow);   
+            DebugUtil.PrintColor($"OnTrigger obj: {other.name}", Color.yellow);   
             
             if (other.TryGetComponent(out IPickupItemVisitable item))
             {      

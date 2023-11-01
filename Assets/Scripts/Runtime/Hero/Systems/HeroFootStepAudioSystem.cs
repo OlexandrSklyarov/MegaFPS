@@ -1,6 +1,7 @@
 using FMODUnity;
 using Leopotam.EcsLite;
 using UnityEngine;
+using Util;
 
 namespace SA.FPS
 {
@@ -47,7 +48,7 @@ namespace SA.FPS
                 {
                     RuntimeManager.PlayOneShot(_data.Config.Audio.Hero.FootSteps);
                     footStep.NextStepTime = Time.time + sprintInterval;
-                }    
+                } 
             }
         }
 

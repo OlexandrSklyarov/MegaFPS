@@ -22,7 +22,7 @@ MonoBehaviour:
   <MouseSensitivity>k__BackingField: 22
   <UpAngle>k__BackingField: -70
   <DownAngle>k__BackingField: 70
-  <FootSteVelocityThreshold>k__BackingField: 2
+  <FootSteVelocityThreshold>k__BackingField: 1
   <SprintStepInterval>k__BackingField: 0.2
   <WalkStepInterval>k__BackingField: 0.4
   <MelleAttackCooldown>k__BackingField: 0.9

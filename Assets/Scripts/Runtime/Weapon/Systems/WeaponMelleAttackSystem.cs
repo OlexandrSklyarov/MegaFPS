@@ -53,7 +53,7 @@ namespace SA.FPS
 
         private void Attack(ref WeaponComponent weapon)
         {
-            Util.DebugUtility.Print("Attack");
+            Util.DebugUtil.Print("Attack");
         }
     }
 }

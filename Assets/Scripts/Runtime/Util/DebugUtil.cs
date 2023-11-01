@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Util
 {
-    public static class DebugUtility
+    public static class DebugUtil
     {
         [Conditional("UNITY_EDITOR")]
         public static void Print(object msg) => UnityEngine.Debug.Log(msg);
