@@ -38,7 +38,6 @@ namespace SA.FPS
 
             //look (fps camera)
             ref var look = ref world.GetPool<HeroLookComponent>().Add(entity);
-            look.CameraOrigin = heroView.HeroCameraOrigin;
             look.Body = heroView.transform;
             look.HeadRoot = heroView.HeadRoot;
             look.Head = heroView.Head;
@@ -50,7 +49,6 @@ namespace SA.FPS
             //animation
             ref var anim = ref world.GetPool<CharacterAnimationComponent>().Add(entity);
             anim.HeadAnimatorRef = heroView.HeadAnimator;
-            anim.BodyAnimatorRef = heroView.BodyAnimator;
             anim.HorPrm = Animator.StringToHash("HOR");
             anim.VertPrm = Animator.StringToHash("VERT");
             anim.SpeedPrm = Animator.StringToHash("SPEED");

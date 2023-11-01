@@ -8,9 +8,7 @@ namespace SA.FPS
         public Transform Body;
         public Transform HeadRoot;
         public Transform Head;
-        public Transform CameraOrigin;
         public Camera FPS_Camera;
         public float VerticalRotation;
-        public float HorizontalVelocity;
     }
 }

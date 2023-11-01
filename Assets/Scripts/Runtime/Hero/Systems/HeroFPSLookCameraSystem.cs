@@ -35,8 +35,6 @@ namespace SA.FPS
                 ref var input = ref _inputPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
 
-                look.HeadRoot.position = look.CameraOrigin.transform.position;
-
                 var mouse_x = input.MouseX;
                 var mouse_y = input.MouseY;
 

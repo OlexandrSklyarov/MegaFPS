@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Weapons>k__BackingField:
   - <Type>k__BackingField: 1
-    <Prefab>k__BackingField: {fileID: -6519827088654444903, guid: a43f0865c72bcc7c49e842a70e1bdbc0,
+    <Prefab>k__BackingField: {fileID: 5596513391164556369, guid: 36a448a1fcbeca957b66c0accf29bcc5,
       type: 3}
     <Settings>k__BackingField: {fileID: 11400000, guid: ebddfa2dbf57ab452b6247445e626976,
       type: 2}
   - <Type>k__BackingField: 0
-    <Prefab>k__BackingField: {fileID: -6519827088654444903, guid: b230170121cc6812d85eef18e5954dba,
+    <Prefab>k__BackingField: {fileID: 556791978910754895, guid: 92387162b52856254a50c59f7fe600bf,
       type: 3}
     <Settings>k__BackingField: {fileID: 11400000, guid: 2ec3d97e319e757018068589af7a98df,
       type: 2}

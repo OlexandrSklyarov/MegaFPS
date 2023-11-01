@@ -44,19 +44,13 @@ namespace SA.FPS
                 vel.y = 0f;
 
                 var normSpeed = 0f;
-                var hor = 0f;
-                var vert = 0f;
 
                 if (engine.IsGrounded && vel.sqrMagnitude > 0f) 
                 {
                     normSpeed = (vel.sqrMagnitude > config.Prm.WalkSpeed) ? 1f : 0.5f;
-                    vert = Vector3.Dot(engine.RB.velocity, engine.RB.transform.forward);
-                    hor = Vector3.Dot(engine.RB.velocity, engine.RB.transform.right);
                 }
                 
-                animation.HeadAnimatorRef.SetFloat(animation.SpeedPrm, normSpeed, 0.2f, Time.deltaTime);   
-                animation.BodyAnimatorRef.SetFloat(animation.VertPrm, vert);   
-                animation.BodyAnimatorRef.SetFloat(animation.HorPrm, hor);   
+                animation.HeadAnimatorRef.SetFloat(animation.SpeedPrm, normSpeed, 0.2f, Time.deltaTime);  
             }
         }      
     }
