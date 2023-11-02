@@ -2,12 +2,12 @@ using Leopotam.EcsLite;
 
 namespace SA.FPS
 {
-    public class WorldItemInteractor : IPickupVisitor
+    public class WorldPickupItemInteractor : IPickupVisitor
     {
         private readonly EcsPackedEntity _heroEntity;
         private readonly EcsWorld _world;
 
-        public WorldItemInteractor(EcsWorld world, EcsPackedEntity entity)
+        public WorldPickupItemInteractor(EcsWorld world, EcsPackedEntity entity)
         {
             _heroEntity = entity;
             _world = world;

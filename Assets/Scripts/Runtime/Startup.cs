@@ -4,8 +4,7 @@ using Leopotam.EcsLite;
 namespace SA.FPS
 {
     public sealed class Startup : MonoBehaviour
-    {
-        [SerializeField] private GameConfig _config;      
+    {     
         [Space, SerializeField] private WorldData _worldData;       
 
         private EcsWorld _world;
@@ -17,9 +16,7 @@ namespace SA.FPS
         {
             var data = new SharedData()
             {
-                Config = _config,
-                WorldData = _worldData,
-                Services = new ServicesPool(_config)
+                WorldData = _worldData
             };
 
             _world = new EcsWorld();

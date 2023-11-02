@@ -12,7 +12,7 @@ namespace SA.FPS
 
         public void Init(IEcsSystems systems)
         {
-            _inputService = systems.GetShared<SharedData>().Services.GetService<InputService>();
+            _inputService = ServicesPool.Instance.GetService<InputService>();
             _inputService.Controls.Enable();
 
             _filter = systems.GetWorld()

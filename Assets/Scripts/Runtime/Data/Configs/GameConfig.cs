@@ -6,7 +6,7 @@ using UnityEngine;
 namespace SA.FPS
 {
     [CreateAssetMenu(fileName = "GameConfig", menuName = "SO/GameConfig")]
-    public sealed class GameConfig : ScriptableObject
+    public sealed class GameConfig : ScriptableObject, IService
     {
         [field: BoxGroup("Prefabs"), SerializeField] public HeroView HeroPrefab {get; private set;}
         [field: BoxGroup("Prefabs"), SerializeField] public CinemachineVirtualCamera VirtualCameraPrefab  {get; private set;}

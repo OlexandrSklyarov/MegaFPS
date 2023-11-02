@@ -15,8 +15,7 @@ namespace SA.FPS
 
         public void Init(IEcsSystems systems)
         {
-            var data = systems.GetShared<SharedData>();
-            _weaponFactory = data.Services.GetService<IWeaponItemFactory>();
+            _weaponFactory = ServicesPool.Instance.GetService<IWeaponItemFactory>();
             
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()

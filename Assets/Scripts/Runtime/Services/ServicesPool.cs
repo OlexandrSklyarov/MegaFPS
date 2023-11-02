@@ -4,19 +4,37 @@ using Runtime.Services.WeaponsFactory;
 
 namespace SA.FPS
 {
-    public sealed class ServicesPool
+    public sealed class ServicesPool : IDisposable
     {
-        private readonly Dictionary<Type, IService> _services;
-
-        public ServicesPool(GameConfig _config)
-        {            
-            _services = new Dictionary<Type, IService>()
+        public static ServicesPool Instance 
+        { 
+            get
             {
-                {typeof(InputService), new InputService()},
-                {typeof(IWeaponItemFactory), new WeaponItemFactory(_config.WeaponData)},
-                {typeof(IPoolManager), new PoolManager(_config.PoolData)}
-            };
+                if (_instance == null) _instance = new ServicesPool();
+                return _instance;
+            }
         }
+
+        private static ServicesPool _instance;
+        private readonly Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+        private bool _isInit;
+
+
+        public void Init(GameConfig config)
+        {            
+            if (_isInit)
+            {
+                throw new Exception($"Initialization has already been done!!!");
+            }
+
+            _services.Add(typeof(GameConfig), config);
+            _services.Add(typeof(InputService), new InputService());
+            _services.Add(typeof(IWeaponItemFactory), new WeaponItemFactory(config.WeaponData));
+            _services.Add(typeof(IPoolManager), new PoolManager(config.PoolData));       
+
+            _isInit = true;     
+        }
+
 
         public T GetService<T>() where T : IService
         {
@@ -29,5 +47,8 @@ namespace SA.FPS
 
             return (T)_services[type];
         }
+
+
+        public void Dispose() => _instance = null;       
     }
 }

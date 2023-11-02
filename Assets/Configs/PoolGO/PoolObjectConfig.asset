@@ -18,3 +18,8 @@ MonoBehaviour:
       type: 3}
     <StartCount>k__BackingField: 10
     <MaxPoolCount>k__BackingField: 32
+  <UIWeaponView>k__BackingField:
+    <Prefab>k__BackingField: {fileID: 1287019913067735995, guid: 07ebb0b0b6a3fcc4182b7aa899e27e9e,
+      type: 3}
+    <StartCount>k__BackingField: 3
+    <MaxPoolCount>k__BackingField: 3

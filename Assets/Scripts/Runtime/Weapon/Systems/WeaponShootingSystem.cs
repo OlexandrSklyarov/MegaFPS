@@ -6,7 +6,7 @@ namespace SA.FPS
 {
     public sealed class WeaponShootingSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private IPoolManager _pool;
+        private IPoolManager _poolManager;
         private EcsFilter _weaponFilter;
         private EcsPool<TryShootComponent> _tryShootEvtPool;
         private EcsPool<WeaponComponent> _weaponPool;
@@ -15,7 +15,7 @@ namespace SA.FPS
 
         public void Init(IEcsSystems systems)
         {     
-            _pool = systems.GetShared<SharedData>().Services.GetService<IPoolManager>();
+            _poolManager = ServicesPool.Instance.GetService<IPoolManager>();
 
             _weaponFilter = systems.GetWorld()
                 .Filter<WeaponComponent>()
@@ -82,7 +82,7 @@ namespace SA.FPS
                     }
                     else
                     {
-                        var decal = _pool.GetDecal(weapon.Settings.DecalType);
+                        var decal = _poolManager.GetDecal(weapon.Settings.DecalType);
                         decal.SetPoint(hit.normal, hit.point);
                     }
                 }                

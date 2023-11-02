@@ -19,7 +19,7 @@ namespace SA.FPS
 
         private EcsPackedEntity _heroEntity;
         private EcsWorld _world;
-        private WorldItemInteractor _worldItemInteractor;
+        private WorldPickupItemInteractor _pickupItemInteractor;
 
 
         public void Init(int entity, EcsWorld world)
@@ -27,7 +27,7 @@ namespace SA.FPS
             _heroEntity = world.PackEntity(entity);
             _world = world;
 
-            _worldItemInteractor = new WorldItemInteractor(_world, _heroEntity);
+            _pickupItemInteractor = new WorldPickupItemInteractor(_world, _heroEntity);
         }
 
 
@@ -37,7 +37,7 @@ namespace SA.FPS
             
             if (other.TryGetComponent(out IPickupItemVisitable item))
             {      
-                item.Pickup(_worldItemInteractor);
+                item.Pickup(_pickupItemInteractor);
             } 
         }
     }

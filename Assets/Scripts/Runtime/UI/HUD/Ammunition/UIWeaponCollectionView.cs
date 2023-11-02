@@ -1,13 +1,19 @@
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 namespace SA.FPS.Runtime.UI.HUD
 {
     public class UIWeaponCollectionView : MonoBehaviour
     {
-        [SerializeField] private RectTransform _content;
-        [SerializeField] private UIWeaponView _prefab;
+        [SerializeField] private RectTransform _content;        
 
-        public void Awake() => ClearContent();
+        private IPoolManager _poolManager;
+
+        public void Awake() 
+        {
+            _poolManager = ServicesPool.Instance.GetService<IPoolManager>();
+            ClearContent();
+        } 
 
         public void SetWeaponCollection(IEnumerable<UIWeaponItemView> views)
         {
@@ -16,9 +22,16 @@ namespace SA.FPS.Runtime.UI.HUD
             foreach(var view in views)
             {
                 Util.DebugUtil.PrintColor($"{view.Icon.name} is used: {view.IsUsed}", Color.cyan);
-                var item = Instantiate(_prefab, _content);
+                var item = GetItem();
                 item.SetIcon(view.Icon, view.IsUsed);
             }
+        }
+
+        private UIWeaponView GetItem()
+        {
+            var item = _poolManager.GetUIWeaponView();
+            item.transform.SetParent(_content);
+            return item;
         }
 
         private void ClearContent()

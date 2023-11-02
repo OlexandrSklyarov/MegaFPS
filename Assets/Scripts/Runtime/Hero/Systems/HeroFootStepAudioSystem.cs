@@ -1,13 +1,12 @@
 using FMODUnity;
 using Leopotam.EcsLite;
 using UnityEngine;
-using Util;
 
 namespace SA.FPS
 {
     public sealed class HeroFootStepAudioSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private SharedData _data;
+        private GameConfig _config;
         private EcsFilter _filter;
         private EcsPool<HeroFootStepComponent> _footStepPool;
         private EcsPool<CharacterConfigComponent> _configPool;
@@ -16,7 +15,7 @@ namespace SA.FPS
 
         public void Init(IEcsSystems systems)
         {
-            _data = systems.GetShared<SharedData>();
+            _config = ServicesPool.Instance.GetService<GameConfig>();
             
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()
@@ -46,7 +45,7 @@ namespace SA.FPS
 
                 if (IsPlayStepTime(ref engine, ref footStep, ref config))
                 {
-                    RuntimeManager.PlayOneShot(_data.Config.Audio.Hero.FootSteps);
+                    RuntimeManager.PlayOneShot(_config.Audio.Hero.FootSteps);
                     footStep.NextStepTime = Time.time + sprintInterval;
                 } 
             }

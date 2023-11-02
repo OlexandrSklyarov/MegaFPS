@@ -3,46 +3,46 @@ using UnityEngine.Pool;
 
 namespace SA.FPS
 {
-    public class DecalPool
+    public class BaseGOPool<T> where T : MonoBehaviour, IPoolable<T>
     {
-        private readonly Decal _prefab;
+        private readonly T _prefab;
         private readonly Transform _container;
-        private readonly IObjectPool<Decal>_innerPool;
+        private readonly IObjectPool<T>_innerPool;
 
-        public DecalPool(Decal prefab, int startCount, int maxCount)
+        public BaseGOPool(T prefab, int startCount, int maxCount, string poolName)
         {            
             _prefab = prefab;
-            _container = new GameObject("[DecalPool]").transform;
+            _container = new GameObject($"[{poolName}]").transform;
             
-            _innerPool = new ObjectPool<Decal>
+            _innerPool = new ObjectPool<T>
             (
                 OnCreateItem, OnTakeItem, OnReturnItem, OnDestroyItem, true, startCount, maxCount
             );            
         }
 
-        private void OnDestroyItem(Decal decal)
+        private void OnDestroyItem(T decal)
         {
             UnityEngine.Object.Destroy(decal.gameObject);
         }
 
-        private void OnReturnItem(Decal decal)
+        private void OnReturnItem(T decal)
         {
             decal.gameObject.SetActive(false);
         }
 
-        private void OnTakeItem(Decal decal)
+        private void OnTakeItem(T decal)
         {
             decal.gameObject.SetActive(true);
         }
 
-        private Decal OnCreateItem()
+        private T OnCreateItem()
         {
             var item = UnityEngine.Object.Instantiate(_prefab, _container);
-            (item as IPoolable<Decal>).SetPool(_innerPool);
+            item.SetPool(_innerPool);
             return item;            
         }
 
-        public Decal GetDecal()
+        public T Get()
         {
             return _innerPool.Get();
         }

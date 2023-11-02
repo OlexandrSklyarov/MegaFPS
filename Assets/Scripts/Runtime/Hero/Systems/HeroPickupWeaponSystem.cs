@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Leopotam.EcsLite;
 using Runtime.Extensions;
 using Runtime.Services.WeaponsFactory;
-using SA.FPS.Runtime.UI.HUD;
 using UnityEngine;
-using Util;
 
 namespace SA.FPS
 {
@@ -19,7 +16,7 @@ namespace SA.FPS
         public void Init(IEcsSystems systems)
         {
             var data = systems.GetShared<SharedData>();
-            _weaponFactory = data.Services.GetService<IWeaponItemFactory>();
+            _weaponFactory = ServicesPool.Instance.GetService<IWeaponItemFactory>();
         
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()

@@ -9,11 +9,12 @@ namespace SA.FPS
         public void Init(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-            var data = systems.GetShared<SharedData>();          
+            var data = systems.GetShared<SharedData>();  
+            var gameConfig = ServicesPool.Instance.GetService<GameConfig>();        
 
             var entity = world.NewEntity();
 
-            var heroView = GetView(data.Config.HeroPrefab, data.WorldData.HeroSpawnPoint);
+            var heroView = GetView(gameConfig.HeroPrefab, data.WorldData.HeroSpawnPoint);
             heroView.Init(entity, world);            
             
             //hero
@@ -30,8 +31,8 @@ namespace SA.FPS
 
             //tps camera
             ref var tpsCamera = ref world.GetPool<TPSCameraComponent>().Add(entity);
-            tpsCamera.Virtual = GetCamera(data, heroView);
-            tpsCamera.TPS_Camera = GetTPSCamera(data);
+            tpsCamera.Virtual = GetCamera(data, heroView, gameConfig);
+            tpsCamera.TPS_Camera = GetTPSCamera(gameConfig);
 
             //input
             world.GetPool<InputComponent>().Add(entity);
@@ -58,11 +59,11 @@ namespace SA.FPS
         }
        
 
-        private TPSCamera GetTPSCamera(SharedData data)
+        private TPSCamera GetTPSCamera(GameConfig gameConfig)
         {
             var camera = UnityEngine.Object.Instantiate
             (
-                data.Config.TPSCameraPrefab,
+                gameConfig.TPSCameraPrefab,
                 null
             );
 
@@ -71,11 +72,11 @@ namespace SA.FPS
         }
 
 
-        private CinemachineVirtualCamera GetCamera(SharedData data, HeroView heroView)
+        private CinemachineVirtualCamera GetCamera(SharedData data, HeroView heroView, GameConfig gameConfig)
         {
             var camera = UnityEngine.Object.Instantiate
             (
-                data.Config.VirtualCameraPrefab,
+                gameConfig.VirtualCameraPrefab,
                 null
             );
 
