@@ -56,6 +56,7 @@ namespace SA.FPS
                 .Add(new HeroShootShakeFXSystem())
                 .Add(new HeroAnimationSystem())
                 .Add(new HeroPickupWeaponSystem())                
+                .Add(new HeroSwitchWeaponSystem())                
                 .Add(new HeroUpdateWeaponsUISystem())
 
                 .Add(new WeaponMelleAttackSystem())

@@ -5,7 +5,7 @@ using SA.FPS.Runtime.UI.HUD;
 
 namespace SA.FPS
 {
-    public sealed class HeroUpdateWeaponsUISystem: IEcsInitSystem, IEcsRunSystem
+    public sealed class HeroUpdateWeaponsUISystem : IEcsInitSystem, IEcsRunSystem
     {
         private HUDController _uiController;
         private EcsFilter _filter;

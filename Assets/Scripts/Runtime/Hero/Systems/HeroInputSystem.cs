@@ -1,4 +1,5 @@
 using Leopotam.EcsLite;
+using Runtime.Extensions;
 using UnityEngine;
 
 namespace SA.FPS
@@ -30,6 +31,8 @@ namespace SA.FPS
 
         public void Run(IEcsSystems systems)
         {     
+            var world = systems.GetWorld();
+
             foreach(var ent in _filter)
             {
                 ref var input = ref _inputPool.Get(ent);
@@ -58,6 +61,12 @@ namespace SA.FPS
 
                 //reload
                 input.IsReload = _inputService.Controls.Player.Reload.ReadValue<float>() > 0;
+
+                //switch weapon
+                if (_inputService.Controls.Player.SwitchWeapon.ReadValue<float>() > 0)
+                {
+                    world.GetOrAddComponent<SwitchWeaponEvent>(ent);
+                }
             }
         }
     }

@@ -7,5 +7,7 @@ namespace SA.FPS
     {        
         public Dictionary<WeaponType, int> MyWeaponCollections;        
         public WeaponType CurrentUsedWeaponType;
+
+        public float LastSwitchTime { get; internal set; }
     }
 }

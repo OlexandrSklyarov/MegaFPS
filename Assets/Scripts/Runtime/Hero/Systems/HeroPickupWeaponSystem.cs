@@ -94,8 +94,8 @@ namespace SA.FPS
             //weapon not found
             if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
             {                
-                var weaponEntity = CreateWeaponEntity(world, handsTargets, settings, heroEntity);                  
-                hasWeapon.MyWeaponCollections.Add(pickupEvent.Type, weaponEntity);
+                CreateWeaponEntity(world, handsTargets, settings, heroEntity, ref hasWeapon, ref pickupEvent);                  
+                
                 isTakeNewWeapon = true;
             }
 
@@ -119,8 +119,9 @@ namespace SA.FPS
         }
 
 
-        private int CreateWeaponEntity(EcsWorld world,
-            HandsWeaponTargetView handsWeaponTargetView, WeaponSettings settings, int ownerEntity)
+        private void CreateWeaponEntity(EcsWorld world, HandsWeaponTargetView handsWeaponTargetView, 
+            WeaponSettings settings, int ownerEntity, ref HasWeaponComponent hasWeapon, 
+            ref CharacterPickupWeaponEvent pickupEvent)
         {
             var ent = world.NewEntity();
             
@@ -143,7 +144,8 @@ namespace SA.FPS
             //owner
             world.GetPool<WeaponChangeStateComponentTag>().Add(ent);
 
-            return ent;
+            //add to inventory
+            hasWeapon.MyWeaponCollections.Add(pickupEvent.Type, ent);
         }
     }
 }

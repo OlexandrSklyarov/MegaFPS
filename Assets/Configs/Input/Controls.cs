@@ -89,6 +89,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""ced96d43-b627-4833-b665-2d086040bee9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f04e264e-782b-4177-b412-df4beb47246b"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -297,6 +317,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_SwitchWeapon = m_Player.FindAction("SwitchWeapon", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_OnToggle = m_Debug.FindAction("OnToggle", throwIfNotFound: true);
@@ -369,6 +390,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_SwitchWeapon;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -380,6 +402,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @SwitchWeapon => m_Wrapper.m_Player_SwitchWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -410,6 +433,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
+            @SwitchWeapon.started += instance.OnSwitchWeapon;
+            @SwitchWeapon.performed += instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled += instance.OnSwitchWeapon;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -435,6 +461,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
+            @SwitchWeapon.started -= instance.OnSwitchWeapon;
+            @SwitchWeapon.performed -= instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -524,6 +553,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnSwitchWeapon(InputAction.CallbackContext context);
     }
     public interface IDebugActions
     {
