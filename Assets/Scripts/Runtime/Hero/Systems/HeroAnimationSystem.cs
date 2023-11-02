@@ -11,6 +11,7 @@ namespace SA.FPS
         private EcsPool<CharacterAttackComponent> _attackPool;
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<CharacterEngineComponent> _enginePool;
+        private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -27,7 +28,8 @@ namespace SA.FPS
             _animationPool = world.GetPool<CharacterAnimationComponent>();
             _attackPool = world.GetPool<CharacterAttackComponent>();
             _configPool = world.GetPool<CharacterConfigComponent>();
-            _enginePool = world.GetPool<CharacterEngineComponent>();
+            _enginePool = world.GetPool<CharacterEngineComponent>(); 
+            _inputPool = world.GetPool<InputComponent>(); 
         }
 
         public void Run(IEcsSystems systems)
@@ -38,19 +40,21 @@ namespace SA.FPS
                 ref var config = ref _configPool.Get(ent);
                 ref var engine = ref _enginePool.Get(ent);
                 ref var attack = ref _attackPool.Get(ent); 
+                ref var input = ref _inputPool.Get(ent); 
 
                 //movement
+                var isMoving = input.Vertical != 0f || input.Horizontal != 0f;
                 var vel = engine.RB.velocity;
                 vel.y = 0f;
 
                 var normSpeed = 0f;
 
-                if (engine.IsGrounded && vel.sqrMagnitude > 0f) 
+                if (engine.IsGrounded && isMoving) 
                 {
-                    normSpeed = (vel.sqrMagnitude > config.Prm.WalkSpeed) ? 1f : 0.5f;
+                    normSpeed = (vel.sqrMagnitude > config.Prm.WalkSpeed * config.Prm.WalkSpeed) ? 1f : 0.5f;
                 }
                 
-                animation.HeadAnimatorRef.SetFloat(animation.SpeedPrm, normSpeed, 0.2f, Time.deltaTime);  
+                animation.HeadAnimatorRef.SetFloat(animation.SpeedPrm, normSpeed, 0.1f, Time.deltaTime);  
             }
         }      
     }

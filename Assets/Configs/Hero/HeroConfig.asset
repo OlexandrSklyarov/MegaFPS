@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WalkSpeed>k__BackingField: 2
   <RunSpeed>k__BackingField: 6
-  <MinSpeed>k__BackingField: 0.1
-  <JumpForce>k__BackingField: 100
+  <JumpForce>k__BackingField: 6
+  <GroundCheckDistance>k__BackingField: 0.5
+  <GroundCheckSphereCastRadius>k__BackingField: 0.3
   <HeroLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
@@ -23,7 +24,6 @@ MonoBehaviour:
   <UpAngle>k__BackingField: -70
   <DownAngle>k__BackingField: 70
   <FootSteVelocityThreshold>k__BackingField: 1
-  <SprintStepInterval>k__BackingField: 0.2
-  <WalkStepInterval>k__BackingField: 0.4
+  <SprintStepInterval>k__BackingField: 0.25
+  <WalkStepInterval>k__BackingField: 0.5
   <MelleAttackCooldown>k__BackingField: 0.9
-  <AnimationBlendSpeed>k__BackingField: 8.9

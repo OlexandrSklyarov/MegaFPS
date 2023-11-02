@@ -8,8 +8,10 @@ namespace SA.FPS
     {        
         [field: Header("Movement"), SerializeField, Min(1f)] public float WalkSpeed {get; private set;} = 2f;
         [field: SerializeField, Min(1f)] public float RunSpeed {get; private set;} = 6f;
-        [field: SerializeField, Min(0.01f)] public float MinSpeed {get; private set;} = 0.1f;
         [field: SerializeField, Min(1f)] public float JumpForce {get; private set;} = 5f;
+        [field: SerializeField, Min(0.1f)] public float GroundCheckDistance {get; private set;} = 0.5f;
+        [field: SerializeField, Min(0.1f)] public float GroundCheckSphereCastRadius {get; private set;} = 0.2f;
+
         [field: SerializeField, Min(1f)] public LayerMask HeroLayer {get; private set;}        
 
         [field: Space, BoxGroup("Camera"), SerializeField, Min(0.1f)] public float MouseSensitivity {get; private set;} = 22f;
@@ -21,7 +23,5 @@ namespace SA.FPS
         [field: SerializeField, Min(0.01f)] public float WalkStepInterval {get; private set;} = 0.4f;
         
         [field: Space, BoxGroup("Attack"), SerializeField, Min(0.01f)] public float MelleAttackCooldown {get; private set;} = 1.5f;
-        
-        [field: Space, BoxGroup("Animation"), SerializeField, Min(1f)] public float AnimationBlendSpeed {get; private set;} = 8.9f;
     }
 }

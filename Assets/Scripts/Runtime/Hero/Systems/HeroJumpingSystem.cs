@@ -34,9 +34,10 @@ namespace SA.FPS
                 ref var input = ref _inputPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
 
-                if (engine.IsGrounded && input.IsJump)
+                if (engine.IsGrounded && input.IsJump && Time.time > engine.NextJumpTime)
                 {
-                    engine.RB.AddForce(Vector3.up * config.Prm.JumpForce, ForceMode.Impulse);                    
+                    engine.RB.AddForce(Vector3.up * config.Prm.JumpForce, ForceMode.VelocityChange); 
+                    engine.NextJumpTime = Time.time + 0.5f;               
                 }
             }
         }

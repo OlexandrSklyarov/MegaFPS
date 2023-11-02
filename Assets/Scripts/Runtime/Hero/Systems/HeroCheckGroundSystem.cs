@@ -30,15 +30,22 @@ namespace SA.FPS
                 ref var engine = ref _enginePool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
 
-                var origin = engine.RB.transform.position + Vector3.up * 0.3f;
+                var origin = engine.RB.transform.position + Vector3.up * config.Prm.GroundCheckDistance * 0.9f;
 
-                engine.IsGrounded = Physics.Raycast
+                var isGroundResult = Physics.SphereCast
                 (
                     origin,
+                    config.Prm.GroundCheckSphereCastRadius,
                     Vector3.down,
-                    0.4f,
+                    out var hit,
+                    config.Prm.GroundCheckDistance,
                     ~config.Prm.HeroLayer
                 );
+
+                if (!engine.IsGrounded && isGroundResult) 
+                    engine.NextJumpTime = Time.time + 0.1f;
+                
+                engine.IsGrounded = isGroundResult;
             }
         }
     }

@@ -37,7 +37,7 @@ namespace SA.FPS
 
                 var moveDirection = new Vector3(input.Horizontal, 0f, input.Vertical);
 
-                var speed = (moveDirection == Vector3.zero) ? config.Prm.MinSpeed : (input.IsRun) ? 
+                var speed = (moveDirection == Vector3.zero) ? 0f : (input.IsRun) ? 
                     config.Prm.RunSpeed : config.Prm.WalkSpeed;                
 
                 var move = engine.RB.transform.TransformDirection(moveDirection) * speed;
