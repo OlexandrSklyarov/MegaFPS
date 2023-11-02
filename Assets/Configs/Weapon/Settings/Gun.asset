@@ -28,10 +28,10 @@ MonoBehaviour:
     m_Bits: 129
   <FireSfx>k__BackingField:
     Guid:
-      Data1: 1406286586
-      Data2: 1188512737
-      Data3: 247088792
-      Data4: -1850713825
-    Path: event:/MAcineGunFire
+      Data1: 792737480
+      Data2: 1150612890
+      Data3: -217837144
+      Data4: 1395282730
+    Path: event:/GunFire
   <Sprite>k__BackingField: {fileID: 21300022, guid: 5acb27b603af6d44ea6113c4b7b15385,
     type: 3}

@@ -32,6 +32,6 @@ MonoBehaviour:
       Data2: 1188512737
       Data3: 247088792
       Data4: -1850713825
-    Path: event:/MAcineGunFire
+    Path: event:/MacineGunFire
   <Sprite>k__BackingField: {fileID: 21300024, guid: 5acb27b603af6d44ea6113c4b7b15385,
     type: 3}

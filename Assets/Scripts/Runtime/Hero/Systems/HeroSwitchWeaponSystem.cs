@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using Leopotam.EcsLite;
+using Runtime.Extensions;
 using Runtime.Services.WeaponsFactory;
 using UnityEngine;
 
@@ -31,6 +33,8 @@ namespace SA.FPS
 
         public void Run(IEcsSystems systems)
         {            
+            var world = systems.GetWorld();
+
             foreach(var ent in _filter)
             {
                 _eventPool.Del(ent);
@@ -41,7 +45,7 @@ namespace SA.FPS
                 if (hasWeapon.LastSwitchTime > Time.time) continue;
                 if (hasWeapon.MyWeaponCollections.Count < 2) continue;
 
-                var nextWeaponType = GetNextWeaponType(ref hasWeapon);
+                var (weaponType, weaponEntity) = GetNextWeaponType(ref hasWeapon);
 
                 var handsTargets = hero.View.HandsWeaponTargetView;  
 
@@ -52,15 +56,21 @@ namespace SA.FPS
                 }
 
                 //new weapon
-                var (weapon, settings) = _weaponFactory.CreateWeaponItem(nextWeaponType, handsTargets.WeaponsRoot);
+                var (weapon, settings) = _weaponFactory.CreateWeaponItem(weaponType, handsTargets.WeaponsRoot);
                 handsTargets.SetTargets(weapon); 
                 
-                hasWeapon.CurrentUsedWeaponType = nextWeaponType;
+                hasWeapon.CurrentUsedWeaponType = weaponType;
                 hasWeapon.LastSwitchTime = Time.time + 0.5f;
+
+                //add update ui event for weapon
+                world.GetOrAddComponent<WeaponChangeStateComponentTag>(weaponEntity);
+
+                //add update ui event for Hero
+                world.GetOrAddComponent<UpdateWeaponsViewEvent>(ent);
             }
         }
 
-        private WeaponType GetNextWeaponType(ref HasWeaponComponent hasWeapon)
+        private (WeaponType weaponType, int weaponEntity) GetNextWeaponType(ref HasWeaponComponent hasWeapon)
         {
             var collection = hasWeapon.MyWeaponCollections.ToList();
             var index = 0;
@@ -77,7 +87,7 @@ namespace SA.FPS
             ++index;
             index %= collection.Count;
 
-            return collection[index].Key;
+            return (collection[index].Key, collection[index].Value);
         }
     }
 }
