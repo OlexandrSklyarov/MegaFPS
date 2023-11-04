@@ -1,4 +1,5 @@
 
+using Cinemachine;
 using UnityEngine;
 
 namespace SA.FPS
@@ -8,7 +9,9 @@ namespace SA.FPS
         public Transform Body;
         public Transform HeadRoot;
         public Transform Head;
-        public Camera FPS_Camera;
+        public Transform FPS_VirtualCamera;
+        public Transform FPS_CameraTarget;
+        public CinemachinePOV VirtualCameraAimPOV;
         public float VerticalRotation;
     }
 }

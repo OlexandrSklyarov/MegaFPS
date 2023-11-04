@@ -4,7 +4,6 @@ namespace SA.FPS
 {
     public struct TPSCameraComponent
     {
-        public CinemachineVirtualCamera Virtual;
-        public TPSCamera TPS_Camera;
+        public CinemachineVirtualCamera VirtualCamera;
     }
 }

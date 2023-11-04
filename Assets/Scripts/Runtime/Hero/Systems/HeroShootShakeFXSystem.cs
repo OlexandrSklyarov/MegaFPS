@@ -29,7 +29,7 @@ namespace SA.FPS
                 ref var shake = ref _shakePool.Get(ent);
                 ref var look = ref _lookPool.Get(ent);
 
-                var tr = look.FPS_Camera.transform;
+                var tr = look.FPS_CameraTarget;
 
                 tr.DOShakePosition(shake.Duration, shake.Strength, shake.Vibrato, shake.Randomness, false, true, ShakeRandomnessMode.Harmonic)
                     .SetEase(Ease.InOutBounce)

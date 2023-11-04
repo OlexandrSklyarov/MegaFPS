@@ -31,8 +31,7 @@ namespace SA.FPS
 
             //tps camera
             ref var tpsCamera = ref world.GetPool<TPSCameraComponent>().Add(entity);
-            tpsCamera.Virtual = GetCamera(data, heroView, gameConfig);
-            tpsCamera.TPS_Camera = GetTPSCamera(gameConfig);
+            tpsCamera.VirtualCamera = GetTPSVirtualCamera(data, heroView, gameConfig);
 
             //input
             world.GetPool<InputComponent>().Add(entity);
@@ -42,7 +41,9 @@ namespace SA.FPS
             look.Body = heroView.transform;
             look.HeadRoot = heroView.HeadRoot;
             look.Head = heroView.Head;
-            look.FPS_Camera = heroView.HeroCamera;
+            look.FPS_CameraTarget = heroView.FPSHeroCameraTarget;
+            SetupFpsVirtualCamera(data, ref look);
+            
 
             //audio
             world.GetPool<HeroFootStepComponent>().Add(entity);
@@ -57,22 +58,19 @@ namespace SA.FPS
             //attack
             ref var attack = ref world.GetPool<CharacterAttackComponent>().Add(entity);
         }
-       
 
-        private TPSCamera GetTPSCamera(GameConfig gameConfig)
+        private void SetupFpsVirtualCamera(SharedData data, ref HeroLookComponent look)
         {
-            var camera = UnityEngine.Object.Instantiate
-            (
-                gameConfig.TPSCameraPrefab,
-                null
-            );
+            var vc = data.WorldData.FPSVirtualCamera;
+            vc.Follow = look.FPS_CameraTarget;
+            vc.LookAt = look.FPS_CameraTarget;
 
-            camera.Off();
-            return camera;
-        }
+            look.FPS_VirtualCamera = vc.transform;
+            look.VirtualCameraAimPOV = vc.GetCinemachineComponent<CinemachinePOV>();
+        }     
 
 
-        private CinemachineVirtualCamera GetCamera(SharedData data, HeroView heroView, GameConfig gameConfig)
+        private CinemachineVirtualCamera GetTPSVirtualCamera(SharedData data, HeroView heroView, GameConfig gameConfig)
         {
             var camera = UnityEngine.Object.Instantiate
             (
@@ -82,6 +80,7 @@ namespace SA.FPS
 
             camera.Follow = heroView.FollowTarget;
             camera.LookAt = heroView.LookTarget;
+            camera.Priority = 0;
             camera.enabled = false;
 
             return camera;

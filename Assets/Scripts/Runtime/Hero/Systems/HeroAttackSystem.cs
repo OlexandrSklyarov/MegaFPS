@@ -79,8 +79,8 @@ namespace SA.FPS
         private void CreateShootEvent(EcsWorld world, int weaponEntity, ref HeroLookComponent look)
         {
             ref var evt = ref world.GetOrAddComponent<TryShootComponent>(weaponEntity);
-            evt.ShootPoint = look.FPS_Camera.transform.position;
-            evt.Direction = look.FPS_Camera.transform.forward;
+            evt.ShootPoint = look.FPS_VirtualCamera.position;
+            evt.Direction = look.FPS_VirtualCamera.forward;
         }
     }
 }

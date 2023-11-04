@@ -12,7 +12,7 @@ namespace SA.FPS
         [field: SerializeField] public Transform LookTarget {get; private set;}
         [field: SerializeField] public Transform HeadRoot {get; private set;}
         [field: SerializeField] public Transform Head {get; private set;}
-        [field: SerializeField] public Camera HeroCamera {get; private set;}
+        [field: SerializeField] public Transform FPSHeroCameraTarget {get; private set;}
         [field: SerializeField] public Animator HeadAnimator {get; private set;}
         
         public Transform FollowTarget => transform;
