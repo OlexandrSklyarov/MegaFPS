@@ -41,7 +41,8 @@ namespace SA.FPS
                     config.Prm.RunSpeed : config.Prm.WalkSpeed;                
 
                 var move = engine.RB.transform.TransformDirection(moveDirection) * speed;
-                engine.RB.velocity = new Vector3(move.x, engine.RB.velocity.y, move.z);
+                var nextPosition = engine.RB.transform.position + move * Time.fixedDeltaTime;
+                engine.RB.MovePosition(nextPosition);
             }
         }
     }

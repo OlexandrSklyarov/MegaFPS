@@ -16,7 +16,7 @@ MonoBehaviour:
   <RunSpeed>k__BackingField: 6
   <JumpForce>k__BackingField: 6
   <GroundCheckDistance>k__BackingField: 0.5
-  <GroundCheckSphereCastRadius>k__BackingField: 0.3
+  <GroundCheckSphereCastRadius>k__BackingField: 0.25
   <HeroLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
