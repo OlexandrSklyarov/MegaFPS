@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
-  _amount: 60
+  _settings: {fileID: 11400000, guid: 2ec3d97e319e757018068589af7a98df, type: 2}
 --- !u!135 &4506131697344400826
 SphereCollider:
   m_ObjectHideFlags: 0

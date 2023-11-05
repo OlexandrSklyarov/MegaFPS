@@ -7,10 +7,10 @@ namespace SA.FPS
     public class WeaponPickupItem : MonoBehaviour, IPickupItemVisitable
     {
         public WeaponType Type => _type;
-        public int Amount => _amount;
+        public int Amount => _settings.StartAmmo;
 
         [SerializeField] private WeaponType _type;
-        [SerializeField, Min(1)] private int _amount;
+        [SerializeField] private WeaponSettings _settings;
 
         public void Pickup(IPickupVisitor visitor)
         {

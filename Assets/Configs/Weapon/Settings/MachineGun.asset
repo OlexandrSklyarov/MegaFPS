@@ -16,7 +16,7 @@ MonoBehaviour:
   <Randomness>k__BackingField: 90
   <Vibrato>k__BackingField: 10
   <ShootCooldown>k__BackingField: 0.1
-  <StartAmmo>k__BackingField: 1000
+  <StartAmmo>k__BackingField: 60
   <Damage>k__BackingField: 15
   <RayCountPerShoot>k__BackingField: 1
   <Distance>k__BackingField: 1000
