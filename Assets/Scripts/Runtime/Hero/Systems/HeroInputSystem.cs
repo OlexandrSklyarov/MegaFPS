@@ -59,8 +59,16 @@ namespace SA.FPS
                 //melle attack
                 input.IsAttack = _inputService.Controls.Player.Attack.ReadValue<float>() > 0;
 
+                if (input.IsFire || input.IsAttack)
+                {
+                    world.GetOrAddComponent<CharacterAttackEvent>(ent);
+                }
+
                 //reload
-                input.IsReload = _inputService.Controls.Player.Reload.ReadValue<float>() > 0;
+                if (_inputService.Controls.Player.Reload.ReadValue<float>() > 0)
+                {                    
+                    world.GetOrAddComponent<CharacterReloadWeaponEvent>(ent);
+                }
 
                 //switch weapon
                 if (_inputService.Controls.Player.SwitchWeapon.ReadValue<float>() > 0)

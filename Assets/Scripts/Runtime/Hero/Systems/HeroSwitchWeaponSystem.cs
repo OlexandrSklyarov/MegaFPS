@@ -42,7 +42,7 @@ namespace SA.FPS
                 ref var hero = ref _heroPool.Get(ent);
                 ref var hasWeapon = ref _hasWeaponPool.Get(ent);
 
-                if (hasWeapon.LastSwitchTime > Time.time) continue;
+                if (hasWeapon.NextSwitchTime > Time.time) continue;
                 if (hasWeapon.MyWeaponCollections.Count < 2) continue;
 
                 var (weaponType, weaponEntity) = GetNextWeaponType(ref hasWeapon);
@@ -56,11 +56,11 @@ namespace SA.FPS
                 }
 
                 //new weapon
-                var (weapon, settings) = _weaponFactory.CreateWeaponItem(weaponType, handsTargets.WeaponsRoot);
-                handsTargets.SetTargets(weapon); 
+                var weaponView = _weaponFactory.CreateWeaponItem(weaponType, handsTargets.WeaponsRoot);
+                handsTargets.SetTargets(weaponView); 
                 
                 hasWeapon.CurrentUsedWeaponType = weaponType;
-                hasWeapon.LastSwitchTime = Time.time + 0.5f;
+                hasWeapon.NextSwitchTime = Time.time + 0.5f;
 
                 //add update ui event for weapon
                 world.GetOrAddComponent<WeaponChangeStateComponentTag>(weaponEntity);

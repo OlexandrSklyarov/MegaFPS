@@ -11,17 +11,18 @@ namespace SA.FPS
         [SerializeField] private UIWeaponCollectionView _weaponCollectionView;  
         
         //weapon count
-        public void UpdateWeaponView(int count)
+        public void UpdateWeaponView(int count, int extraCount)
         {
-            _weaponCounter.SetCount(count);
+            _weaponCounter.SetCount(count, extraCount);
         }
 
         //change weapon
-        public void UpdateWeaponView(int count, Sprite icon)
+        public void UpdateWeaponView(int count, int extraCount, Sprite icon)
         {
-            UpdateWeaponView(count);
+            UpdateWeaponView(count, extraCount);
             _weaponCounter.SetIcon(icon);
         }
+        
 
         /// <summary>
         /// Update weapons collection icon

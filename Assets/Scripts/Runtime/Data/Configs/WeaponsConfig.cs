@@ -14,7 +14,6 @@ namespace SA.FPS
         {
             [field: SerializeField] public WeaponType Type {get; private set;}
             [field: SerializeField] public WeaponView Prefab {get; private set;}
-            [field: SerializeField] public WeaponSettings Settings {get; private set;}
         }
     }
 }

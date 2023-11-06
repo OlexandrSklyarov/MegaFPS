@@ -11,6 +11,5 @@ namespace SA.FPS
         public bool IsJump;
         public bool IsFire;
         public bool IsAttack;
-        public bool IsReload;
     }
 }

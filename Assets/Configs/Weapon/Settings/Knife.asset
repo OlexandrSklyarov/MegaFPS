@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8136334260ad4c4db1d1ece5d586fc2, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: 
+  <Strength>k__BackingField: 0.01
+  <Randomness>k__BackingField: 90
+  <Vibrato>k__BackingField: 10
+  <ShootCooldown>k__BackingField: 0.6
+  <IHandWeapon>k__BackingField: 1
+  <StartAmmo>k__BackingField: 1
+  <Damage>k__BackingField: 5
+  <RayCountPerShoot>k__BackingField: 1
+  <Distance>k__BackingField: 1
+  <DecalType>k__BackingField: 0
+  <IsUseSpread>k__BackingField: 1
+  <SpreadFactor>k__BackingField: 0
+  <TargetLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 129
+  <FireSfx>k__BackingField:
+    Guid:
+      Data1: 792737480
+      Data2: 1150612890
+      Data3: -217837144
+      Data4: 1395282730
+    Path: event:/GunFire
+  <Sprite>k__BackingField: {fileID: 21300038, guid: 6674e8c43c63e4f4184cbd009379498d,
+    type: 3}

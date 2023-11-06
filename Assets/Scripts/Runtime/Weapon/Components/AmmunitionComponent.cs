@@ -5,5 +5,6 @@ namespace SA.FPS
     {
         public int Count;
         public int MaxAmmo;
+        public int ExtraCount;
     }
 }

@@ -4,6 +4,7 @@ namespace Runtime.Services.WeaponsFactory
     {
         MachineGun,
         Gun,
-        ShotGun
+        ShotGun,
+        Knife
     }
 }

@@ -50,11 +50,16 @@ namespace SA.FPS
                 else if (ammo.Count > 0) //fire                
                 {                    
                     Shoot(ref weapon, ref ammo, ref shootEvt);
-                    AddOwnerShakeFXComponent(world, ref owner, ref weapon);                    
+                    AddOwnerShakeFXComponent(world, ref owner, ref weapon);  
 
-                    //update ui event
-                    world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);                                         
+                    if (ammo.Count <= 0)
+                    {
+                        world.GetOrAddComponent<WeaponReloadEvent>(ent);   
+                    }                                                         
                 }
+
+                //update ui event
+                world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent);    
 
                 _tryShootEvtPool.Del(ent);                                     
             }         
@@ -63,35 +68,35 @@ namespace SA.FPS
 
         private void Shoot(ref WeaponComponent weapon, ref AmmunitionComponent ammo, ref TryShootComponent shootEvt)
         {
-            for (int i = 0; i < weapon.Settings.RayCountPerShoot; i++)
+            for (int i = 0; i < weapon.View.Settings.RayCountPerShoot; i++)
             {
                 //spread
-                var dir = (weapon.Settings.IsUseSpread) ?
-                    AddShootSpread(weapon.Settings.SpreadFactor, shootEvt.Direction) :
+                var dir = (weapon.View.Settings.IsUseSpread) ?
+                    AddShootSpread(weapon.View.Settings.SpreadFactor, shootEvt.Direction) :
                     shootEvt.Direction;
 
                 //ray
-                if (Physics.Raycast(shootEvt.ShootPoint, dir, out var hit, float.MaxValue, weapon.Settings.TargetLayerMask))
+                if (Physics.Raycast(shootEvt.ShootPoint, dir, out var hit, float.MaxValue, weapon.View.Settings.TargetLayerMask))
                 {
                     UnityEngine.Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.yellow, 0.15f);
 
                     if (hit.collider.TryGetComponent(out IDamageable target))
                     {
-                        target.ApplyDamage(weapon.Settings.Damage, shootEvt.ShootPoint);
+                        target.ApplyDamage(weapon.View.Settings.Damage, shootEvt.ShootPoint);
                         Util.DebugUtil.PrintColor($"Enemy damaged!!!", Color.red);
                     }
                     else
                     {
-                        var decal = _poolManager.GetDecal(weapon.Settings.DecalType);
+                        var decal = _poolManager.GetDecal(weapon.View.Settings.DecalType);
                         decal.SetPoint(hit.normal, hit.point);
                     }
                 }                
             }
 
             ammo.Count--;
-            weapon.CurrentCooldown = weapon.Settings.ShootCooldown;
+            weapon.CurrentCooldown = weapon.View.Settings.ShootCooldown;
 
-            FMODUnity.RuntimeManager.PlayOneShot(weapon.Settings.FireSfx);  
+            FMODUnity.RuntimeManager.PlayOneShot(weapon.View.Settings.FireSfx);  
         }
         
 
@@ -112,10 +117,10 @@ namespace SA.FPS
         {    
             ref var shake = ref world.GetOrAddComponent<CameraShakeComponent>(owner.MyOwnerEntity);  
 
-            shake.Duration = weapon.Settings.ShakeDuration;
-            shake.Strength = weapon.Settings.Strength;
-            shake.Vibrato = weapon.Settings.Vibrato;
-            shake.Randomness = weapon.Settings.Randomness;
+            shake.Duration = weapon.View.Settings.ShakeDuration;
+            shake.Strength = weapon.View.Settings.Strength;
+            shake.Vibrato = weapon.View.Settings.Vibrato;
+            shake.Randomness = weapon.View.Settings.Randomness;
         }
     }
 }

@@ -8,11 +8,15 @@ namespace SA.FPS.Runtime.UI.HUD
     {
         [SerializeField] private Image _icon;
         [SerializeField] private TextMeshProUGUI _counter;
+        [SerializeField] private TextMeshProUGUI _extraCounter;
         [SerializeField] private bool _isGrenade;
 
-        public void SetCount(int count)
+        public void SetCount(int count, int extraCount)
         {
             _counter.text = (_isGrenade) ? $"{count} x" : $"x {count}";
+
+            _extraCounter.gameObject.SetActive(extraCount > 0);
+            _extraCounter.text = $"[{extraCount}]";
         }
 
         public void SetIcon(Sprite icon)

@@ -11,6 +11,7 @@ namespace SA.FPS
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<InputComponent> _inputPool;
         private EcsPool<HeroLookComponent> _lookPool;
+        private EcsPool<CharacterAttackEvent> _eventPool;
 
         public void Init(IEcsSystems systems)
         {            
@@ -20,6 +21,7 @@ namespace SA.FPS
                 .Inc<CharacterAttackComponent>()
                 .Inc<CharacterConfigComponent>()
                 .Inc<HeroLookComponent>()
+                .Inc<CharacterAttackEvent>()
                 .End();
             
             var world = systems.GetWorld();
@@ -27,6 +29,7 @@ namespace SA.FPS
             _configPool = world.GetPool<CharacterConfigComponent>();
             _inputPool = world.GetPool<InputComponent>();
             _lookPool = world.GetPool<HeroLookComponent>();
+            _eventPool = world.GetPool<CharacterAttackEvent>();
         }
 
         public void Run(IEcsSystems systems)
@@ -35,21 +38,22 @@ namespace SA.FPS
 
             foreach(var ent in _filter)
             {
+                _eventPool.Del(ent);
+
                 ref var input = ref _inputPool.Get(ent);
                 ref var attack = ref _attackPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
                 ref var look = ref _lookPool.Get(ent);
 
-                if (attack.MelleAttackTimer > 0f)
+                if (Time.time < attack.EndMelleAttackTime)
                 {
-                    attack.MelleAttackTimer -= Time.deltaTime;
                     continue;
                 }
 
                 if (input.IsAttack)
                 {
                     CreateWeaponMelleAttack(world, ent);                    
-                    attack.MelleAttackTimer = config.Prm.MelleAttackCooldown;
+                    attack.EndMelleAttackTime = Time.time + config.Prm.MelleAttackCooldown;
                     continue;
                 }
 

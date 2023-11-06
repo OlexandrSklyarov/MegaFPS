@@ -14,6 +14,7 @@ namespace SA.FPS
 
      
         [field: Space, Header("Shoot"), SerializeField, Min(0.01f)] public float ShootCooldown {get; private set;} = 0.5f;
+        [field: SerializeField] public bool IHandWeapon {get; private set;}
         [field: SerializeField, Min(1)] public int StartAmmo {get; private set;} = 60;
         [field: SerializeField, Min(1)] public int Damage {get; private set;} = 15;
         [field: SerializeField, Min(1)] public int RayCountPerShoot {get; private set;} = 1;

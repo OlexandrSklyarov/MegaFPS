@@ -63,8 +63,19 @@ namespace SA.FPS
             if (!hasWeapon.MyWeaponCollections.TryGetValue(evt.Type, out int weaponEntity)) return;
 
             ref var weaponAmmo = ref world.GetOrAddComponent<AmmunitionComponent>(weaponEntity);
-            weaponAmmo.Count += evt.Amount;
-            weaponAmmo.Count = Mathf.Min(weaponAmmo.Count, weaponAmmo.MaxAmmo);
+
+            var needCountForWeapon = weaponAmmo.MaxAmmo - weaponAmmo.Count;
+            
+            if (needCountForWeapon <= evt.Amount)
+            {
+                weaponAmmo.Count += needCountForWeapon; 
+                var extra = evt.Amount - needCountForWeapon;
+                weaponAmmo.ExtraCount += Mathf.Max(0, extra); 
+            }
+            else
+            {
+                weaponAmmo.Count += evt.Amount; 
+            }     
 
             //update weapon event
             world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEntity);
@@ -85,13 +96,13 @@ namespace SA.FPS
             }
 
             //new weapon
-            var (weapon, settings) = _weaponFactory.CreateWeaponItem(pickupEvent.Type, handsTargets.WeaponsRoot);
-            handsTargets.SetTargets(weapon);
+            var weaponView = _weaponFactory.CreateWeaponItem(pickupEvent.Type, handsTargets.WeaponsRoot);
+            handsTargets.SetTargets(weaponView);
             
             //weapon not found
             if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
             {                
-                CreateWeaponEntity(world, handsTargets, settings, heroEntity, ref hasWeapon, ref pickupEvent);                  
+                CreateWeaponEntity(world, handsTargets, weaponView, heroEntity, ref hasWeapon, ref pickupEvent);                  
                 
                 isTakeNewWeapon = true;
             }
@@ -117,21 +128,21 @@ namespace SA.FPS
 
 
         private void CreateWeaponEntity(EcsWorld world, HandsWeaponTargetView handsWeaponTargetView, 
-            WeaponSettings settings, int ownerEntity, ref HasWeaponComponent hasWeapon, 
+            IWeaponView weaponView, int ownerEntity, ref HasWeaponComponent hasWeapon, 
             ref CharacterPickupWeaponEvent pickupEvent)
         {
             var ent = world.NewEntity();
             
             //weapon
             ref var weapon = ref world.GetPool<WeaponComponent>().Add(ent);            
-            weapon.Settings = settings;
+            weapon.View = weaponView;
             weapon.FirePoint = handsWeaponTargetView.FirePoint;
             weapon.Center = handsWeaponTargetView.transform;
 
             //ammo
             ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
-            ammunition.Count = settings.StartAmmo;
-            ammunition.MaxAmmo = settings.StartAmmo;
+            ammunition.Count = weaponView.Settings.StartAmmo;
+            ammunition.MaxAmmo = weaponView.Settings.StartAmmo;
             UnityEngine.Debug.Log(ammunition.Count);            
             
             //owner

@@ -41,7 +41,7 @@ namespace SA.FPS
             _hasWeaponPool = world.GetPool<HasWeaponComponent>();
             _updateViewInventoryEvent = world.GetPool<UpdateWeaponsViewEvent>();
 
-            _uiController.UpdateWeaponView(0);
+            _uiController.UpdateWeaponView(0, 0);
         }
 
         public void Run(IEcsSystems systems)
@@ -56,7 +56,7 @@ namespace SA.FPS
                 ref var ammo = ref _ammoPool.Get(ent);
                 ref var weapon = ref _weaponPool.Get(ent);
                 
-                _uiController.UpdateWeaponView(ammo.Count, weapon.Settings.Sprite);
+                _uiController.UpdateWeaponView(ammo.Count, ammo.ExtraCount, weapon.View.Settings.Sprite);
             }
 
             //hero
@@ -77,7 +77,7 @@ namespace SA.FPS
 
                     weaponCollection.Add(new UIWeaponItemView
                     {
-                        Icon = weapon.Settings.Sprite
+                        Icon = weapon.View.Settings.Sprite
                     });
                 }
 

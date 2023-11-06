@@ -8,5 +8,20 @@ namespace SA.FPS
     public class WeaponView : MonoBehaviour, IWeaponView
     {        
         [field: SerializeField] public Transform FirePoint {get; private set;}
+        [field: SerializeField]public WeaponSettings Settings {get; private set;}
+        [field: SerializeField] private Animator WeaponAnimator;
+
+
+        public bool TryReload(out float reloadTime)
+        {
+            reloadTime = 0;
+
+            if (Settings.IHandWeapon) return false;
+
+            WeaponAnimator.SetTrigger("RELOAD");
+            reloadTime = 1f;
+            
+            return true;
+        }
     }
 }
