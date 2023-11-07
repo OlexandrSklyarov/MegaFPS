@@ -6,11 +6,11 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShotGunAC_override
+  m_Name: Override_KnifeAC
   m_Controller: {fileID: 9100000, guid: 71748a8bbd0c2ed6cac39443716e38d2, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 46065e13af54796e9932c7b52a89a608, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 874e1d77006c0bc7d86e94529f177d71, type: 2}
   - m_OriginalClip: {fileID: -203655887218126122, guid: 3db5a3d1843c511e98b0e9b7207e4b32,
       type: 3}
     m_OverrideClip: {fileID: 7400000, guid: 5343d40ad0569cc0f938dfc25cd817b2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 14808a317928b68429c5d6817987ee69, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 14808a317928b68429c5d6817987ee69, type: 2}

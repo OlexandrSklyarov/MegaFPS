@@ -58,7 +58,7 @@ namespace SA.FPS
         {
             var need = ammo.MaxAmmo - ammo.Count;
 
-            if (!weapon.View.Settings.IHandWeapon && 
+            if (!weapon.View.Settings.IsRangeWeapon && 
                 need > 0 && 
                 ammo.ExtraCount > 0)
             {

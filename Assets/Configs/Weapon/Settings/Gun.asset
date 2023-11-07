@@ -15,23 +15,24 @@ MonoBehaviour:
   <Strength>k__BackingField: 0.01
   <Randomness>k__BackingField: 90
   <Vibrato>k__BackingField: 10
-  <ShootCooldown>k__BackingField: 0.6
-  <StartAmmo>k__BackingField: 12
-  <Damage>k__BackingField: 5
-  <RayCountPerShoot>k__BackingField: 1
-  <Distance>k__BackingField: 1000
-  <DecalType>k__BackingField: 0
-  <IsUseSpread>k__BackingField: 1
-  <SpreadFactor>k__BackingField: 0.01
+  <AttackCooldown>k__BackingField: 0.3
+  <Damage>k__BackingField: 15
   <TargetLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 129
-  <FireSfx>k__BackingField:
+  <Sprite>k__BackingField: {fileID: 21300022, guid: 5acb27b603af6d44ea6113c4b7b15385,
+    type: 3}
+  <AttackSfx>k__BackingField:
     Guid:
       Data1: 792737480
       Data2: 1150612890
       Data3: -217837144
       Data4: 1395282730
     Path: event:/GunFire
-  <Sprite>k__BackingField: {fileID: 21300022, guid: 5acb27b603af6d44ea6113c4b7b15385,
-    type: 3}
+  _isRangeWeapon: 1
+  _startAmmo: 60
+  _rayCountPerShoot: 1
+  _distance: Infinity
+  _decalType: 0
+  _isUseSpread: 0
+  _spreadFactor: 0

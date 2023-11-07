@@ -22,6 +22,6 @@ namespace SA.FPS
         [field: SerializeField, Min(0.01f)] public float SprintStepInterval {get; private set;} = 0.2f;
         [field: SerializeField, Min(0.01f)] public float WalkStepInterval {get; private set;} = 0.4f;
         
-        [field: Space, Header("Attack"), SerializeField, Min(0.01f)] public float MelleAttackCooldown {get; private set;} = 1.5f;
+        [field: Space, Header("Attack"), SerializeField, Min(0.01f)] public float MeleeAttackCooldown {get; private set;} = 1.5f;
     }
 }

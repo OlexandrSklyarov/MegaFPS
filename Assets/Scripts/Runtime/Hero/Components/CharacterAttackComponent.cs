@@ -3,6 +3,6 @@ namespace SA.FPS
 {
     public struct CharacterAttackComponent
     {
-        public float EndMelleAttackTime;
+        public float EndAttackTime;
     }
 }

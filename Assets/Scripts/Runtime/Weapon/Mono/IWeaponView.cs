@@ -8,5 +8,6 @@ namespace SA.FPS
         Transform FirePoint { get; }
         WeaponSettings Settings {get;}
         bool TryReload(out float reloadTime);
+        void MeleeAttack(out float reloadTime);
     }
 }

@@ -34,8 +34,7 @@ namespace SA.FPS
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
-
-            //WEAPON
+            
             foreach(var ent in _weaponFilter)
             {
                 ref var weapon = ref _weaponPool.Get(ent);
@@ -94,9 +93,9 @@ namespace SA.FPS
             }
 
             ammo.Count--;
-            weapon.CurrentCooldown = weapon.View.Settings.ShootCooldown;
+            weapon.CurrentCooldown = weapon.View.Settings.AttackCooldown;
 
-            FMODUnity.RuntimeManager.PlayOneShot(weapon.View.Settings.FireSfx);  
+            FMODUnity.RuntimeManager.PlayOneShot(weapon.View.Settings.AttackSfx);  
         }
         
 

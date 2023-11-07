@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunAC_override
+  m_Name: Override_GunAC
   m_Controller: {fileID: 9100000, guid: 71748a8bbd0c2ed6cac39443716e38d2, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: -203655887218126122, guid: 3db5a3d1843c511e98b0e9b7207e4b32,

@@ -1,5 +1,6 @@
 using Cinemachine;
 using Leopotam.EcsLite;
+using Runtime.Services.WeaponsFactory;
 using UnityEngine;
 
 namespace SA.FPS
@@ -57,6 +58,10 @@ namespace SA.FPS
 
             //attack
             ref var attack = ref world.GetPool<CharacterAttackComponent>().Add(entity);
+
+            //Add base weapon
+            ref var pickupWeaponEvent = ref world.GetPool<CharacterPickupWeaponEvent>().Add(entity);
+            pickupWeaponEvent.Type = WeaponType.Knife;
         }
 
         private void SetupFpsVirtualCamera(SharedData data, ref HeroLookComponent look)

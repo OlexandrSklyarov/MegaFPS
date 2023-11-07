@@ -40,10 +40,7 @@ namespace SA.FPS
 
                 ref var hasWeapon = ref GetHasWeaponComponent(world, ent);               
 
-                if (!TryTakeNewWeapon(world, ent, ref hasWeapon, ref evt, ref hero))
-                {
-                    TryAddAmmo(world, ref hasWeapon, ref evt);  
-                }
+                TakeWeapon(world, ent, ref hasWeapon, ref evt, ref hero);                
 
                 UpdateWeaponsUI(world, ent);   
 
@@ -82,7 +79,7 @@ namespace SA.FPS
         }
 
 
-        private bool TryTakeNewWeapon(EcsWorld world, int heroEntity, ref HasWeaponComponent hasWeapon,
+        private void TakeWeapon(EcsWorld world, int heroEntity, ref HasWeaponComponent hasWeapon,
             ref CharacterPickupWeaponEvent pickupEvent, ref HeroComponent hero)
         {            
             var isTakeNewWeapon = false;
@@ -109,7 +106,8 @@ namespace SA.FPS
 
             hasWeapon.CurrentUsedWeaponType = pickupEvent.Type;
 
-            return isTakeNewWeapon;
+            //increase ammo
+            if (!isTakeNewWeapon) TryAddAmmo(world, ref hasWeapon, ref pickupEvent);  
         }
 
 
@@ -139,12 +137,15 @@ namespace SA.FPS
             weapon.FirePoint = handsWeaponTargetView.FirePoint;
             weapon.Center = handsWeaponTargetView.transform;
 
-            //ammo
-            ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
-            ammunition.Count = weaponView.Settings.StartAmmo;
-            ammunition.MaxAmmo = weaponView.Settings.StartAmmo;
-            UnityEngine.Debug.Log(ammunition.Count);            
-            
+            //only range weapon
+            if (pickupEvent.Type != WeaponType.Knife)
+            {
+                //ammo
+                ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
+                ammunition.Count = weaponView.Settings.StartAmmo;
+                ammunition.MaxAmmo = weaponView.Settings.StartAmmo;  
+            }
+
             //owner
             ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(ent);
             weaponOwner.MyOwnerEntity = ownerEntity;

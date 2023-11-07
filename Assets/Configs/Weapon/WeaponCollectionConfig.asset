@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: WeaponCollectionConfig
   m_EditorClassIdentifier: 
   <Weapons>k__BackingField:
+  - <Type>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 556791978910754895, guid: 2ae40e231bfcfe6028b88f44c7999600,
+      type: 3}
   - <Type>k__BackingField: 1
     <Prefab>k__BackingField: {fileID: 5596513391164556369, guid: 36a448a1fcbeca957b66c0accf29bcc5,
       type: 3}
@@ -21,7 +24,4 @@ MonoBehaviour:
       type: 3}
   - <Type>k__BackingField: 2
     <Prefab>k__BackingField: {fileID: 556791978910754895, guid: d132d9f3246566b3b8b59843ced863c6,
-      type: 3}
-  - <Type>k__BackingField: 3
-    <Prefab>k__BackingField: {fileID: 556791978910754895, guid: 2ae40e231bfcfe6028b88f44c7999600,
       type: 3}

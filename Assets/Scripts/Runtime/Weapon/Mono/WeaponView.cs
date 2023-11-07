@@ -16,12 +16,19 @@ namespace SA.FPS
         {
             reloadTime = 0;
 
-            if (Settings.IHandWeapon) return false;
+            if (Settings.IsRangeWeapon) return false;
 
             WeaponAnimator.SetTrigger("RELOAD");
             reloadTime = 1f;
             
             return true;
+        }
+
+
+        public void MeleeAttack(out float reloadTime)
+        {
+            WeaponAnimator.SetTrigger("MELEE_ATTACK");
+            reloadTime = 1f;
         }
     }
 }
