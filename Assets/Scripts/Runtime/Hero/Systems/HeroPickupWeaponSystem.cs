@@ -129,10 +129,10 @@ namespace SA.FPS
             IWeaponView weaponView, int ownerEntity, ref HasWeaponComponent hasWeapon, 
             ref CharacterPickupWeaponEvent pickupEvent)
         {
-            var ent = world.NewEntity();
+            var weaponEnt = world.NewEntity();
             
             //weapon
-            ref var weapon = ref world.GetPool<WeaponComponent>().Add(ent);            
+            ref var weapon = ref world.GetPool<WeaponComponent>().Add(weaponEnt);            
             weapon.View = weaponView;
             weapon.FirePoint = handsWeaponTargetView.FirePoint;
             weapon.Center = handsWeaponTargetView.transform;
@@ -141,20 +141,21 @@ namespace SA.FPS
             if (pickupEvent.Type != WeaponType.Knife)
             {
                 //ammo
-                ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(ent); 
+                ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(weaponEnt); 
                 ammunition.Count = weaponView.Settings.StartAmmo;
                 ammunition.MaxAmmo = weaponView.Settings.StartAmmo;  
+                ammunition.ExtraCount = weaponView.Settings.MagAmountAmmo - weaponView.Settings.StartAmmo;  
             }
 
             //owner
-            ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(ent);
+            ref var weaponOwner = ref world.GetPool<WeaponOwnerComponent>().Add(weaponEnt);
             weaponOwner.MyOwnerEntity = ownerEntity;
 
-            //owner
-            world.GetPool<WeaponChangeStateComponentTag>().Add(ent);
-
             //add to inventory
-            hasWeapon.MyWeaponCollections.Add(pickupEvent.Type, ent);
+            hasWeapon.MyWeaponCollections.Add(pickupEvent.Type, weaponEnt);
+
+            //Update ui
+            world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEnt);
         }
     }
 }

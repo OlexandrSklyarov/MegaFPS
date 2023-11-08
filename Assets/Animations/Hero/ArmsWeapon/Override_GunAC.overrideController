@@ -9,8 +9,9 @@ AnimatorOverrideController:
   m_Name: Override_GunAC
   m_Controller: {fileID: 9100000, guid: 71748a8bbd0c2ed6cac39443716e38d2, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: -203655887218126122, guid: 3db5a3d1843c511e98b0e9b7207e4b32,
-      type: 3}
-    m_OverrideClip: {fileID: 7400000, guid: 5343d40ad0569cc0f938dfc25cd817b2, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 46065e13af54796e9932c7b52a89a608, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 46065e13af54796e9932c7b52a89a608, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2df7192f174ea07fb81c308657db1276, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e4179adf3425d4de284d82a19c6824db, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5343d40ad0569cc0f938dfc25cd817b2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b3705f0d27bb249d99e4907164b13fba, type: 2}

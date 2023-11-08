@@ -8,7 +8,7 @@ namespace SA.FPS
         public Transform Center;        
         public Transform FirePoint;      
         public IWeaponView View;
-        public float CurrentCooldown;
+        public float WeaponReadyTime;
 
     }
 }

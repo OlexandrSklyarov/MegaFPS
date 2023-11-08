@@ -5,10 +5,11 @@ using SA.FPS.Runtime.UI.HUD;
 
 namespace SA.FPS
 {
-    public sealed class UpdateHUDSystem : IEcsInitSystem, IEcsRunSystem
+    public sealed class UpdateWeaponHUDSystem : IEcsInitSystem, IEcsRunSystem
     {
         private HUDController _uiController;
         private EcsFilter _weaponFilter;
+        private EcsFilter _handWeaponFilter;
         private EcsFilter _heroFilter;
         private EcsPool<AmmunitionComponent> _ammoPool;
         private EcsPool<WeaponComponent> _weaponPool;
@@ -26,6 +27,12 @@ namespace SA.FPS
                 .Inc<AmmunitionComponent>()
                 .Inc<WeaponChangeStateComponentTag>()
                 .End();  
+
+            _handWeaponFilter = systems.GetWorld()
+                .Filter<WeaponComponent>()
+                .Inc<WeaponOwnerComponent>()
+                .Inc<WeaponChangeStateComponentTag>()
+                .End(); 
 
             _heroFilter = systems.GetWorld()
                 .Filter<HeroComponent>()
@@ -56,7 +63,17 @@ namespace SA.FPS
                 ref var ammo = ref _ammoPool.Get(ent);
                 ref var weapon = ref _weaponPool.Get(ent);
                 
-                _uiController.UpdateWeaponView(ammo.Count, ammo.ExtraCount, weapon.View.Settings.Sprite);
+                _uiController.UpdateWeaponView(ammo.Count, ammo.ExtraCount, weapon.View.Settings.Sprite, true);
+            }
+
+            //hand weapon
+            foreach(var ent in _handWeaponFilter)
+            {
+                _weaponUpdateStatePool.Del(ent);
+
+                ref var weapon = ref _weaponPool.Get(ent);
+                
+                _uiController.UpdateWeaponView(0, 0, weapon.View.Settings.Sprite, isShowAmmoCounter:false);
             }
 
             //hero

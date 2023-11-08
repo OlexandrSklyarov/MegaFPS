@@ -20,7 +20,7 @@ MonoBehaviour:
   <TargetLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 129
-  <Sprite>k__BackingField: {fileID: 21300024, guid: 5acb27b603af6d44ea6113c4b7b15385,
+  <Sprite>k__BackingField: {fileID: 21300046, guid: 6674e8c43c63e4f4184cbd009379498d,
     type: 3}
   <AttackSfx>k__BackingField:
     Guid:
@@ -31,6 +31,7 @@ MonoBehaviour:
     Path: event:/MacineGunFire
   _isRangeWeapon: 1
   _startAmmo: 60
+  _magAmountAmmo: 60
   _rayCountPerShoot: 1
   _distance: Infinity
   _decalType: 0

@@ -52,7 +52,10 @@ namespace SA.FPS
                 ref var look = ref _lookPool.Get(ent);
                 ref var hasWeapon = ref _hasWeaponPool.Get(ent);
 
-                if (Time.time < attack.EndAttackTime) continue;
+                if (Time.time < attack.EndAttackTime) 
+                {
+                    continue;
+                }
 
                 if (input.IsAttack)
                 {

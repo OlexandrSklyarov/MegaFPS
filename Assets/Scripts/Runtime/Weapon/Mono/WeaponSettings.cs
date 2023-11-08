@@ -20,6 +20,7 @@ namespace SA.FPS
 
         public bool IsRangeWeapon => _isRangeWeapon;
         public int StartAmmo => _startAmmo;
+        public int MagAmountAmmo => _magAmountAmmo;
         public int RayCountPerShoot => _rayCountPerShoot;
         public float Distance => _distance;
         public DecalType DecalType => _decalType;
@@ -28,6 +29,7 @@ namespace SA.FPS
 
         [Space, SerializeField] private bool _isRangeWeapon;
         [Header("Shoot"), SerializeField, ShowIf("IsRangeWeapon"), Min(1)] private int _startAmmo = 60;
+        [SerializeField, ShowIf("IsRangeWeapon"), Min(1)] private int _magAmountAmmo = 60;
         [SerializeField, ShowIf("IsRangeWeapon"), Min(1)] private int _rayCountPerShoot = 1;
         [SerializeField, ShowIf("IsRangeWeapon"), Min(1f)] private float _distance = Mathf.Infinity;
         [SerializeField,ShowIf("IsRangeWeapon")] private DecalType _decalType;

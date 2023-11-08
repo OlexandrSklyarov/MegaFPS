@@ -61,7 +61,7 @@ namespace SA.FPS
 
             //Add base weapon
             ref var pickupWeaponEvent = ref world.GetPool<CharacterPickupWeaponEvent>().Add(entity);
-            pickupWeaponEvent.Type = WeaponType.Knife;
+            pickupWeaponEvent.Type = gameConfig.HeroStartWeapon;
         }
 
         private void SetupFpsVirtualCamera(SharedData data, ref HeroLookComponent look)

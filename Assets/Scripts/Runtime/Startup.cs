@@ -60,7 +60,7 @@ namespace SA.FPS
                 .Add(new WeaponShootingSystem())
                 .Add(new WeaponReloadSystem())
 
-                .Add(new UpdateHUDSystem())
+                .Add(new UpdateWeaponHUDSystem())
 
                 .Init();
 

@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <HeroPrefab>k__BackingField: {fileID: 4588815991571764513, guid: 51dd9034e845ba6bda9c856428450f67,
     type: 3}
+  <HeroStartWeapon>k__BackingField: 3
   <VirtualCameraPrefab>k__BackingField: {fileID: 759784616973252797, guid: fcd9cb348515fe5148973415ae8189d6,
-    type: 3}
-  <TPSCameraPrefab>k__BackingField: {fileID: 6550983210350669388, guid: 90d0b4f54a8f06f378586c328322a500,
     type: 3}
   <Audio>k__BackingField: {fileID: 11400000, guid: d0d469581237d7726be15aaf596c05d1,
     type: 2}

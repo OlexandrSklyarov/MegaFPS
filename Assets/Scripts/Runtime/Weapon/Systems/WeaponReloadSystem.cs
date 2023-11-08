@@ -1,5 +1,6 @@
 using Leopotam.EcsLite;
 using Runtime.Extensions;
+using UnityEngine;
 
 namespace SA.FPS
 {
@@ -44,7 +45,7 @@ namespace SA.FPS
                 {
                     if (weapon.View.TryReload(out float timeReload))
                     {
-                        weapon.CurrentCooldown = timeReload;
+                        weapon.WeaponReadyTime = Time.time + timeReload;
                     }
 
                     //update ui event
@@ -58,7 +59,7 @@ namespace SA.FPS
         {
             var need = ammo.MaxAmmo - ammo.Count;
 
-            if (!weapon.View.Settings.IsRangeWeapon && 
+            if (weapon.View.Settings.IsRangeWeapon && 
                 need > 0 && 
                 ammo.ExtraCount > 0)
             {

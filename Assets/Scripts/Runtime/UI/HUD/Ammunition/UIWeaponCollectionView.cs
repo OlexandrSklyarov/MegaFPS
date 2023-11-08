@@ -21,7 +21,6 @@ namespace SA.FPS.Runtime.UI.HUD
 
             foreach(var view in views)
             {
-                Util.DebugUtil.PrintColor($"{view.Icon.name} is used: {view.IsUsed}", Color.cyan);
                 var item = GetItem();
                 item.SetIcon(view.Icon, view.IsUsed);
             }
@@ -31,6 +30,7 @@ namespace SA.FPS.Runtime.UI.HUD
         {
             var item = _poolManager.GetUIWeaponView();
             item.transform.SetParent(_content);
+            item.transform.localScale = Vector3.one;
             return item;
         }
 

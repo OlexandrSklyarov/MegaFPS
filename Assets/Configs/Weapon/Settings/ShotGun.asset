@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8136334260ad4c4db1d1ece5d586fc2, type: 3}
   m_Name: ShotGun
   m_EditorClassIdentifier: 
-  <Strength>k__BackingField: 0.01
+  <Strength>k__BackingField: 0.04
   <Randomness>k__BackingField: 90
   <Vibrato>k__BackingField: 10
-  <AttackCooldown>k__BackingField: 1
+  <AttackCooldown>k__BackingField: 0.9
   <Damage>k__BackingField: 30
   <TargetLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 129
-  <Sprite>k__BackingField: {fileID: 21300024, guid: 5acb27b603af6d44ea6113c4b7b15385,
+  <Sprite>k__BackingField: {fileID: 21300012, guid: 6674e8c43c63e4f4184cbd009379498d,
     type: 3}
   <AttackSfx>k__BackingField:
     Guid:
@@ -30,7 +30,8 @@ MonoBehaviour:
       Data4: -1850713825
     Path: event:/MacineGunFire
   _isRangeWeapon: 1
-  _startAmmo: 60
+  _startAmmo: 1
+  _magAmountAmmo: 25
   _rayCountPerShoot: 1
   _distance: Infinity
   _decalType: 0

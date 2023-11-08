@@ -11,8 +11,13 @@ namespace SA.FPS.Runtime.UI.HUD
         [SerializeField] private TextMeshProUGUI _extraCounter;
         [SerializeField] private bool _isGrenade;
 
-        public void SetCount(int count, int extraCount)
+        public void SetCount(int count, int extraCount, bool isShowAmmoCounter)
         {
+            _counter.gameObject.SetActive(isShowAmmoCounter);
+            _extraCounter.gameObject.SetActive(isShowAmmoCounter);
+
+            if (!isShowAmmoCounter) return;
+
             _counter.text = (_isGrenade) ? $"{count} x" : $"x {count}";
 
             _extraCounter.gameObject.SetActive(extraCount > 0);

@@ -41,12 +41,8 @@ namespace SA.FPS
                 ref var owner = ref _ownerPool.Get(ent);
                 ref var ammo = ref _ammoPool.Get(ent);                 
                 ref var shootEvt = ref _tryShootEvtPool.Get(ent);                 
-
-                if (weapon.CurrentCooldown > 0f) //cooldown
-                {
-                    weapon.CurrentCooldown -= Time.deltaTime;                                     
-                }                
-                else if (ammo.Count > 0) //fire                
+                                
+                if (weapon.WeaponReadyTime < Time.time && ammo.Count > 0) //fire                
                 {                    
                     Shoot(ref weapon, ref ammo, ref shootEvt);
                     AddOwnerShakeFXComponent(world, ref owner, ref weapon);  
@@ -93,7 +89,7 @@ namespace SA.FPS
             }
 
             ammo.Count--;
-            weapon.CurrentCooldown = weapon.View.Settings.AttackCooldown;
+            weapon.WeaponReadyTime = Time.time + weapon.View.Settings.AttackCooldown;
 
             FMODUnity.RuntimeManager.PlayOneShot(weapon.View.Settings.AttackSfx);  
         }

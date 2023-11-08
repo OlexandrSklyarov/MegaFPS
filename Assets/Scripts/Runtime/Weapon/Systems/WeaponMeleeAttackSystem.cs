@@ -40,7 +40,6 @@ namespace SA.FPS
         private void Attack(ref WeaponComponent weapon)
         {
             weapon.View.MeleeAttack(out float duration);
-            Util.DebugUtil.Print($"MeleeAttack {weapon.View.Settings.name} {duration}");
         }
     }
 }

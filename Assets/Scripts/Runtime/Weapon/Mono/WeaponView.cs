@@ -16,7 +16,7 @@ namespace SA.FPS
         {
             reloadTime = 0;
 
-            if (Settings.IsRangeWeapon) return false;
+            if (!Settings.IsRangeWeapon) return false;
 
             WeaponAnimator.SetTrigger("RELOAD");
             reloadTime = 1f;
