@@ -65,35 +65,55 @@ namespace SA.FPS
         {
             for (int i = 0; i < weapon.View.Settings.RayCountPerShoot; i++)
             {
-                //spread
-                var dir = (weapon.View.Settings.IsUseSpread) ?
-                    AddShootSpread(weapon.View.Settings.SpreadFactor, shootEvt.Direction) :
-                    shootEvt.Direction;
+                var shootDir = TryGetShootDirectionWithSpread(ref weapon, ref shootEvt);
 
-                //ray
-                if (Physics.Raycast(shootEvt.ShootPoint, dir, out var hit, float.MaxValue, weapon.View.Settings.TargetLayerMask))
+                if (Physics.Raycast(shootEvt.ShootPoint, shootDir, out var hit, float.MaxValue, weapon.View.Settings.TargetLayerMask))
                 {
-                    UnityEngine.Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.yellow, 0.15f);
-
-                    if (hit.collider.TryGetComponent(out IDamageable target))
-                    {
-                        target.ApplyDamage(weapon.View.Settings.Damage, shootEvt.ShootPoint);
-                        Util.DebugUtil.PrintColor($"Enemy damaged!!!", Color.red);
-                    }
-                    else
-                    {
-                        var decal = _poolManager.GetDecal(weapon.View.Settings.DecalType);
-                        decal.SetPoint(hit.normal, hit.point);
-                    }
-                }                
+                    HitScan(ref weapon, hit);
+                }
             }
 
             ammo.Count--;
+
             weapon.WeaponReadyTime = Time.time + weapon.View.Settings.AttackCooldown;
 
             FMODUnity.RuntimeManager.PlayOneShot(weapon.View.Settings.AttackSfx);  
         }
-        
+
+
+        private Vector3 TryGetShootDirectionWithSpread(ref WeaponComponent weapon, ref TryShootComponent shootEvt)
+        {
+            return (weapon.View.Settings.IsUseSpread) ?
+                AddShootSpread(weapon.View.Settings.SpreadFactor, shootEvt.Direction) :
+                shootEvt.Direction;
+        }
+
+
+        private void HitScan(ref WeaponComponent weapon, RaycastHit hit)
+        {            
+            if (hit.collider.TryGetComponent(out IAttackVisitor target))
+            {
+                Accept(ref weapon, target, hit);
+            }
+            else
+            {
+                NoTargetHit(ref weapon, ref hit);
+            }
+        }
+
+
+        private void Accept(ref WeaponComponent weapon,  IAttackVisitor target, RaycastHit hit)
+        {
+            Util.Debug.Print("Accept");
+            target.Visit(weapon.View, hit);
+        }
+
+
+        private void NoTargetHit(ref WeaponComponent weapon, ref RaycastHit hit)
+        {
+            var decal = _poolManager.GetDecal(weapon.View.Settings.DecalType);
+            decal.SetPoint(hit.normal, hit.point);
+        }
 
         private Vector3 AddShootSpread(float spread, Vector3 dir)
         {

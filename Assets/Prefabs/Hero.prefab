@@ -235,7 +235,7 @@ MonoBehaviour:
   <Config>k__BackingField: {fileID: 11400000, guid: ca2039a7ad3bdcfd2b867432b51a5dce,
     type: 2}
   <RB>k__BackingField: {fileID: 8005867852081326094}
-  <HandsWeaponTargetView>k__BackingField: {fileID: 5529029644137384500}
+  <WeaponsRoot>k__BackingField: {fileID: 1761148183764695234}
   <LookTarget>k__BackingField: {fileID: 6197389786600486624}
   <HeadRoot>k__BackingField: {fileID: 2260229402850345855}
   <Head>k__BackingField: {fileID: 913289492066904094}
@@ -300,7 +300,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6299633917332001547}
-  - component: {fileID: 5529029644137384500}
   m_Layer: 0
   m_Name: HandsWeaponTargetView
   m_TagString: Untagged
@@ -324,19 +323,6 @@ Transform:
   - {fileID: 1761148183764695234}
   m_Father: {fileID: 2260229402850345855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5529029644137384500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7821758315726268728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0dc8624ed6d5740bab3388ebabee8b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <WeaponsRoot>k__BackingField: {fileID: 1761148183764695234}
 --- !u!1001 &4835568533211787334
 PrefabInstance:
   m_ObjectHideFlags: 0

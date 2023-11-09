@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Leopotam.EcsLite;
 using Runtime.Extensions;
@@ -47,17 +46,16 @@ namespace SA.FPS
 
                 var (weaponType, weaponEntity) = GetNextWeaponType(ref hasWeapon);
 
-                var handsTargets = hero.View.HandsWeaponTargetView;  
+                var weaponsRoot = hero.View.WeaponsRoot;  
 
                 //try hide previous weapon
-                foreach(Transform curWeapon in handsTargets.WeaponsRoot)  
+                foreach(Transform curWeapon in weaponsRoot)  
                 {
                     curWeapon.gameObject.SetActive(false);
                 }
 
                 //new weapon
-                var weaponView = _weaponFactory.CreateWeaponItem(weaponType, handsTargets.WeaponsRoot);
-                handsTargets.SetTargets(weaponView); 
+                _weaponFactory.GetWeaponItem(weaponType, weaponsRoot);              
                 
                 hasWeapon.CurrentUsedWeaponType = weaponType;
                 hasWeapon.NextSwitchTime = Time.time + 0.5f;

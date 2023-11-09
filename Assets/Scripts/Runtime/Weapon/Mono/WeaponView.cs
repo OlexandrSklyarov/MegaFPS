@@ -2,14 +2,20 @@ using UnityEngine;
 
 namespace SA.FPS
 {
-    /// <summary>
-    /// weapon model teg
-    /// </summary>
-    public class WeaponView : MonoBehaviour, IWeaponView
+    [RequireComponent(typeof(Animator))]
+    public class WeaponView : MonoBehaviour, IWeaponAttack
     {        
         [field: SerializeField] public Transform FirePoint {get; private set;}
-        [field: SerializeField]public WeaponSettings Settings {get; private set;}
-        [field: SerializeField] private Animator WeaponAnimator;
+        [field: SerializeField] public WeaponSettings Settings {get; private set;}
+
+        DamageWeaponSettings IWeaponAttack.DamageSettings => Settings;
+
+        private Animator _weaponAnimator;
+
+        private void Awake() 
+        {
+            _weaponAnimator = GetComponent<Animator>();    
+        }
 
 
         public bool TryReload(out float reloadTime)
@@ -18,7 +24,7 @@ namespace SA.FPS
 
             if (!Settings.IsRangeWeapon) return false;
 
-            WeaponAnimator.SetTrigger("RELOAD");
+            _weaponAnimator.SetTrigger("RELOAD");
             reloadTime = 1f;
             
             return true;
@@ -27,7 +33,7 @@ namespace SA.FPS
 
         public void MeleeAttack(out float reloadTime)
         {
-            WeaponAnimator.SetTrigger("MELEE_ATTACK");
+            _weaponAnimator.SetTrigger("MELEE_ATTACK");
             reloadTime = 1f;
         }
     }

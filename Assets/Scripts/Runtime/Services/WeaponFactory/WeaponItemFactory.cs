@@ -17,7 +17,7 @@ namespace Runtime.Services.WeaponsFactory
         }
 
 
-        public IWeaponView CreateWeaponItem(WeaponType type, Transform parent)
+        public WeaponView GetWeaponItem(WeaponType type, Transform parent)
         {
             var currentItem = _config.Weapons.First(x => x.Type == type);
 

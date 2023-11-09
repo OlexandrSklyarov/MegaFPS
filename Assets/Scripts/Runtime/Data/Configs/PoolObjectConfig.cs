@@ -10,6 +10,7 @@ namespace SA.FPS
     {
         [field: SerializeField] public List<DecalItem> Decals {get; private set;}
         [field: Space, SerializeField] public UIWeaponViewItem UIWeaponView {get; private set;}
+        [field: Space, SerializeField] public List<UnitViewItem> Units {get; private set;}
 
 
         [Serializable]
@@ -25,6 +26,15 @@ namespace SA.FPS
         public class UIWeaponViewItem
         {
             [field: SerializeField] public UIWeaponView Prefab {get; private set;}
+            [field: SerializeField, Min(4)] public int StartCount {get; private set;} = 3;
+            [field: SerializeField, Min(4)] public int MaxPoolCount {get; private set;} = 3;
+        }
+
+        [Serializable]
+        public class UnitViewItem
+        {
+            [field: SerializeField] public UnitView Prefab {get; private set;}
+            [field: SerializeField] public UnitType Type {get; private set;}
             [field: SerializeField, Min(4)] public int StartCount {get; private set;} = 3;
             [field: SerializeField, Min(4)] public int MaxPoolCount {get; private set;} = 3;
         }

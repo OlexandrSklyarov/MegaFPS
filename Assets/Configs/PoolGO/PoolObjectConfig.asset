@@ -23,3 +23,9 @@ MonoBehaviour:
       type: 3}
     <StartCount>k__BackingField: 3
     <MaxPoolCount>k__BackingField: 3
+  <Units>k__BackingField:
+  - <Prefab>k__BackingField: {fileID: 5225296273499000027, guid: 90fb0064fec30e1ef8a325441326c4ed,
+      type: 3}
+    <Type>k__BackingField: 0
+    <StartCount>k__BackingField: 16
+    <MaxPoolCount>k__BackingField: 32

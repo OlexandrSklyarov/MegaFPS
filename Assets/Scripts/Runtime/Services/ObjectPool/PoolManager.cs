@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using SA.FPS.Runtime.UI.HUD;
-using UnityEngine;
 
 namespace SA.FPS
 {
@@ -11,23 +9,47 @@ namespace SA.FPS
         {
             get
             {
-                if (decalPools == null)
+                if (_decalPools == null)
                 {
-                    decalPools = new Dictionary<DecalType, BaseGOPool<Decal>>();
+                    _decalPools = new Dictionary<DecalType, BaseGOPool<Decal>>();
 
                     foreach(var item in _config.Decals)
                     {
-                        decalPools.Add
+                        _decalPools.Add
                         (
                             item.Type, 
-                            new BaseGOPool<Decal>(item.Prefab, item.StartCount, item.MaxPoolCount, "DECAL_POOL")
+                            new BaseGOPool<Decal>(item.Prefab, item.StartCount, item.MaxPoolCount, $"DECAL_POOL[{item.Type}]")
                         );
                     }
                 }
 
-                return decalPools;
+                return _decalPools;
             }
         }
+
+
+        private Dictionary<UnitType, BaseGOPool<UnitView>> UnitViewPools
+        {
+            get
+            {
+                if (_unitViewPools == null)
+                {
+                    _unitViewPools = new Dictionary<UnitType, BaseGOPool<UnitView>>();
+
+                    foreach(var item in _config.Units)
+                    {
+                        _unitViewPools.Add
+                        (
+                            item.Type, 
+                            new BaseGOPool<UnitView>(item.Prefab, item.StartCount, item.MaxPoolCount, $"UNITS_POOL[{item.Type}]")
+                        );
+                    }
+                }
+
+                return _unitViewPools;
+            }
+        }
+
 
         private BaseGOPool<UIWeaponView> UIWeaponViewPool
         {
@@ -49,7 +71,8 @@ namespace SA.FPS
         }
 
 
-        private Dictionary<DecalType, BaseGOPool<Decal>> decalPools;
+        private Dictionary<DecalType, BaseGOPool<Decal>> _decalPools;
+        private Dictionary<UnitType, BaseGOPool<UnitView>> _unitViewPools;
         private BaseGOPool<UIWeaponView> _uiWeaponViewPool;
         private PoolObjectConfig _config;
 
@@ -64,5 +87,7 @@ namespace SA.FPS
         
 
         public UIWeaponView GetUIWeaponView() => UIWeaponViewPool.Get();
+
+        public UnitView GetUnitView(UnitType type) => UnitViewPools[type].Get();
     }
 }

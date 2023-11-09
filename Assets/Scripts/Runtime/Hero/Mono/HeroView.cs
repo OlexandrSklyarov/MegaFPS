@@ -8,7 +8,7 @@ namespace SA.FPS
     {
         [field: SerializeField] public CharacterConfig Config {get; private set;}
         [field: SerializeField] public Rigidbody RB {get; private set;}
-        [field: SerializeField] public HandsWeaponTargetView HandsWeaponTargetView {get; private set;}
+        [field: SerializeField] public Transform WeaponsRoot {get; private set;}
         [field: SerializeField] public Transform LookTarget {get; private set;}
         [field: SerializeField] public Transform HeadRoot {get; private set;}
         [field: SerializeField] public Transform Head {get; private set;}

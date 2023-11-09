@@ -7,5 +7,6 @@ namespace SA.FPS
     {
         Decal GetDecal(DecalType type);
         UIWeaponView GetUIWeaponView();
+        UnitView GetUnitView(UnitType type);
     }
 }

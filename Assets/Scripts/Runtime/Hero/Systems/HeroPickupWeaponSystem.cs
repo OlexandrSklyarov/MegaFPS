@@ -84,22 +84,21 @@ namespace SA.FPS
         {            
             var isTakeNewWeapon = false;
 
-            var handsTargets = hero.View.HandsWeaponTargetView;  
+            var weaponsRoot = hero.View.WeaponsRoot;  
 
             //try hide previous weapon
-            foreach(Transform curWeapon in handsTargets.WeaponsRoot)  
+            foreach(Transform curWeapon in weaponsRoot)  
             {
                 curWeapon.gameObject.SetActive(false);
             }
 
             //new weapon
-            var weaponView = _weaponFactory.CreateWeaponItem(pickupEvent.Type, handsTargets.WeaponsRoot);
-            handsTargets.SetTargets(weaponView);
-            
+            var weaponView = _weaponFactory.GetWeaponItem(pickupEvent.Type, weaponsRoot);
+                        
             //weapon not found
             if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
             {                
-                CreateWeaponEntity(world, handsTargets, weaponView, heroEntity, ref hasWeapon, ref pickupEvent);                  
+                CreateWeaponEntity(world, weaponView, heroEntity, ref hasWeapon, ref pickupEvent);                  
                 
                 isTakeNewWeapon = true;
             }
@@ -125,17 +124,14 @@ namespace SA.FPS
         }
 
 
-        private void CreateWeaponEntity(EcsWorld world, HandsWeaponTargetView handsWeaponTargetView, 
-            IWeaponView weaponView, int ownerEntity, ref HasWeaponComponent hasWeapon, 
-            ref CharacterPickupWeaponEvent pickupEvent)
+        private void CreateWeaponEntity(EcsWorld world, WeaponView weaponView, int ownerEntity, 
+        ref HasWeaponComponent hasWeapon, ref CharacterPickupWeaponEvent pickupEvent)
         {
             var weaponEnt = world.NewEntity();
             
             //weapon
             ref var weapon = ref world.GetPool<WeaponComponent>().Add(weaponEnt);            
             weapon.View = weaponView;
-            weapon.FirePoint = handsWeaponTargetView.FirePoint;
-            weapon.Center = handsWeaponTargetView.transform;
 
             //only range weapon
             if (pickupEvent.Type != WeaponType.Knife)

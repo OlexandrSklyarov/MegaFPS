@@ -5,14 +5,13 @@ using UnityEngine;
 namespace SA.FPS
 {
     [CreateAssetMenu(fileName = "WeaponSettings", menuName = "SO/WeaponSettings")]
-    public class WeaponSettings : ScriptableObject
+    public class WeaponSettings : DamageWeaponSettings
     {            
         [field: Header("Shake"), SerializeField] public float Strength {get; private set;} = 1f;
         [field: SerializeField] public float Randomness {get; private set;} = 90f;
         [field: SerializeField] public int Vibrato {get; private set;} = 10;
         public float ShakeDuration => AttackCooldown;
         [field: Space, SerializeField, Min(0.01f)] public float AttackCooldown {get; private set;} = 0.5f;
-        [field: SerializeField, Min(1)] public int Damage {get; private set;} = 15;
         [field: SerializeField] public LayerMask TargetLayerMask {get; private set;} 
 
         [field: Space, Header("Icon"), Required, SerializeField] public Sprite Sprite {get; private set;}

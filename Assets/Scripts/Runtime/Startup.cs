@@ -62,6 +62,11 @@ namespace SA.FPS
 
                 .Add(new UpdateWeaponHUDSystem())
 
+                .Add(new CreateEnemySpawnerSystem())
+                .Add(new UnitSpawnSystem())
+
+                .Add(new UnitApplyDamageSystem())
+
                 .Init();
 
             
