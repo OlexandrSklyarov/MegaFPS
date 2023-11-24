@@ -14,15 +14,15 @@ namespace SA.FPS
 
         private void Start()
         {
-            var data = new SharedData()
+            var sharedData = new SharedData()
             {
                 WorldData = _worldData
             };
 
             _world = new EcsWorld();
-            _updateSystems = new EcsSystems(_world, data);
-            _fixedUpdateSystems = new EcsSystems(_world, data);
-            _lateUpdateSystems = new EcsSystems(_world, data);
+            _updateSystems = new EcsSystems(_world, sharedData);
+            _fixedUpdateSystems = new EcsSystems(_world, sharedData);
+            _lateUpdateSystems = new EcsSystems(_world, sharedData);
 
             PrepareWorld(); 
             AddSystems();  

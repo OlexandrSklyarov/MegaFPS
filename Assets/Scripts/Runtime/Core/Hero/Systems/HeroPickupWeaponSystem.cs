@@ -53,7 +53,50 @@ namespace SA.FPS
         {
             world.GetOrAddComponent<UpdateWeaponsViewEvent>(heroEntity);
         }
+       
 
+        private void TakeWeapon(EcsWorld world, int heroEntity, ref HasWeaponComponent hasWeapon,
+            ref CharacterPickupWeaponEvent pickupEvent, ref HeroComponent hero)
+        {            
+            var isTakeNewWeapon = false;
+
+            var weaponsRoot = hero.View.WeaponsRoot;  
+
+            HidAllWeapons(weaponsRoot);
+            
+            //new weapon
+            var weaponView = _weaponFactory.GetWeaponItem(pickupEvent.Type, weaponsRoot);
+                        
+            //weapon not found
+            if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
+            {                
+                CreateWeaponEntity(world, weaponView, heroEntity, ref hasWeapon, ref pickupEvent);                  
+                
+                isTakeNewWeapon = true;
+            }
+
+            hasWeapon.CurrentUsedWeaponType = pickupEvent.Type;
+
+            //increase ammo
+            if (!isTakeNewWeapon) TryAddAmmo(world, ref hasWeapon, ref pickupEvent);  
+        }
+
+
+        private static void HidAllWeapons(Transform weaponsRoot)
+        {
+            //try hide previous weapon
+            foreach (Transform curWeapon in weaponsRoot)
+            {
+                curWeapon.gameObject.SetActive(false);
+            }
+        }
+
+
+        private bool IsHasWeaponInInventory(WeaponType type, ref HasWeaponComponent hasWeapon)
+        {
+            return hasWeapon.MyWeaponCollections.TryGetValue(type, out var value);
+        }
+        
 
         private void TryAddAmmo(EcsWorld world, ref HasWeaponComponent hasWeapon, ref CharacterPickupWeaponEvent evt)
         {
@@ -76,43 +119,6 @@ namespace SA.FPS
 
             //update weapon event
             world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEntity);
-        }
-
-
-        private void TakeWeapon(EcsWorld world, int heroEntity, ref HasWeaponComponent hasWeapon,
-            ref CharacterPickupWeaponEvent pickupEvent, ref HeroComponent hero)
-        {            
-            var isTakeNewWeapon = false;
-
-            var weaponsRoot = hero.View.WeaponsRoot;  
-
-            //try hide previous weapon
-            foreach(Transform curWeapon in weaponsRoot)  
-            {
-                curWeapon.gameObject.SetActive(false);
-            }
-
-            //new weapon
-            var weaponView = _weaponFactory.GetWeaponItem(pickupEvent.Type, weaponsRoot);
-                        
-            //weapon not found
-            if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
-            {                
-                CreateWeaponEntity(world, weaponView, heroEntity, ref hasWeapon, ref pickupEvent);                  
-                
-                isTakeNewWeapon = true;
-            }
-
-            hasWeapon.CurrentUsedWeaponType = pickupEvent.Type;
-
-            //increase ammo
-            if (!isTakeNewWeapon) TryAddAmmo(world, ref hasWeapon, ref pickupEvent);  
-        }
-
-
-        private bool IsHasWeaponInInventory(WeaponType type, ref HasWeaponComponent hasWeapon)
-        {
-            return hasWeapon.MyWeaponCollections.TryGetValue(type, out var value);
         }
 
 
