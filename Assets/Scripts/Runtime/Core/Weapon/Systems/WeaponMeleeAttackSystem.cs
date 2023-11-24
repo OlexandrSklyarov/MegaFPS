@@ -77,19 +77,10 @@ namespace SA.FPS
         {
             for (int i = 0; i < meleeAttack.OverlapResultCount; i++)
             {
-                if (!meleeAttack.OverlapResults[i].TryGetComponent(out IAttackVisitor target)) continue;
-
-                Util.DebugUtil.Print($"find target {meleeAttack.OverlapResults[i].name}");
+                if (!meleeAttack.OverlapResults[i].TryGetComponent(out IAttackVisitor target)) continue;        
 
                 if (weapon.View.Settings.IsConsiderObstacles)
-                {
-                    Debug.DrawLine
-                    (
-                        weapon.View.FirePoint.position,
-                        meleeAttack.OverlapResults[i].transform.position,
-                        Color.red,
-                        1f
-                    );
+                {                    
                     var hasObstacle = Physics.Linecast
                     (
                         weapon.View.FirePoint.position,
