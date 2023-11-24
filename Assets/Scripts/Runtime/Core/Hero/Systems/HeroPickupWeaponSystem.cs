@@ -60,22 +60,21 @@ namespace SA.FPS
         {            
             var isTakeNewWeapon = false;
 
-            var weaponsRoot = hero.View.WeaponsRoot;  
-
-            HidAllWeapons(weaponsRoot);
-            
-            //new weapon
-            var weaponView = _weaponFactory.GetWeaponItem(pickupEvent.Type, weaponsRoot);
+            var weaponsRoot = hero.View.WeaponsRoot;             
                         
             //weapon not found
             if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
             {                
+                HidAllWeapons(weaponsRoot);            
+          
+                var weaponView = _weaponFactory.GetWeaponItem(pickupEvent.Type, weaponsRoot);
+
                 CreateWeaponEntity(world, weaponView, heroEntity, ref hasWeapon, ref pickupEvent);                  
                 
+                hasWeapon.CurrentUsedWeaponType = pickupEvent.Type;
+
                 isTakeNewWeapon = true;
             }
-
-            hasWeapon.CurrentUsedWeaponType = pickupEvent.Type;
 
             //increase ammo
             if (!isTakeNewWeapon) TryAddAmmo(world, ref hasWeapon, ref pickupEvent);  
@@ -117,8 +116,9 @@ namespace SA.FPS
                 weaponAmmo.Count += evt.Amount; 
             }     
 
-            //update weapon event
-            world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEntity);
+            //update weapon event (add component to weapon)
+            if (hasWeapon.CurrentUsedWeaponType == evt.Type)
+                world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEntity);
         }
 
 

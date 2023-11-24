@@ -8,7 +8,7 @@ namespace SA.FPS
     public sealed class UpdateWeaponHUDSystem : IEcsInitSystem, IEcsRunSystem
     {
         private HUDController _uiController;
-        private EcsFilter _weaponFilter;
+        private EcsFilter _fireWeaponFilter;
         private EcsFilter _handWeaponFilter;
         private EcsFilter _heroFilter;
         private EcsPool<AmmunitionComponent> _ammoPool;
@@ -21,7 +21,7 @@ namespace SA.FPS
         {     
             _uiController = systems.GetShared<SharedData>().WorldData.HUD;
 
-            _weaponFilter = systems.GetWorld()
+            _fireWeaponFilter = systems.GetWorld()
                 .Filter<WeaponComponent>()
                 .Inc<WeaponOwnerComponent>()
                 .Inc<AmmunitionComponent>()
@@ -55,8 +55,8 @@ namespace SA.FPS
         {            
             var world = systems.GetWorld();
 
-            //weapon
-            foreach(var ent in _weaponFilter)
+            //fire weapon
+            foreach(var ent in _fireWeaponFilter)
             {
                 _weaponUpdateStatePool.Del(ent);
 
