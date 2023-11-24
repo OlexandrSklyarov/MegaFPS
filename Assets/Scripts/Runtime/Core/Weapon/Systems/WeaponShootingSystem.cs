@@ -74,9 +74,7 @@ namespace SA.FPS
             }
 
             ammo.Count--;
-
             weapon.WeaponReadyTime = Time.time + weapon.View.Settings.AttackCooldown;
-
             FMODUnity.RuntimeManager.PlayOneShot(weapon.View.Settings.AttackSfx);  
         }
 
@@ -114,6 +112,7 @@ namespace SA.FPS
             var decal = _poolManager.GetDecal(weapon.View.Settings.DecalType);
             decal.SetPoint(hit.normal, hit.point);
         }
+
 
         private Vector3 AddShootSpread(float spread, Vector3 dir)
         {

@@ -11,6 +11,7 @@ namespace SA.FPS
         DamageWeaponSettings IWeaponAttack.DamageSettings => Settings;
 
         private Animator _weaponAnimator;
+        
 
         private void Awake() 
         {
@@ -20,12 +21,14 @@ namespace SA.FPS
 
         public bool TryReload(out float reloadTime)
         {
-            reloadTime = 0;
+            if (!Settings.IsRangeWeapon) 
+            {
+                reloadTime = 0;
+                return false;
+            }
 
-            if (!Settings.IsRangeWeapon) return false;
-
-            _weaponAnimator.SetTrigger("RELOAD");
             reloadTime = 1f;
+            _weaponAnimator.SetTrigger("RELOAD");
             
             return true;
         }
@@ -33,8 +36,8 @@ namespace SA.FPS
 
         public void MeleeAttack(out float reloadTime)
         {
-            _weaponAnimator.SetTrigger("MELEE_ATTACK");
             reloadTime = 1f;
+            _weaponAnimator.SetTrigger("MELEE_ATTACK");
         }
     }
 }

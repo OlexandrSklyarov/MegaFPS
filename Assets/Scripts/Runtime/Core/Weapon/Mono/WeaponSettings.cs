@@ -24,6 +24,7 @@ namespace SA.FPS
         public float Distance => _distance;
         public DecalType DecalType => _decalType;
         public bool IsUseSpread => _isUseSpread;
+        public bool IsUseMeleeAttack => _isUseMeleeAttack;
         public float SpreadFactor => _spreadFactor;
 
         [Space, SerializeField] private bool _isRangeWeapon;
@@ -33,6 +34,12 @@ namespace SA.FPS
         [SerializeField, ShowIf("IsRangeWeapon"), Min(1f)] private float _distance = Mathf.Infinity;
         [SerializeField,ShowIf("IsRangeWeapon")] private DecalType _decalType;
         [SerializeField, ShowIf("IsRangeWeapon")] private bool _isUseSpread;
-        [SerializeField, ShowIf("IsRangeWeapon"), Min(0f)] private float _spreadFactor;      
+        [SerializeField, ShowIf("IsRangeWeapon"), Min(0f)] private float _spreadFactor;  
+
+        [Space, SerializeField] private bool _isUseMeleeAttack;
+        [field: SerializeField, ShowIf("IsUseMeleeAttack"), Min(1)] public int OverlapDamage {get; private set;} = 3;  
+        [field: SerializeField, ShowIf("IsUseMeleeAttack"), Min(1)] public int OverlapRadius {get; private set;} = 2;  
+        [field: SerializeField, ShowIf("IsUseMeleeAttack")] public LayerMask ObstacleLayerMask {get; private set;}
+        [field: SerializeField,ShowIf("IsUseMeleeAttack")] public bool IsConsiderObstacles {get; private set;} = true;    
     }
 }

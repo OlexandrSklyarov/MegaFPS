@@ -43,7 +43,7 @@ namespace SA.FPS
             }
 
             //Overlap
-            foreach(var ent in _raycastDamageFilter)
+            foreach(var ent in _overlapDamageFilter)
             {
                 ref var evt = ref _overlapEvtPool.Get(ent);
 

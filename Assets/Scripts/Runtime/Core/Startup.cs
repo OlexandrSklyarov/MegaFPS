@@ -44,6 +44,7 @@ namespace SA.FPS
                 .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
             #endif
 
+                //hero
                 .Add(new HeroSpawnSystem())
                 .Add(new HeroCheckGroundSystem())
                 .Add(new HeroInputSystem())
@@ -62,6 +63,7 @@ namespace SA.FPS
 
                 .Add(new UpdateWeaponHUDSystem())
 
+                //spawn enemy
                 .Add(new CreateEnemySpawnerSystem())
                 .Add(new UnitSpawnSystem())
 

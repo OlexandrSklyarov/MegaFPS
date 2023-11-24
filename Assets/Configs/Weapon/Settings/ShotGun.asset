@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8136334260ad4c4db1d1ece5d586fc2, type: 3}
   m_Name: ShotGun
   m_EditorClassIdentifier: 
+  <Damage>k__BackingField: 30
+  <HeadShotDamageMultiplier>k__BackingField: 3
   <Strength>k__BackingField: 0.04
   <Randomness>k__BackingField: 90
   <Vibrato>k__BackingField: 10
   <AttackCooldown>k__BackingField: 0.9
-  <Damage>k__BackingField: 30
   <TargetLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 129
@@ -37,3 +38,10 @@ MonoBehaviour:
   _decalType: 0
   _isUseSpread: 0
   _spreadFactor: 0
+  _isUseMeleeAttack: 1
+  <OverlapDamage>k__BackingField: 3
+  <OverlapRadius>k__BackingField: 1
+  <ObstacleLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 311
+  <IsConsiderObstacles>k__BackingField: 1

@@ -134,19 +134,24 @@ namespace SA.FPS
         ref HasWeaponComponent hasWeapon, ref CharacterPickupWeaponEvent pickupEvent)
         {
             var weaponEnt = world.NewEntity();
-            
-            //weapon
-            ref var weapon = ref world.GetPool<WeaponComponent>().Add(weaponEnt);            
-            weapon.View = weaponView;
 
-            //only range weapon
-            if (pickupEvent.Type != WeaponType.Knife)
+            //weapon
+            ref var weapon = ref world.GetPool<WeaponComponent>().Add(weaponEnt);
+            weapon.View = weaponView;
+            
+            if (IsRangeWeapon(pickupEvent))
             {
                 //ammo
-                ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(weaponEnt); 
+                ref var ammunition = ref world.GetPool<AmmunitionComponent>().Add(weaponEnt);
                 ammunition.Count = weaponView.Settings.StartAmmo;
-                ammunition.MaxAmmo = weaponView.Settings.StartAmmo;  
-                ammunition.ExtraCount = weaponView.Settings.MagAmountAmmo - weaponView.Settings.StartAmmo;  
+                ammunition.MaxAmmo = weaponView.Settings.StartAmmo;
+                ammunition.ExtraCount = weaponView.Settings.MagAmountAmmo - weaponView.Settings.StartAmmo;
+            }
+            
+            if (weapon.View.Settings.IsUseMeleeAttack) // melee attack weapon
+            {
+                ref var meleeAttack = ref world.GetPool<WeaponMeleeAttackComponent>().Add(weaponEnt);
+                meleeAttack.OverlapResults = new Collider[32];
             }
 
             //owner
@@ -158,6 +163,12 @@ namespace SA.FPS
 
             //Update ui
             world.GetPool<WeaponChangeStateComponentTag>().Add(weaponEnt);
+        }
+
+
+        private bool IsRangeWeapon(CharacterPickupWeaponEvent pickupEvent)
+        {
+            return pickupEvent.Type != WeaponType.Knife;
         }
     }
 }

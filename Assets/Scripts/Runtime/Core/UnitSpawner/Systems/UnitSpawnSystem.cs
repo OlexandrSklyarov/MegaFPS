@@ -49,9 +49,7 @@ namespace SA.FPS
         private void SpawnUnit(UnitType unitType)
         {
             var ent = _world.NewEntity();
-            ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent);
-
-            
+            ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent);            
 
             var enemyView = _poolManager.GetUnitView(unitType);
             enemyView.transform.position = GetRandomPoint().position;
