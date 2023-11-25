@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace SA.FPS
 {
-    public class HeadHitBox : BaseHitBox, IAttackVisitor
+    public class HeadHitBox : BaseHitBox, IAttackVisitable
     {
-        void IAttackVisitor.Visit(IWeaponAttack weapon)
+        void IAttackVisitable.Visit(IWeaponAttack weapon)
         {
             if (!TryGetEntity(out var unitEntity)) return;
 
@@ -15,7 +15,7 @@ namespace SA.FPS
             evt.DamageMultiplier = weapon.DamageSettings.HeadShotDamageMultiplier;
         }
         
-        void IAttackVisitor.Visit(IWeaponAttack weapon, RaycastHit hit)
+        void IAttackVisitable.Visit(IWeaponAttack weapon, RaycastHit hit)
         {
             if (!TryGetEntity(out var unitEntity)) return;
 

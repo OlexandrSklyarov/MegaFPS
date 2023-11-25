@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Leopotam.EcsLite;
 using UnityEngine;
 
@@ -37,25 +39,21 @@ namespace SA.FPS
 
                 ref var weapon = ref _weaponPool.Get(ent);
                 ref var owner = ref _ownerPool.Get(ent);
-                ref var meleeAttack = ref _meleeAttackPool.Get(ent);
-                                                                            
-                AttackAnimation(ref weapon);
-                PerformMeleeAttack(ref weapon, ref meleeAttack);                                       
+                ref var meleeAttack = ref _meleeAttackPool.Get(ent);                                                                           
+                
+                weapon.View.MeleeAttack(out float attackTime);
+
+                PerformMeleeAttack(ref weapon, ref meleeAttack, attackTime);                                       
             }             
-        }
+        }        
 
 
-        private void AttackAnimation(ref WeaponComponent weapon)
-        {
-            weapon.View.MeleeAttack(out float duration);
-        }
-
-
-        private void PerformMeleeAttack(ref WeaponComponent weapon, ref WeaponMeleeAttackComponent meleeAttack)
+        private void PerformMeleeAttack(ref WeaponComponent weapon, 
+            ref WeaponMeleeAttackComponent meleeAttack, float attackTime)
         {
             if (!TryFindTargets(ref weapon, ref meleeAttack)) return;
 
-            TryAttack(ref weapon, ref meleeAttack);
+            TryAttack(ref weapon, ref meleeAttack, attackTime);
             
         }        
 
@@ -73,11 +71,11 @@ namespace SA.FPS
         }
 
 
-        private void TryAttack(ref WeaponComponent weapon, ref WeaponMeleeAttackComponent meleeAttack)
+        private void TryAttack(ref WeaponComponent weapon, ref WeaponMeleeAttackComponent meleeAttack, float attackTime)
         {
             for (int i = 0; i < meleeAttack.OverlapResultCount; i++)
             {
-                if (!meleeAttack.OverlapResults[i].TryGetComponent(out IAttackVisitor target)) continue;        
+                if (!meleeAttack.OverlapResults[i].TryGetComponent(out IAttackVisitable target)) continue;        
 
                 if (weapon.View.Settings.IsConsiderObstacles)
                 {                    
@@ -91,8 +89,16 @@ namespace SA.FPS
                     if (hasObstacle) continue;
                 }
 
-                target.Visit(weapon.View);
+                ExecuteAttackWithDelayAsync(target, weapon.View, attackTime);
             }
-        }        
+        }   
+
+
+        private async void ExecuteAttackWithDelayAsync(IAttackVisitable target, WeaponView weaponView, float attackTime)
+        {          
+            await UniTask.Delay(TimeSpan.FromSeconds(attackTime * 0.5f));
+
+            target.Visit(weaponView);
+        }   
     }
 }

@@ -89,7 +89,7 @@ namespace SA.FPS
 
         private void HitScan(ref WeaponComponent weapon, RaycastHit hit)
         {            
-            if (hit.collider.TryGetComponent(out IAttackVisitor target))
+            if (hit.collider.TryGetComponent(out IAttackVisitable target))
             {
                 Accept(ref weapon, target, hit);
             }
@@ -100,7 +100,7 @@ namespace SA.FPS
         }
 
 
-        private void Accept(ref WeaponComponent weapon,  IAttackVisitor target, RaycastHit hit)
+        private void Accept(ref WeaponComponent weapon,  IAttackVisitable target, RaycastHit hit)
         {
             Util.Debug.Print("Accept");
             target.Visit(weapon.View, hit);
