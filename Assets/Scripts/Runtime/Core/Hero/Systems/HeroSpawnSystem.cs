@@ -1,6 +1,5 @@
 using Cinemachine;
 using Leopotam.EcsLite;
-using Runtime.Services.WeaponsFactory;
 using UnityEngine;
 
 namespace SA.FPS
@@ -15,7 +14,7 @@ namespace SA.FPS
 
             var entity = world.NewEntity();
 
-            var heroView = GetView(gameConfig.HeroPrefab, data.WorldData.HeroSpawnPoint);
+            var heroView = GetHeroView(gameConfig.HeroPrefab, data.WorldData.HeroSpawnPoint);
             heroView.Init(entity, world);            
             
             //hero
@@ -29,11 +28,7 @@ namespace SA.FPS
             //config
             ref var config = ref world.GetPool<CharacterConfigComponent>().Add(entity);
             config.Prm = heroView.Config;
-
-            //tps camera
-            ref var tpsCamera = ref world.GetPool<TPSCameraComponent>().Add(entity);
-            tpsCamera.VirtualCamera = GetTPSVirtualCamera(data, heroView, gameConfig);
-
+            
             //input
             world.GetPool<InputComponent>().Add(entity);
 
@@ -43,8 +38,7 @@ namespace SA.FPS
             look.HeadRoot = heroView.HeadRoot;
             look.Head = heroView.Head;
             look.FPS_CameraTarget = heroView.FPSHeroCameraTarget;
-            SetupFpsVirtualCamera(data, ref look);
-            
+            SetupFpsVirtualCamera(data, ref look);            
 
             //audio
             world.GetPool<HeroFootStepComponent>().Add(entity);
@@ -64,6 +58,7 @@ namespace SA.FPS
             pickupWeaponEvent.Type = gameConfig.HeroStartWeapon;
         }
 
+
         private void SetupFpsVirtualCamera(SharedData data, ref HeroLookComponent look)
         {
             var vc = data.WorldData.FPSVirtualCamera;
@@ -72,27 +67,10 @@ namespace SA.FPS
 
             look.FPS_VirtualCamera = vc.transform;
             look.VirtualCameraAimPOV = vc.GetCinemachineComponent<CinemachinePOV>();
-        }     
+        }    
+       
 
-
-        private CinemachineVirtualCamera GetTPSVirtualCamera(SharedData data, HeroView heroView, GameConfig gameConfig)
-        {
-            var camera = UnityEngine.Object.Instantiate
-            (
-                gameConfig.VirtualCameraPrefab,
-                null
-            );
-
-            camera.Follow = heroView.FollowTarget;
-            camera.LookAt = heroView.LookTarget;
-            camera.Priority = 0;
-            camera.enabled = false;
-
-            return camera;
-        }
-
-
-        private HeroView GetView(HeroView heroPrefab, Transform heroSpawnPoint)
+        private HeroView GetHeroView(HeroView heroPrefab, Transform heroSpawnPoint)
         {
             var hero = UnityEngine.Object.Instantiate
             (
