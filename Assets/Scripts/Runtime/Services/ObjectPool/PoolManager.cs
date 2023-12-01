@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SA.FPS.Runtime.UI.HUD;
 
@@ -88,6 +89,15 @@ namespace SA.FPS
 
         public UIWeaponView GetUIWeaponView() => UIWeaponViewPool.Get();
 
-        public UnitView GetUnitView(UnitType type) => UnitViewPools[type].Get();
+
+        public UnitView GetUnitView(UnitType type)
+        {
+            if (UnitViewPools.TryGetValue(type, out var pool))
+            {
+                return pool.Get();
+            }
+
+            throw new ArgumentException($"Not found unit with this type {type}, probably not added in the config.");
+        }
     }
 }

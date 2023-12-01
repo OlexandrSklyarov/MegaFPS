@@ -67,7 +67,14 @@ namespace SA.FPS
             {
                 var shootDir = TryGetShootDirectionWithSpread(ref weapon, ref shootEvt);
 
-                if (Physics.Raycast(shootEvt.ShootPoint, shootDir, out var hit, float.MaxValue, weapon.View.Settings.TargetLayerMask))
+                if (Physics.Raycast
+                (
+                    shootEvt.ShootPoint, 
+                    shootDir, 
+                    out var hit, 
+                    float.MaxValue, 
+                    weapon.View.Settings.TargetLayerMask
+                ))
                 {
                     HitScan(ref weapon, hit);
                 }

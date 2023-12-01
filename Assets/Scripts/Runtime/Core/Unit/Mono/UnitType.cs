@@ -2,6 +2,8 @@ namespace SA.FPS
 {
     public enum UnitType
     {
-        Mutant
+        Small,
+        Middle,
+        Boss
     }
 }

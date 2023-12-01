@@ -64,7 +64,7 @@ namespace SA.FPS
                 weapon.View.FirePoint.position,
                 weapon.View.Settings.OverlapRadius,
                 meleeAttack.OverlapResults,
-                weapon.View.Settings.TargetLayerMask                  
+                weapon.View.Settings.TargetLayerMask               
             );
 
             return meleeAttack.OverlapResultCount > 0;
