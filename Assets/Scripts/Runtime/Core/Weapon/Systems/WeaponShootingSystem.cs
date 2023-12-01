@@ -78,6 +78,8 @@ namespace SA.FPS
                 {
                     HitScan(ref weapon, hit);
                 }
+
+                Debug.DrawLine(shootEvt.ShootPoint, shootEvt.ShootPoint + shootDir * float.MaxValue, Color.red, 0.1f);
             }
 
             ammo.Count--;
@@ -96,6 +98,8 @@ namespace SA.FPS
 
         private void HitScan(ref WeaponComponent weapon, RaycastHit hit)
         {            
+            Util.Debug.Print($"hit {hit.collider.name}");
+
             if (hit.collider.TryGetComponent(out IAttackVisitable target))
             {
                 Accept(ref weapon, target, hit);

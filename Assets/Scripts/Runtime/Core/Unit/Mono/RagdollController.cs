@@ -5,9 +5,9 @@ namespace SA.FPS
 {
     public class RagdollController : MonoBehaviour
     {
-        private bool _isInit;
         private Collider[] _colliders;
         private Rigidbody[] _rigidbodies;
+        private bool _isInit;
 
         public void Init()
         {
