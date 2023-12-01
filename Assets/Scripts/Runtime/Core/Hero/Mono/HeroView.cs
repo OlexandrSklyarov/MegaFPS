@@ -7,13 +7,13 @@ namespace SA.FPS
     public sealed class HeroView : MonoBehaviour
     {
         [field: SerializeField] public CharacterConfig Config {get; private set;}
-        [field: SerializeField] public Rigidbody RB {get; private set;}
+        [field: Space, SerializeField] public Rigidbody RB {get; private set;}
+        [field: SerializeField] public Animator HeadAnimator {get; private set;}
         [field: SerializeField] public Transform WeaponsRoot {get; private set;}
-        [field: SerializeField] public Transform LookTarget {get; private set;}
-        [field: SerializeField] public Transform HeadRoot {get; private set;}
+                
+        [field: Space, SerializeField] public Transform HeadRoot {get; private set;}
         [field: SerializeField] public Transform Head {get; private set;}
         [field: SerializeField] public Transform FPSHeroCameraTarget {get; private set;}
-        [field: SerializeField] public Animator HeadAnimator {get; private set;}
         
         public Transform FollowTarget => transform;
 

@@ -20,8 +20,8 @@ MonoBehaviour:
   <HeroLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <MouseSensitivity_X>k__BackingField: 300
-  <MouseSensitivity_Y>k__BackingField: 300
+  <MouseSensitivity_X>k__BackingField: 10
+  <MouseSensitivity_Y>k__BackingField: 10
   <UpAngle>k__BackingField: 70
   <DownAngle>k__BackingField: -70
   <FootSteVelocityThreshold>k__BackingField: 1

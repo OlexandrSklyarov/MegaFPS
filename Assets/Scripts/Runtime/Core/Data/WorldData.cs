@@ -1,5 +1,4 @@
 using System;
-using Cinemachine;
 using UnityEngine;
 
 namespace SA.FPS
@@ -9,7 +8,6 @@ namespace SA.FPS
     {
         [field: SerializeField] public Transform HeroSpawnPoint {get; private set;}
         [field: SerializeField] public HUDController HUD {get; private set;}
-        [field: SerializeField] public CinemachineVirtualCamera FPSVirtualCamera {get; private set;}
         [field: SerializeField] public Transform[] EnemySpawnPoints {get; private set;}
     }
 }

@@ -77,7 +77,7 @@ namespace SA.FPS
                 .Init();
 
             _lateUpdateSystems
-                .Add(new HeroFPSLookCameraSystem())
+                .Add(new HeroLookCameraSystem())
                 .Init();
         }
 

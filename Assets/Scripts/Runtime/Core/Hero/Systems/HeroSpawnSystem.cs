@@ -37,8 +37,7 @@ namespace SA.FPS
             look.Body = heroView.transform;
             look.HeadRoot = heroView.HeadRoot;
             look.Head = heroView.Head;
-            look.FPS_CameraTarget = heroView.FPSHeroCameraTarget;
-            SetupFpsVirtualCamera(data, ref look);            
+            look.FPS_CameraTarget = heroView.FPSHeroCameraTarget;        
 
             //audio
             world.GetPool<HeroFootStepComponent>().Add(entity);
@@ -56,18 +55,7 @@ namespace SA.FPS
             //Add base weapon
             ref var pickupWeaponEvent = ref world.GetPool<CharacterPickupWeaponEvent>().Add(entity);
             pickupWeaponEvent.Type = gameConfig.HeroStartWeapon;
-        }
-
-
-        private void SetupFpsVirtualCamera(SharedData data, ref HeroLookComponent look)
-        {
-            var vc = data.WorldData.FPSVirtualCamera;
-            vc.Follow = look.FPS_CameraTarget;
-            vc.LookAt = look.FPS_CameraTarget;
-
-            look.FPS_VirtualCamera = vc.transform;
-            look.VirtualCameraAimPOV = vc.GetCinemachineComponent<CinemachinePOV>();
-        }    
+        }   
        
 
         private HeroView GetHeroView(HeroView heroPrefab, Transform heroSpawnPoint)
