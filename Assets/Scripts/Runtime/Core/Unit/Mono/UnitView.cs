@@ -21,7 +21,6 @@ namespace SA.FPS
         public void Init(EcsWorld world, EcsPackedEntity ownerEntity)
         {
             Array.ForEach(_hitBoxes, h => h.Setup(world, ownerEntity));
-            _ragdoll.Init();
             _ragdoll.Off();
         }
 

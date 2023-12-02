@@ -72,14 +72,17 @@ namespace SA.FPS
                     shootEvt.ShootPoint, 
                     shootDir, 
                     out var hit, 
-                    float.MaxValue, 
+                    weapon.View.Settings.Distance, 
                     weapon.View.Settings.TargetLayerMask
                 ))
                 {
                     HitScan(ref weapon, hit);
-                }
+                    Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.red, 0.1f);
 
-                Debug.DrawLine(shootEvt.ShootPoint, shootEvt.ShootPoint + shootDir * float.MaxValue, Color.red, 0.1f);
+                }
+                else
+                    Debug.DrawLine(shootEvt.ShootPoint, hit.point, Color.yellow, 0.1f);
+
             }
 
             ammo.Count--;

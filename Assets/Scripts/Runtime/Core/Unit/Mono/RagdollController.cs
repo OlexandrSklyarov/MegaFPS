@@ -1,49 +1,43 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SA.FPS
 {
     public class RagdollController : MonoBehaviour
     {
-        private Collider[] _colliders;
-        private Rigidbody[] _rigidbodies;
-        private bool _isInit;
-
-        public void Init()
-        {
-            if (_isInit) return;
-
-            _colliders = GetComponentsInChildren<Collider>();
-            _rigidbodies = GetComponentsInChildren<Rigidbody>();
-
-            _isInit = true;
-        }
-
-        public void On()
-        {
-            Array.ForEach(_colliders, c => c.isTrigger = false);
-            Array.ForEach(_rigidbodies, r => SetActiveRB(r, true));
-        }
+        private IEnumerable<Rigidbody> Rigidbodies => _rigidbodies;
         
-        public void Off()
+        private Rigidbody[] _rigidbodies;
+
+        private void Awake()
         {
-            Array.ForEach(_colliders, c => c.isTrigger = true);
-            Array.ForEach(_rigidbodies, r => SetActiveRB(r, false));
+            _rigidbodies = GetComponentsInChildren<Rigidbody>();
         }
 
-        private void SetActiveRB(Rigidbody rb, bool isActive)
+        public void On() => SetActiveRB(true);
+        
+        public void Off() => SetActiveRB(false);       
+       
+        private void SetActiveRB(bool isActive)
         {
-            if (isActive)
+            for (int i = 0; i < _rigidbodies.Length; i++)
             {
-                rb.isKinematic = false;
-                return;
-            }
+                var r = _rigidbodies[i];
 
-            rb.isKinematic = false;
-            
-            //reset velocity
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+                if (isActive)
+                {
+                    r.isKinematic = false;
+                    r.useGravity = true;
+                    continue;
+                }
+
+                r.isKinematic = false;
+                r.useGravity = false;
+                
+                //reset velocity
+                r.velocity = Vector3.zero;
+                r.angularVelocity = Vector3.zero;
+            }
         }
     }
 }
