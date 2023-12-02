@@ -56,6 +56,10 @@ namespace SA.FPS
 
             ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent); 
 
+            //View
+            ref var v = ref _world.GetPool<UnitViewComponent>().Add(ent);  
+            v.ViewRef = enemyView; 
+            
             //health
             ref var hp = ref _world.GetPool<HealthComponent>().Add(ent);  
             hp.Value = 100;          

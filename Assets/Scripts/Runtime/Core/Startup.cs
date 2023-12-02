@@ -63,16 +63,16 @@ namespace SA.FPS
 
                 .Add(new UpdateWeaponHUDSystem())
 
-                //spawn enemy
+                // spawn/destroy enemy
                 .Add(new CreateEnemySpawnerSystem())
                 .Add(new UnitSpawnSystem())
+                .Add(new DeathEnemySystem())
 
                 //damage
                 .Add(new UnitApplyDamageSystem())
                 .Add(new PushRagdollSystem())
 
                 .Init();
-
             
             _fixedUpdateSystems 
                 .Add(new HeroPhysicsMovementSystem())

@@ -90,12 +90,13 @@ namespace SA.FPS
                 ref var hp = ref _healthPool.Get(ent);
                 hp.Value -= damage;
 
-                DebugUtil.Print($"damage hp: {hp.Value}");
-
                 if (hp.Value <= 0)
                 {
                     _healthPool.Del(ent);
-                    _deathPool.Add(ent);
+
+                    //death component
+                    ref var death = ref _deathPool.Add(ent);
+                    death.PrepareDeathTime = 4f;
 
                     isDeath = true;
                 }
