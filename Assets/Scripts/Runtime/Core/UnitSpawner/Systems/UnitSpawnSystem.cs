@@ -49,11 +49,20 @@ namespace SA.FPS
         private void SpawnUnit(UnitType unitType)
         {
             var ent = _world.NewEntity();
-            ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent);            
 
             var enemyView = _poolManager.GetUnitView(unitType);
             enemyView.transform.position = GetRandomPoint().position;
             enemyView.Init(_world, _world.PackEntity(ent));
+
+            ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent); 
+
+            //health
+            ref var hp = ref _world.GetPool<HealthComponent>().Add(ent);  
+            hp.Value = 100;          
+            
+            //ragdoll
+            ref var ragdoll = ref _world.GetPool<RagdollComponent>().Add(ent);  
+            ragdoll.Controller = enemyView.Ragdoll;          
         }
 
 

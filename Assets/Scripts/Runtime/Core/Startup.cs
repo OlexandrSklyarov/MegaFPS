@@ -67,7 +67,9 @@ namespace SA.FPS
                 .Add(new CreateEnemySpawnerSystem())
                 .Add(new UnitSpawnSystem())
 
+                //damage
                 .Add(new UnitApplyDamageSystem())
+                .Add(new PushRagdollSystem())
 
                 .Init();
 

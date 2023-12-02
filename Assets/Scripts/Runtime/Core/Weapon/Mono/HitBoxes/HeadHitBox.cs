@@ -22,8 +22,9 @@ namespace SA.FPS
             ref var evt = ref GetRaycastDamageEvent(unitEntity);
 
             evt.Hit = hit;
-            evt.Damage = weapon.DamageSettings.Damage;
+            evt.Damage = weapon.DamageSettings.Damage * weapon.DamageSettings.HeadShotDamageMultiplier;
             evt.DamageMultiplier = weapon.DamageSettings.HeadShotDamageMultiplier;
+            evt.Power = weapon.DamageSettings.PushPower;
         } 
     }
 }

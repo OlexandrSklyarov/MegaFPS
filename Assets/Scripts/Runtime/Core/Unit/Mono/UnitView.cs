@@ -7,6 +7,8 @@ namespace SA.FPS
 {
     public class UnitView : MonoBehaviour, IPoolable<UnitView>
     {
+        public RagdollController Ragdoll => _ragdoll;
+
         [SerializeField] private BaseHitBox[] _hitBoxes;
         [SerializeField] private RagdollController _ragdoll;
 

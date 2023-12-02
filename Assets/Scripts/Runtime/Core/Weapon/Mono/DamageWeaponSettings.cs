@@ -6,5 +6,6 @@ namespace SA.FPS
     {
         [field: SerializeField, Min(1)] public int Damage {get; private set;} = 15;
         [field: SerializeField, Min(1)] public int HeadShotDamageMultiplier {get; private set;} = 3;        
+        [field: SerializeField, Min(1)] public int PushPower {get; private set;} = 100;        
     }
 }

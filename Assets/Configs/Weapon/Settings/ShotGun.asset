@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 30
   <HeadShotDamageMultiplier>k__BackingField: 3
+  <PushPower>k__BackingField: 500
   <Strength>k__BackingField: 0.04
   <Randomness>k__BackingField: 90
   <Vibrato>k__BackingField: 10
