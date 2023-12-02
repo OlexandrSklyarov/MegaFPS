@@ -6,7 +6,6 @@ namespace SA.FPS
     {
         public RaycastHit Hit;
         public int Damage;
-        public int DamageMultiplier;
         public float Power;
     }
 }

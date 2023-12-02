@@ -29,9 +29,13 @@ namespace SA.FPS
             {
                 ref var ragdoll = ref _ragdollPool.Get(ent);
                 ref var pushEvt = ref _ragdollEventPool.Get(ent);
-
-                var direction = pushEvt.Hit.normal * -1;
-                ragdoll.Controller.OnAndPush(direction, pushEvt.Hit.point, pushEvt.Power);
+              
+                ragdoll.Controller.OnAndPush
+                (
+                    pushEvt.HitDirection, 
+                    pushEvt.HitPoint,
+                    pushEvt.Power
+                );
 
                 _ragdollEventPool.Del(ent);
             }

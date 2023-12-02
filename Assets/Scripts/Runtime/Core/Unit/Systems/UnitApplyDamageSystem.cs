@@ -1,7 +1,5 @@
-using Leopotam.EcsLite;
 using UnityEngine;
-using UnityEngine.Rendering;
-using Util;
+using Leopotam.EcsLite;
 
 namespace SA.FPS
 {
@@ -16,6 +14,8 @@ namespace SA.FPS
         private EcsPool<DeathComponent> _deathPool;
         private EcsPool<PushRagdollEvent> _pushEventPool;
         private EcsPool<RagdollComponent> _ragdollPool;
+        private EcsPool<UnitViewComponent> _viewPool;
+
 
         public void Init(IEcsSystems systems)
         {
@@ -23,10 +23,12 @@ namespace SA.FPS
 
             _raycastDamageFilter = _world
                 .Filter<RaycastDamageEvent>()
+                .Inc<UnitViewComponent>()
                 .End();
 
             _overlapDamageFilter = _world
                 .Filter<OverlapDamageEvent>()
+                .Inc<UnitViewComponent>()
                 .End();
 
             _raycastEvtPool = _world.GetPool<RaycastDamageEvent>();
@@ -35,6 +37,7 @@ namespace SA.FPS
             _deathPool = _world.GetPool<DeathComponent>();
             _pushEventPool = _world.GetPool<PushRagdollEvent>();
             _ragdollPool = _world.GetPool<RagdollComponent>();
+            _viewPool = _world.GetPool<UnitViewComponent>();
         }
 
 
@@ -51,9 +54,17 @@ namespace SA.FPS
             foreach (var ent in _overlapDamageFilter)
             {
                 ref var evt = ref _overlapEvtPool.Get(ent);
+                ref var view = ref _viewPool.Get(ent);
 
-                int totalDamage = (evt.DamageMultiplier > 0) ? evt.Damage * evt.DamageMultiplier : evt.Damage;
-                ChangeHP(ent, totalDamage);
+                var isDeath = ChangeHP(ent, evt.Damage);
+
+                if (isDeath && _ragdollPool.Has(ent))
+                {
+                    var hitDir = view.ViewRef.transform.position - evt.DamageSource.position;
+                    hitDir.y = 0f;
+
+                    TryActiveRagdoll(ent, isDeath, hitDir.normalized, evt.DamageSource.position, evt.Power);
+                }
 
                 _overlapEvtPool.Del(ent);
             }
@@ -65,18 +76,25 @@ namespace SA.FPS
             foreach (var ent in _raycastDamageFilter)
             {
                 ref var evt = ref _raycastEvtPool.Get(ent);
-                
-                int totalDamage = (evt.DamageMultiplier > 0) ? evt.Damage * evt.DamageMultiplier : evt.Damage;
-                var isDeath = ChangeHP(ent, totalDamage);
+                ref var view = ref _viewPool.Get(ent);
 
-                if (isDeath && _ragdollPool.Has(ent))
-                {
-                   ref var pushEvt = ref _pushEventPool.Add(ent);
-                   pushEvt.Hit = evt.Hit;
-                   pushEvt.Power = evt.Power;
-                }
+                var isDeath = ChangeHP(ent, evt.Damage);
+
+                TryActiveRagdoll(ent, isDeath, evt.Hit.normal * -1f, evt.Hit.point, evt.Power);
 
                 _raycastEvtPool.Del(ent);
+            }
+        }
+
+
+        private void TryActiveRagdoll(int ent, bool isDeath, Vector3 hitDirection, Vector3 hitPoint, float power)
+        {
+            if (isDeath && _ragdollPool.Has(ent))
+            {
+                ref var pushEvt = ref _pushEventPool.Add(ent);
+                pushEvt.HitDirection = hitDirection;
+                pushEvt.HitPoint = hitPoint;
+                pushEvt.Power = power;
             }
         }
 

@@ -21,7 +21,7 @@ MonoBehaviour:
   <AttackCooldown>k__BackingField: 0.9
   <TargetLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 641
   <Sprite>k__BackingField: {fileID: 21300012, guid: 6674e8c43c63e4f4184cbd009379498d,
     type: 3}
   <AttackSfx>k__BackingField:

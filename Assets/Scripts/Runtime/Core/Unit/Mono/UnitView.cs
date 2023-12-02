@@ -8,9 +8,11 @@ namespace SA.FPS
     public class UnitView : MonoBehaviour, IPoolable<UnitView>
     {
         public RagdollController Ragdoll => _ragdoll;
+        public Animator Animator => _animator;
 
         [SerializeField] private BaseHitBox[] _hitBoxes;
         [SerializeField] private RagdollController _ragdoll;
+        [SerializeField] private Animator _animator;
 
         private IObjectPool<UnitView> _pool;
 
@@ -18,6 +20,7 @@ namespace SA.FPS
         {
             _hitBoxes = GetComponentsInChildren<BaseHitBox>();
             _ragdoll = GetComponent<RagdollController>();
+            _animator = GetComponent<Animator>();
         }
 
         public void Init(EcsWorld world, EcsPackedEntity ownerEntity)
@@ -31,6 +34,10 @@ namespace SA.FPS
             _pool = pool;
         }
 
-        public void Reclaim() => _pool.Release(this);
+        public void Reclaim() 
+        {
+            _ragdoll.Off();
+            _pool.Release(this);
+        } 
     }
 }

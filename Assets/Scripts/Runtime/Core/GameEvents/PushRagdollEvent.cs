@@ -5,7 +5,8 @@ namespace SA.FPS
 {
     public struct PushRagdollEvent
     {
-        public RaycastHit Hit;
+        public Vector3 HitDirection;
+        public Vector3 HitPoint;
         public float Power;
     }
 }

@@ -7,7 +7,6 @@ namespace SA.FPS
     {
         public Transform DamageSource;
         public int Damage;
-        public int DamageMultiplier;
-
+        public float Power;
     }
 }

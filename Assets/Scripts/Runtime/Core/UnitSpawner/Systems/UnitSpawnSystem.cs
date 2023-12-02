@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Leopotam.EcsLite;
 using UnityEngine;
+using Util;
 
 namespace SA.FPS
 {
@@ -37,21 +39,30 @@ namespace SA.FPS
             {
                 ref var spawner = ref _spawnerPool.Get(ent);
 
-                if (spawner.NextCheckSpawnTime > Time.time) continue;
+                if (spawner.NextCheckSpawnTime > 0f) 
+                {
+                    spawner.NextCheckSpawnTime -= Time.deltaTime;
+                    continue;
+                }
+
                 if (_enemiesFilter.GetEntitiesCount() >= 2) continue;
 
                 var unitType = GetRandomType(ref spawner);
-                SpawnUnit(unitType);
+                var spawnPosition = GetRandomPosition(ref spawner);
+
+                SpawnUnit(unitType, spawnPosition);
+
+                spawner.NextCheckSpawnTime = 2f;
             }
         }
 
 
-        private void SpawnUnit(UnitType unitType)
+        private void SpawnUnit(UnitType unitType, Vector3 spawnPosition)
         {
             var ent = _world.NewEntity();
 
             var enemyView = _poolManager.GetUnitView(unitType);
-            enemyView.transform.position = GetRandomPoint().position;
+            enemyView.transform.position = spawnPosition;
             enemyView.Init(_world, _world.PackEntity(ent));
 
             ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent); 
@@ -66,7 +77,11 @@ namespace SA.FPS
             
             //ragdoll
             ref var ragdoll = ref _world.GetPool<RagdollComponent>().Add(ent);  
-            ragdoll.Controller = enemyView.Ragdoll;          
+            ragdoll.Controller = enemyView.Ragdoll;   
+           
+            //animation
+            ref var animation = ref _world.GetPool<EnemyAnimationComponent>().Add(ent);  
+            animation.AnimatorRef = enemyView.Animator;      
         }
 
 
@@ -76,9 +91,25 @@ namespace SA.FPS
         }
 
 
-        private Transform GetRandomPoint() 
+        private Vector3 GetRandomPosition(ref EnemySpawnerComponent spawner) 
         {
-            return _data.EnemySpawnPoints[UnityEngine.Random.Range(0, _data.EnemySpawnPoints.Length)];
+            if (spawner.RandomPoints == null || spawner.RandomPoints.Count <= 0)
+            {
+                var list = new List<int>();
+
+                for (int i = 0; i < _data.EnemySpawnPoints.Length; i++)
+                {
+                    list.Add(i);
+                }
+
+                list.Shuffle();
+
+                spawner.RandomPoints = new Queue<int>(list);
+            }
+
+            var nextIndex = spawner.RandomPoints.Dequeue();
+            
+            return _data.EnemySpawnPoints[nextIndex].position;
         }
     }
 }

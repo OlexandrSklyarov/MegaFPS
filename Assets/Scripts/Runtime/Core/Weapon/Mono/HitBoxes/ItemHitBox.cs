@@ -11,9 +11,10 @@ namespace SA.FPS
             ref var evt = ref GetOverlapDamageEvent(unitEntity);
 
             evt.DamageSource = weapon.FirePoint;
-            evt.Damage = weapon.DamageSettings.Damage;
+            evt.Damage = evt.Damage = weapon.DamageSettings.Damage;
+            evt.Power = weapon.DamageSettings.PushPower;
         }
-
+        
         void IAttackVisitable.Visit(IWeaponAttack weapon, RaycastHit hit)
         {
             if (!TryGetEntity(out var unitEntity)) return;
@@ -22,6 +23,7 @@ namespace SA.FPS
 
             evt.Hit = hit;
             evt.Damage = weapon.DamageSettings.Damage;
+            evt.Power = weapon.DamageSettings.PushPower;
         } 
     }
 }

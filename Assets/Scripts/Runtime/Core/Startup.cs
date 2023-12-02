@@ -63,14 +63,15 @@ namespace SA.FPS
 
                 .Add(new UpdateWeaponHUDSystem())
 
-                // spawn/destroy enemy
+                // spawn enemy
                 .Add(new CreateEnemySpawnerSystem())
                 .Add(new UnitSpawnSystem())
-                .Add(new DeathEnemySystem())
 
-                //damage
+                //enemy
                 .Add(new UnitApplyDamageSystem())
                 .Add(new PushRagdollSystem())
+                .Add(new DeathEnemySystem())               
+                .Add(new EnemyAnimationSystem())               
 
                 .Init();
             
