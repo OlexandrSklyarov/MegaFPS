@@ -3,6 +3,6 @@ namespace SA.FPS
 {
     public struct HeroComponent
     {
-        public HeroView View;
+        public HeroView ViewRef;
     }
 }

@@ -6,9 +6,9 @@ namespace SA.FPS
     {
         public Transform Body;
         public Transform HeadRoot;
-        public Transform Head;
-        public Transform FPS_CameraTarget;
-        public float VerticalRotation;
-        public float HorizontalRotation;
+        public Quaternion OriginBodyRotation;
+        public Quaternion OriginCameraRotation;
+        public float VerticalRotationAngle;
+        public float HorizontalRotationAngle;
     }
 }

@@ -46,7 +46,7 @@ namespace SA.FPS
 
                 var (weaponType, weaponEntity) = GetNextWeaponType(ref hasWeapon);
 
-                var weaponsRoot = hero.View.WeaponsRoot;  
+                var weaponsRoot = hero.ViewRef.WeaponsRoot;  
 
                 //try hide previous weapon
                 foreach(Transform curWeapon in weaponsRoot)  

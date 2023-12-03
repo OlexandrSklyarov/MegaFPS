@@ -1,6 +1,5 @@
 using Leopotam.EcsLite;
 using UnityEngine;
-using Util;
 
 namespace SA.FPS
 {
@@ -12,7 +11,6 @@ namespace SA.FPS
         [field: SerializeField] public Transform WeaponsRoot {get; private set;}
                 
         [field: Space, SerializeField] public Transform HeadRoot {get; private set;}
-        [field: SerializeField] public Transform Head {get; private set;}
         [field: SerializeField] public Transform FPSHeroCameraTarget {get; private set;}
         
         public Transform FollowTarget => transform;

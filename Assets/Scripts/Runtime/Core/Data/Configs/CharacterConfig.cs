@@ -15,6 +15,7 @@ namespace SA.FPS
 
         [field: Space, Header("Camera"), SerializeField, Min(0.1f)] public float MouseSensitivity_X {get; private set;} = 300f;
         [field: SerializeField, Min(0.1f)] public float MouseSensitivity_Y {get; private set;} = 300f;
+        [field: SerializeField, Min(0.1f)] public float SmoothRotation {get; private set;} = 100f;
         [field: SerializeField] public float UpAngle {get; private set;} = 70f;
         [field: SerializeField] public float DownAngle {get; private set;} = -70f;
        

@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 907139354464016026}
+  - {fileID: 7621268626245301435}
   m_Father: {fileID: 2260229402850345855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1948362830932633534
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 5204055750711180146}
   - component: {fileID: 4177559991649430004}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: FpsCamera
   m_TagString: MainCamera
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -82,14 +82,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2788519018728764537}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000029802322, y: 0.0000006854534, z: 0.0000006854534,
-    w: -1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 2.0428104e-14, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: -0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 671032034021920384}
-  m_Father: {fileID: 907139354464016026}
+  m_Father: {fileID: 913289492066904094}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!20 &420538718471814403
 Camera:
@@ -225,12 +224,12 @@ Transform:
   m_GameObject: {fileID: 5309238669922387249}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 2.0428104e-14, w: 1}
-  m_LocalPosition: {x: 0, y: -0.06, z: 0}
+  m_LocalPosition: {x: 0, y: -0.059999943, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2513248662650972319}
-  m_Father: {fileID: 6299633917332001547}
+  m_Father: {fileID: 2260229402850345855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5636383608679148505
 GameObject:
@@ -360,39 +359,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!1 &6334985114814442448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 907139354464016026}
-  m_Layer: 0
-  m_Name: FPSCameraTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &907139354464016026
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6334985114814442448}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029802322, y: -0.0000006854534, z: -0.0000006854534,
-    w: -1}
-  m_LocalPosition: {x: 0, y: 0.2, z: -0.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7621268626245301435}
-  m_Father: {fileID: 913289492066904094}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7663539817043425052
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +389,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 913289492066904094}
-  - {fileID: 6299633917332001547}
+  - {fileID: 1761148183764695234}
   m_Father: {fileID: 8980323956216930009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7817831753080638625
@@ -479,8 +445,7 @@ MonoBehaviour:
   <HeadAnimator>k__BackingField: {fileID: 1948362830932633534}
   <WeaponsRoot>k__BackingField: {fileID: 1761148183764695234}
   <HeadRoot>k__BackingField: {fileID: 2260229402850345855}
-  <Head>k__BackingField: {fileID: 913289492066904094}
-  <FPSHeroCameraTarget>k__BackingField: {fileID: 907139354464016026}
+  <FPSHeroCameraTarget>k__BackingField: {fileID: 7621268626245301435}
 --- !u!54 &8005867852081326094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -531,38 +496,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!1 &7821758315726268728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6299633917332001547}
-  m_Layer: 0
-  m_Name: HandsWeaponTargetView
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6299633917332001547
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7821758315726268728}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1761148183764695234}
-  m_Father: {fileID: 2260229402850345855}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4835568533211787334
 PrefabInstance:
   m_ObjectHideFlags: 0

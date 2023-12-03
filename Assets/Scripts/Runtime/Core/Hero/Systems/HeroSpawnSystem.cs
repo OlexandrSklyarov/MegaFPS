@@ -19,7 +19,7 @@ namespace SA.FPS
             
             //hero
             ref var hero = ref world.GetPool<HeroComponent>().Add(entity);
-            hero.View = heroView;
+            hero.ViewRef = heroView;
 
             //engine
             ref var engine = ref world.GetPool<CharacterEngineComponent>().Add(entity);
@@ -32,12 +32,16 @@ namespace SA.FPS
             //input
             world.GetPool<InputComponent>().Add(entity);
 
-            //look (fps camera)
+            //look 
             ref var look = ref world.GetPool<HeroLookComponent>().Add(entity);
             look.Body = heroView.transform;
             look.HeadRoot = heroView.HeadRoot;
-            look.Head = heroView.Head;
-            look.FPS_CameraTarget = heroView.FPSHeroCameraTarget;        
+            look.OriginBodyRotation = heroView.transform.rotation;  
+            look.OriginCameraRotation = heroView.FPSHeroCameraTarget.localRotation;  
+
+            //fps camera transform
+            ref var camTR = ref world.GetPool<FPSCameraTransformComponent>().Add(entity);
+            camTR.Value = heroView.FPSHeroCameraTarget; 
 
             //audio
             world.GetPool<HeroFootStepComponent>().Add(entity);

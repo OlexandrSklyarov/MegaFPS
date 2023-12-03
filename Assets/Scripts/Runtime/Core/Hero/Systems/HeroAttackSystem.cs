@@ -9,10 +9,10 @@ namespace SA.FPS
     public sealed class HeroAttackSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsFilter _filter;
+        private EcsPool<HeroComponent> _heroPool;
         private EcsPool<CharacterAttackComponent> _attackPool;
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<InputComponent> _inputPool;
-        private EcsPool<HeroLookComponent> _lookPool;
         private EcsPool<HasWeaponComponent> _hasWeaponPool;
         private EcsPool<CharacterAttackEvent> _eventPool;
 
@@ -23,16 +23,15 @@ namespace SA.FPS
                 .Inc<InputComponent>()
                 .Inc<CharacterAttackComponent>()
                 .Inc<CharacterConfigComponent>()
-                .Inc<HeroLookComponent>()
                 .Inc<HasWeaponComponent>()
                 .Inc<CharacterAttackEvent>()
                 .End();
             
             var world = systems.GetWorld();
+            _heroPool = world.GetPool<HeroComponent>();
             _attackPool = world.GetPool<CharacterAttackComponent>();
             _configPool = world.GetPool<CharacterConfigComponent>();
             _inputPool = world.GetPool<InputComponent>();
-            _lookPool = world.GetPool<HeroLookComponent>();
             _hasWeaponPool = world.GetPool<HasWeaponComponent>();
             _eventPool = world.GetPool<CharacterAttackEvent>();
         }
@@ -46,10 +45,10 @@ namespace SA.FPS
             {
                 _eventPool.Del(ent);
 
+                ref var hero = ref _heroPool.Get(ent);
                 ref var input = ref _inputPool.Get(ent);
                 ref var attack = ref _attackPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
-                ref var look = ref _lookPool.Get(ent);
                 ref var hasWeapon = ref _hasWeaponPool.Get(ent);
 
                 if (Time.time < attack.EndAttackTime) 
@@ -67,7 +66,7 @@ namespace SA.FPS
                 {
                     if (IsRangeWeapon(ref hasWeapon))
                     {
-                        TryWeaponAttack(world, ref look, ref hasWeapon);
+                        TryWeaponAttack(world, ref hero, ref hasWeapon);
                     }
                     else
                     {
@@ -93,20 +92,20 @@ namespace SA.FPS
         }
 
 
-        private void TryWeaponAttack(EcsWorld world, ref HeroLookComponent look, ref HasWeaponComponent hasWeapon)
+        private void TryWeaponAttack(EcsWorld world, ref HeroComponent hero, ref HasWeaponComponent hasWeapon)
         {    
             var type = hasWeapon.CurrentUsedWeaponType;
             var weaponEntity = hasWeapon.MyWeaponCollections[type];
 
-            CreateShootEvent(world, weaponEntity, ref look);        
+            CreateShootEvent(world, weaponEntity, ref hero);        
         }
 
 
-        private void CreateShootEvent(EcsWorld world, int weaponEntity, ref HeroLookComponent look)
+        private void CreateShootEvent(EcsWorld world, int weaponEntity, ref HeroComponent hero)
         {
             ref var evt = ref world.GetOrAddComponent<TryShootComponent>(weaponEntity);
-            evt.ShootPoint = look.FPS_CameraTarget.position;
-            evt.Direction = look.FPS_CameraTarget.forward;
+            evt.ShootPoint = hero.ViewRef.FPSHeroCameraTarget.position;
+            evt.Direction = hero.ViewRef.FPSHeroCameraTarget.forward;
         }
     }
 }

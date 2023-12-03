@@ -32,27 +32,47 @@ namespace SA.FPS
             {
                 ref var look = ref _lookPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
-                ref var input = ref _inputPool.Get(ent);
+                ref var input = ref _inputPool.Get(ent);     
 
-                CalculateVerticalRotation(ref look, ref input, ref config);
-                CalculateHorizontalRotation(ref look, ref input, ref config);                
+                BodyRotation(ref look, ref input, ref config);
+                CameraRotation(ref look, ref input, ref config);   
             }
         }
 
 
-        private void CalculateHorizontalRotation(ref HeroLookComponent look, ref InputComponent input, ref CharacterConfigComponent config)
+        private void BodyRotation(ref HeroLookComponent look, ref InputComponent input, ref CharacterConfigComponent config)
         {
-            look.HorizontalRotation = input.MouseX * config.Prm.MouseSensitivity_X * Time.deltaTime;
-            look.Body.Rotate(Vector3.up * look.HorizontalRotation);
+            look.HorizontalRotationAngle += input.MouseX * config.Prm.MouseSensitivity_X;   
+            var newRot = look.OriginBodyRotation * Quaternion.AngleAxis(look.HorizontalRotationAngle, Vector3.up);
+
+            look.Body.rotation = Quaternion.Slerp
+            (
+                look.Body.rotation,
+                newRot,
+                config.Prm.SmoothRotation * Time.deltaTime
+            );
         }
 
 
-        private void CalculateVerticalRotation(ref HeroLookComponent look, ref InputComponent input, ref CharacterConfigComponent config)
+        private void CameraRotation(ref HeroLookComponent look, ref InputComponent input, ref CharacterConfigComponent config)
         {
-            look.VerticalRotation += -input.MouseY * config.Prm.MouseSensitivity_Y * Time.deltaTime;  
-            look.VerticalRotation = Mathf.Clamp(look.VerticalRotation, config.Prm.DownAngle, config.Prm.UpAngle);
+            look.VerticalRotationAngle += input.MouseY * config.Prm.MouseSensitivity_Y; 
 
-            look.HeadRoot.localRotation = Quaternion.Euler(look.VerticalRotation, 0f, 0f);
+            look.VerticalRotationAngle = Mathf.Clamp
+            (
+                look.VerticalRotationAngle, 
+                config.Prm.DownAngle, 
+                config.Prm.UpAngle
+            );
+
+            var newRot = look.OriginCameraRotation * Quaternion.AngleAxis(-look.VerticalRotationAngle, Vector3.right);
+            
+            look.HeadRoot.localRotation = Quaternion.Slerp
+            (
+                look.HeadRoot.localRotation,
+                newRot,
+                config.Prm.SmoothRotation * Time.deltaTime
+            );
         }
     }
 }

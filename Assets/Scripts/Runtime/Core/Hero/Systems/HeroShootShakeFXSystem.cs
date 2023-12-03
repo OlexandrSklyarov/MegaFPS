@@ -7,29 +7,31 @@ namespace SA.FPS
     {
         private EcsFilter _filter;
         private EcsPool<CameraShakeComponent> _shakePool;
-        private EcsPool<HeroLookComponent> _lookPool;
+        private EcsPool<FPSCameraTransformComponent> _cameraTransformPool;
+        
 
         public void Init(IEcsSystems systems)
         {
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()
-                .Inc<HeroLookComponent>()
+                .Inc<FPSCameraTransformComponent>()
                 .Inc<CameraShakeComponent>()
                 .End();
 
             var world = systems.GetWorld();
             _shakePool = world.GetPool<CameraShakeComponent>();
-            _lookPool = world.GetPool<HeroLookComponent>();
+            _cameraTransformPool = world.GetPool<FPSCameraTransformComponent>();
         }
+
 
         public void Run(IEcsSystems systems)
         {
             foreach(var ent in _filter)
             {
                 ref var shake = ref _shakePool.Get(ent);
-                ref var look = ref _lookPool.Get(ent);
+                ref var cameraTransform = ref _cameraTransformPool.Get(ent);
 
-                var tr = look.FPS_CameraTarget;
+                var tr = cameraTransform.Value;
 
                 tr.DOShakePosition(shake.Duration, shake.Strength, shake.Vibrato, shake.Randomness, false, true, ShakeRandomnessMode.Harmonic)
                     .SetEase(Ease.InOutBounce)

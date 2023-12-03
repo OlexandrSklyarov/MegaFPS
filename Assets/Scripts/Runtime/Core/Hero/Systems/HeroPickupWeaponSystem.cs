@@ -60,7 +60,7 @@ namespace SA.FPS
         {            
             var isTakeNewWeapon = false;
 
-            var weaponsRoot = hero.View.WeaponsRoot;             
+            var weaponsRoot = hero.ViewRef.WeaponsRoot;             
                         
             //weapon not found
             if (!IsHasWeaponInInventory(pickupEvent.Type, ref hasWeapon))
