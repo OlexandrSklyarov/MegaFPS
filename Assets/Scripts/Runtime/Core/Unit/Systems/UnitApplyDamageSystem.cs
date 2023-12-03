@@ -1,13 +1,16 @@
 using UnityEngine;
 using Leopotam.EcsLite;
+using System;
 
 namespace SA.FPS
 {
     public sealed class UnitApplyDamageSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsWorld _world;
+        private EcsFilter _damageEventFilter;
         private EcsFilter _raycastDamageFilter;
         private EcsFilter _overlapDamageFilter;
+        private EcsPool<EnemyDamageEvent> _enemyDamageEvtPool;
         private EcsPool<RaycastDamageEvent> _raycastEvtPool;
         private EcsPool<OverlapDamageEvent> _overlapEvtPool;
         private EcsPool<HealthComponent> _healthPool;
@@ -21,6 +24,10 @@ namespace SA.FPS
         {
             _world = systems.GetWorld();
 
+            _damageEventFilter = _world
+                .Filter<EnemyDamageEvent>()
+                .End();
+
             _raycastDamageFilter = _world
                 .Filter<RaycastDamageEvent>()
                 .Inc<UnitViewComponent>()
@@ -31,6 +38,7 @@ namespace SA.FPS
                 .Inc<UnitViewComponent>()
                 .End();
 
+            _enemyDamageEvtPool = _world.GetPool<EnemyDamageEvent>();
             _raycastEvtPool = _world.GetPool<RaycastDamageEvent>();
             _overlapEvtPool = _world.GetPool<OverlapDamageEvent>();
             _healthPool = _world.GetPool<HealthComponent>();
@@ -43,9 +51,20 @@ namespace SA.FPS
 
         public void Run(IEcsSystems systems)
         {  
+            ClearDamageEvents();
+
             RaycastDamage();
          
             OverlapDamage();
+        }
+
+
+        private void ClearDamageEvents()
+        {
+            foreach (var ent in _damageEventFilter)
+            {
+                _enemyDamageEvtPool.Del(ent);
+            }
         }
 
 
@@ -117,6 +136,10 @@ namespace SA.FPS
                     death.PrepareDeathTime = 4f;
 
                     isDeath = true;
+                }
+                else
+                {
+                    _world.GetPool<EnemyDamageEvent>().Add(ent);
                 }
             }
 

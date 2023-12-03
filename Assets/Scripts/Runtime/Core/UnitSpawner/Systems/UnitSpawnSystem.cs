@@ -81,7 +81,11 @@ namespace SA.FPS
            
             //animation
             ref var animation = ref _world.GetPool<EnemyAnimationComponent>().Add(ent);  
-            animation.AnimatorRef = enemyView.Animator;      
+            animation.AnimatorRef = enemyView.Animator; 
+            animation.DamagePrm = Animator.StringToHash("Damage");     
+            animation.SpeedPrm = Animator.StringToHash("Speed");     
+            animation.AttackPrm = Animator.StringToHash("Attack");     
+            animation.AttackIndexPrm = Animator.StringToHash("Attack_index");     
         }
 
 

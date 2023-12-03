@@ -20,7 +20,7 @@ namespace SA.FPS
         {
             _hitBoxes = GetComponentsInChildren<BaseHitBox>();
             _ragdoll = GetComponent<RagdollController>();
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
         }
 
         public void Init(EcsWorld world, EcsPackedEntity ownerEntity)

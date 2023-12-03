@@ -70,7 +70,7 @@ namespace SA.FPS
                 //enemy
                 .Add(new UnitApplyDamageSystem())
                 .Add(new PushRagdollSystem())
-                .Add(new DeathEnemySystem())               
+                .Add(new DeathEnemySystem())                  
                 .Add(new EnemyAnimationSystem())               
 
                 .Init();

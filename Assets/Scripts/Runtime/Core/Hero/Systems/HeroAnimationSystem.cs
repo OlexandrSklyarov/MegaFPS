@@ -5,18 +5,14 @@ namespace SA.FPS
 {
     public sealed class HeroAnimationSystem: IEcsInitSystem, IEcsRunSystem
     {
-        private SharedData _data;
         private EcsFilter _filter;
         private EcsPool<CharacterAnimationComponent> _animationPool;
-        private EcsPool<CharacterAttackComponent> _attackPool;
         private EcsPool<CharacterConfigComponent> _configPool;
         private EcsPool<CharacterEngineComponent> _enginePool;
         private EcsPool<InputComponent> _inputPool;
 
         public void Init(IEcsSystems systems)
-        {
-            _data = systems.GetShared<SharedData>();
-            
+        {            
             _filter = systems.GetWorld()
                 .Filter<HeroComponent>()
                 .Inc<CharacterAnimationComponent>()
@@ -26,7 +22,6 @@ namespace SA.FPS
 
             var world = systems.GetWorld();
             _animationPool = world.GetPool<CharacterAnimationComponent>();
-            _attackPool = world.GetPool<CharacterAttackComponent>();
             _configPool = world.GetPool<CharacterConfigComponent>();
             _enginePool = world.GetPool<CharacterEngineComponent>(); 
             _inputPool = world.GetPool<InputComponent>(); 
@@ -39,7 +34,6 @@ namespace SA.FPS
                 ref var animation = ref _animationPool.Get(ent);
                 ref var config = ref _configPool.Get(ent);
                 ref var engine = ref _enginePool.Get(ent);
-                ref var attack = ref _attackPool.Get(ent); 
                 ref var input = ref _inputPool.Get(ent); 
 
                 //movement

@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 3354242100511231457}
   - {fileID: 4677210055494097298}
   _ragdoll: {fileID: 7657171644260775034}
+  _animator: {fileID: 0}
 --- !u!114 &7657171644260775034
 MonoBehaviour:
   m_ObjectHideFlags: 0
