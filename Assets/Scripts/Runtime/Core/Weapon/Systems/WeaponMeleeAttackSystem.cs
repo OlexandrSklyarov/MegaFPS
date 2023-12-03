@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Leopotam.EcsLite;
 using UnityEngine;
@@ -96,7 +95,7 @@ namespace SA.FPS
 
         private async void ExecuteAttackWithDelayAsync(IAttackVisitable target, WeaponView weaponView, float attackTime)
         {          
-            await UniTask.Delay(TimeSpan.FromSeconds(attackTime * 0.5f));
+            await UniTask.Delay(TimeSpan.FromSeconds(attackTime));
 
             target.Visit(weaponView);
         }   

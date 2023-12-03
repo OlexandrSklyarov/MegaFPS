@@ -57,13 +57,12 @@ namespace SA.FPS
                 .Add(new HeroSwitchWeaponSystem()) 
                 .Add(new HeroReloadWeaponSystem())   
 
+                //weapon
                 .Add(new WeaponMeleeAttackSystem())
                 .Add(new WeaponShootingSystem())
                 .Add(new WeaponReloadSystem())
 
-                .Add(new UpdateWeaponHUDSystem())
-
-                // spawn enemy
+                //spawn enemy
                 .Add(new CreateEnemySpawnerSystem())
                 .Add(new UnitSpawnSystem())
 
@@ -72,6 +71,9 @@ namespace SA.FPS
                 .Add(new PushRagdollSystem())
                 .Add(new DeathEnemySystem())                  
                 .Add(new EnemyAnimationSystem())               
+                
+                //HUD
+                .Add(new UpdateWeaponHUDSystem())
 
                 .Init();
             

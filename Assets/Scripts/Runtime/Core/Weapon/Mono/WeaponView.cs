@@ -7,6 +7,9 @@ namespace SA.FPS
     {        
         [field: SerializeField] public Transform FirePoint {get; private set;}
         [field: SerializeField] public WeaponSettings Settings {get; private set;}
+        
+        [SerializeField] private float _reloadTime = 1f;
+        [SerializeField] private float _attackTime = 0.5f;
 
         DamageWeaponSettings IWeaponAttack.DamageSettings => Settings;
 
@@ -21,13 +24,14 @@ namespace SA.FPS
 
         public bool TryReload(out float reloadTime)
         {
+            reloadTime = 0;
+
             if (!Settings.IsRangeWeapon) 
             {
-                reloadTime = 0;
                 return false;
             }
 
-            reloadTime = 1f;
+            reloadTime = _reloadTime;
             _weaponAnimator.SetTrigger("RELOAD");
             
             return true;
@@ -36,7 +40,7 @@ namespace SA.FPS
 
         public void MeleeAttack(out float reloadTime)
         {
-            reloadTime = 1f;
+            reloadTime = _attackTime;
             _weaponAnimator.SetTrigger("MELEE_ATTACK");
         }
     }

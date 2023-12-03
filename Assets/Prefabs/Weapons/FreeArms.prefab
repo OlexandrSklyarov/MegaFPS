@@ -205,7 +205,8 @@ MonoBehaviour:
   <FirePoint>k__BackingField: {fileID: 1508094749488667778}
   <Settings>k__BackingField: {fileID: 11400000, guid: 4e21802e3a18a9256ad7bbbb3c85c554,
     type: 2}
-  WeaponAnimator: {fileID: 1273100287952651449}
+  _reloadTime: 1
+  _attackTime: 0.25
 --- !u!1001 &2932539205292099707
 PrefabInstance:
   m_ObjectHideFlags: 0
