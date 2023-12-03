@@ -7,6 +7,7 @@ namespace SA.FPS
     {        
         [field: Header("Movement"), SerializeField, Min(1f)] public float WalkSpeed {get; private set;} = 2f;
         [field: SerializeField, Min(1f)] public float RunSpeed {get; private set;} = 6f;
+        [field: SerializeField, Min(0.01f)] public float SmoothSpeedTime {get; private set;} = 0.3f;
         [field: SerializeField, Min(1f)] public float JumpForce {get; private set;} = 5f;
         [field: SerializeField, Min(0.1f)] public float GroundCheckDistance {get; private set;} = 0.5f;
         [field: SerializeField, Min(0.1f)] public float GroundCheckSphereCastRadius {get; private set;} = 0.2f;
@@ -16,8 +17,8 @@ namespace SA.FPS
         [field: Space, Header("Camera"), SerializeField, Min(0.1f)] public float MouseSensitivity_X {get; private set;} = 300f;
         [field: SerializeField, Min(0.1f)] public float MouseSensitivity_Y {get; private set;} = 300f;
         [field: SerializeField, Min(0.1f)] public float SmoothRotation {get; private set;} = 100f;
-        [field: SerializeField] public float UpAngle {get; private set;} = 70f;
-        [field: SerializeField] public float DownAngle {get; private set;} = -70f;
+        [field: SerializeField, Range(0.1f, 90f)] public float UpAngle {get; private set;} = 70f;
+        [field: SerializeField, Range(-90f, 0.1f)] public float DownAngle {get; private set;} = -70f;
        
         [field: Space, Header("Foot step"),SerializeField, Min(0.01f)] public float FootSteVelocityThreshold {get; private set;} = 2f;
         [field: SerializeField, Min(0.01f)] public float SprintStepInterval {get; private set;} = 0.2f;

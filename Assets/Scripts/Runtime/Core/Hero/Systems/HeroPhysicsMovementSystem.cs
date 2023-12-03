@@ -1,3 +1,4 @@
+using System;
 using Leopotam.EcsLite;
 using UnityEngine;
 
@@ -38,9 +39,17 @@ namespace SA.FPS
                 var moveDirection = new Vector3(input.Horizontal, 0f, input.Vertical);
 
                 var speed = (moveDirection == Vector3.zero) ? 0f : (input.IsRun) ? 
-                    config.Prm.RunSpeed : config.Prm.WalkSpeed;                
+                    config.Prm.RunSpeed : config.Prm.WalkSpeed;  
 
-                var move = engine.RB.transform.TransformDirection(moveDirection) * speed;
+                engine.CurrentSpeed = Mathf.SmoothDamp
+                (
+                    engine.CurrentSpeed,
+                    speed,
+                    ref engine.CurrentSmoothVelocity,
+                    config.Prm.SmoothSpeedTime
+                );           
+
+                var move = engine.RB.transform.TransformDirection(moveDirection) * engine.CurrentSpeed;
                 var nextPosition = engine.RB.transform.position + move * Time.fixedDeltaTime;
                 engine.RB.MovePosition(nextPosition);
             }

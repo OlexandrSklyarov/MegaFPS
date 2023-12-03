@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <WalkSpeed>k__BackingField: 2
   <RunSpeed>k__BackingField: 6
+  <SmoothSpeedTime>k__BackingField: 0.3
   <JumpForce>k__BackingField: 6
   <GroundCheckDistance>k__BackingField: 0.5
   <GroundCheckSphereCastRadius>k__BackingField: 0.25
   <HeroLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <MouseSensitivity_X>k__BackingField: 10
-  <MouseSensitivity_Y>k__BackingField: 10
+  <MouseSensitivity_X>k__BackingField: 0.25
+  <MouseSensitivity_Y>k__BackingField: 0.25
+  <SmoothRotation>k__BackingField: 12
   <UpAngle>k__BackingField: 70
   <DownAngle>k__BackingField: -70
   <FootSteVelocityThreshold>k__BackingField: 1
