@@ -30,7 +30,7 @@ namespace SA.FPS
                 ref var ragdoll = ref _ragdollPool.Get(ent);
                 ref var pushEvt = ref _ragdollEventPool.Get(ent);
               
-                ragdoll.Controller.OnAndPush
+                ragdoll.Controller.OnAndPushAtPosition
                 (
                     pushEvt.HitDirection, 
                     pushEvt.HitPoint,
