@@ -13,6 +13,7 @@ namespace SA.FPS
             evt.DamageSource = weapon.FirePoint;
             evt.Damage = evt.Damage = weapon.DamageSettings.Damage;
             evt.Power = weapon.DamageSettings.PushPower;
+            evt.IsApplyPushForce = weapon.DamageSettings.IsUsedPushForce;
         }
         
         void IAttackVisitable.Visit(IWeaponAttack weapon, RaycastHit hit)
@@ -24,6 +25,7 @@ namespace SA.FPS
             evt.Hit = hit;
             evt.Damage = weapon.DamageSettings.Damage;
             evt.Power = weapon.DamageSettings.PushPower;
+            evt.IsApplyPushForce = weapon.DamageSettings.IsUsedPushForce;
         } 
     }
 }

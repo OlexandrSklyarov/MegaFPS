@@ -8,5 +8,6 @@ namespace SA.FPS
         public Transform DamageSource;
         public int Damage;
         public float Power;
+        public bool IsApplyPushForce;
     }
 }

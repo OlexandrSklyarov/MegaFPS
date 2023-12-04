@@ -16,6 +16,7 @@ namespace SA.FPS
         [Space, SerializeField] private Rigidbody _hipBoneRigidbody;
 
         private Rigidbody[] _rigidbodies;
+        private CharacterJoint[] _characterJoints;
         private Animator _animator;
 
         private void Awake()
@@ -27,6 +28,12 @@ namespace SA.FPS
                 r.solverVelocityIterations = _solverVelocityIterations;
                 r.drag = _rbDrag;
                 r.angularDrag = _rbAngularDrag;
+            });
+
+            Array.ForEach(GetComponentsInChildren<CharacterJoint>(), joint =>
+            {
+                joint.enableProjection = true;
+                joint.enablePreprocessing = true;
             });
 
             _animator = GetComponentInChildren<Animator>();

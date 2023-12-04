@@ -1,11 +1,12 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace SA.FPS
 {
     public abstract class DamageWeaponSettings : ScriptableObject
     {
-        [field: SerializeField, Min(1)] public int Damage {get; private set;} = 15;
-        [field: SerializeField, Min(1)] public int HeadShotDamageMultiplier {get; private set;} = 3;        
-        [field: SerializeField, Min(1)] public int PushPower {get; private set;} = 100;        
+        [field: SerializeField, Min(1)] public int Damage {get; private set;} = 15;      
+        [field: Space, SerializeField] public bool IsUsedPushForce {get; private set;}     
+        [field: ShowIf("IsUsedPushForce"), SerializeField, Min(1)] public int PushPower {get; private set;} = 100;        
     }
 }

@@ -10,5 +10,7 @@ namespace SA.FPS
         public int SpeedPrm;
         public int AttackPrm;
         public int AttackIndexPrm;
+        public int DeathForwardPrm;
+        public int DeathBackwardPrm;
     }
 }

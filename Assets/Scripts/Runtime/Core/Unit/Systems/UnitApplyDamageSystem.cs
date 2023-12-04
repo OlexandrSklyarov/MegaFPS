@@ -1,6 +1,5 @@
 using UnityEngine;
 using Leopotam.EcsLite;
-using System;
 
 namespace SA.FPS
 {
@@ -15,6 +14,7 @@ namespace SA.FPS
         private EcsPool<OverlapDamageEvent> _overlapEvtPool;
         private EcsPool<HealthComponent> _healthPool;
         private EcsPool<DeathComponent> _deathPool;
+        private EcsPool<DeathAnimationEvent> _deathAnimEventPool;
         private EcsPool<PushRagdollEvent> _pushEventPool;
         private EcsPool<RagdollComponent> _ragdollPool;
         private EcsPool<UnitViewComponent> _viewPool;
@@ -43,6 +43,7 @@ namespace SA.FPS
             _overlapEvtPool = _world.GetPool<OverlapDamageEvent>();
             _healthPool = _world.GetPool<HealthComponent>();
             _deathPool = _world.GetPool<DeathComponent>();
+            _deathAnimEventPool = _world.GetPool<DeathAnimationEvent>();
             _pushEventPool = _world.GetPool<PushRagdollEvent>();
             _ragdollPool = _world.GetPool<RagdollComponent>();
             _viewPool = _world.GetPool<UnitViewComponent>();
@@ -75,14 +76,19 @@ namespace SA.FPS
                 ref var evt = ref _overlapEvtPool.Get(ent);
                 ref var view = ref _viewPool.Get(ent);
 
-                var isDeath = ChangeHP(ent, evt.Damage);
+                var isDeath = ChangeHP(ent, evt.Damage);                
 
-                if (isDeath && _ragdollPool.Has(ent))
+                if (isDeath)
                 {
                     var hitDir = view.ViewRef.transform.position - evt.DamageSource.position;
                     hitDir.y = 0f;
 
-                    TryActiveRagdoll(ent, isDeath, hitDir.normalized, evt.DamageSource.position, evt.Power);
+                    AddDeathAnimEvent(ent, ref view, hitDir);
+
+                    if (evt.IsApplyPushForce)
+                    {
+                        TryActiveRagdoll(ent, hitDir.normalized, evt.DamageSource.position, evt.Power);                    
+                    }
                 }
 
                 _overlapEvtPool.Del(ent);
@@ -99,22 +105,31 @@ namespace SA.FPS
 
                 var isDeath = ChangeHP(ent, evt.Damage);
 
-                TryActiveRagdoll(ent, isDeath, evt.Hit.normal * -1f, evt.Hit.point, evt.Power);
+                if (isDeath)
+                {
+                    var hitDir = -evt.Hit.normal;
+
+                    AddDeathAnimEvent(ent, ref view, hitDir);
+                    
+                    if (evt.IsApplyPushForce)
+                    {
+                        TryActiveRagdoll(ent, hitDir, evt.Hit.point, evt.Power);
+                    }
+                }
 
                 _raycastEvtPool.Del(ent);
             }
         }
 
 
-        private void TryActiveRagdoll(int ent, bool isDeath, Vector3 hitDirection, Vector3 hitPoint, float power)
+        private void TryActiveRagdoll(int ent, Vector3 hitDirection, Vector3 hitPoint, float power)
         {
-            if (isDeath && _ragdollPool.Has(ent))
-            {
-                ref var pushEvt = ref _pushEventPool.Add(ent);
-                pushEvt.HitDirection = hitDirection;
-                pushEvt.HitPoint = hitPoint;
-                pushEvt.Power = power;
-            }
+            if (!_ragdollPool.Has(ent)) return;
+            
+            ref var pushEvt = ref _pushEventPool.Add(ent);
+            pushEvt.HitDirection = hitDirection;
+            pushEvt.HitPoint = hitPoint;
+            pushEvt.Power = power;            
         }
 
 
@@ -133,7 +148,7 @@ namespace SA.FPS
 
                     //death component
                     ref var death = ref _deathPool.Add(ent);
-                    death.PrepareDeathTime = 4f;
+                    death.PrepareDeathTime = 4f;                    
 
                     isDeath = true;
                 }
@@ -144,6 +159,15 @@ namespace SA.FPS
             }
 
             return isDeath;
+        }
+
+
+        private void AddDeathAnimEvent(int ent, ref UnitViewComponent view, Vector3 hitDir)
+        {
+            var isForwardDie = Vector3.Dot(view.ViewRef.transform.forward, hitDir) > 0f;
+
+            ref var deathEvent = ref _deathAnimEventPool.Add(ent);
+            deathEvent.IsForwardDie = isForwardDie;
         }
     }
 }

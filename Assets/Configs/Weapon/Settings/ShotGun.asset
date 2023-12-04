@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 30
-  <HeadShotDamageMultiplier>k__BackingField: 3
+  <IsUsedPushForce>k__BackingField: 1
   <PushPower>k__BackingField: 500
   <Strength>k__BackingField: 0.04
   <Randomness>k__BackingField: 90

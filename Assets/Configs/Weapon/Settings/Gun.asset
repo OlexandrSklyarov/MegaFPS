@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gun
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 15
-  <HeadShotDamageMultiplier>k__BackingField: 3
+  <IsUsedPushForce>k__BackingField: 0
   <PushPower>k__BackingField: 100
   <Strength>k__BackingField: 0.01
   <Randomness>k__BackingField: 90
