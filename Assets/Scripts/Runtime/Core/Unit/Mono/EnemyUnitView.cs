@@ -1,26 +1,32 @@
 using System;
 using Leopotam.EcsLite;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Pool;
 
 namespace SA.FPS
 {
-    public class UnitView : MonoBehaviour, IPoolable<UnitView>
+    public class EnemyUnitView : MonoBehaviour, IPoolable<EnemyUnitView>
     {
+        public EnemyUnitConfig Config => _config;
         public RagdollController Ragdoll => _ragdoll;
         public Animator Animator => _animator;
+        public NavMeshAgent NavMeshAgent => _navAgent;
 
+        [SerializeField] private EnemyUnitConfig _config;
         [SerializeField] private BaseHitBox[] _hitBoxes;
         [SerializeField] private RagdollController _ragdoll;
         [SerializeField] private Animator _animator;
+        [SerializeField] private NavMeshAgent _navAgent;
 
-        private IObjectPool<UnitView> _pool;
+        private IObjectPool<EnemyUnitView> _pool;
 
         private void OnValidate() 
         {
             _hitBoxes = GetComponentsInChildren<BaseHitBox>();
             _ragdoll = GetComponent<RagdollController>();
             _animator = GetComponentInChildren<Animator>();
+            _navAgent = GetComponentInChildren<NavMeshAgent>();
         }
 
         public void Init(EcsWorld world, EcsPackedEntity ownerEntity)
@@ -29,7 +35,7 @@ namespace SA.FPS
             _ragdoll.Off();
         }
 
-        void IPoolable<UnitView>.SetPool(IObjectPool<UnitView> pool)
+        void IPoolable<EnemyUnitView>.SetPool(IObjectPool<EnemyUnitView> pool)
         {
             _pool = pool;
         }

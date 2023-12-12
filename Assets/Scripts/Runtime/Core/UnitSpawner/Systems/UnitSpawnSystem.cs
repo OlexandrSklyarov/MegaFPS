@@ -45,7 +45,7 @@ namespace SA.FPS
                     continue;
                 }
 
-                if (_enemiesFilter.GetEntitiesCount() >= 2) continue;
+                if (_enemiesFilter.GetEntitiesCount() >= 50) continue;
 
                 var unitType = GetRandomType(ref spawner);
                 var spawnPosition = GetRandomPosition(ref spawner);
@@ -68,8 +68,8 @@ namespace SA.FPS
             ref var enemy = ref _world.GetPool<EnemyUnitTag>().Add(ent); 
 
             //View
-            ref var v = ref _world.GetPool<UnitViewComponent>().Add(ent);  
-            v.ViewRef = enemyView; 
+            ref var view = ref _world.GetPool<UnitViewComponent>().Add(ent);  
+            view.ViewRef = enemyView; 
             
             //health
             ref var hp = ref _world.GetPool<HealthComponent>().Add(ent);  
@@ -87,7 +87,14 @@ namespace SA.FPS
             animation.DamagePrm = Animator.StringToHash("Damage");     
             animation.SpeedPrm = Animator.StringToHash("Speed");     
             animation.DeathForwardPrm = Animator.StringToHash("Death_Forward");     
-            animation.DeathBackwardPrm = Animator.StringToHash("Death_Backward");     
+            animation.DeathBackwardPrm = Animator.StringToHash("Death_Backward");    
+
+            //navigation
+            ref var navigation = ref _world.GetPool<NavigationComponent>().Add(ent);  
+            navigation.AgentRef = enemyView.NavMeshAgent;
+            navigation.AgentRef.stoppingDistance = view.ViewRef.Config.AttackRange;
+            navigation.Speed = UnityEngine.Random.Range(view.ViewRef.Config.MinSpeed, view.ViewRef.Config.MaxSpeed);
+            navigation.MaxSpeed = view.ViewRef.Config.MaxSpeed;
         }
 
 

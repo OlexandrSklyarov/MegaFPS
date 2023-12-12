@@ -29,20 +29,20 @@ namespace SA.FPS
         }
 
 
-        private Dictionary<UnitType, BaseGOPool<UnitView>> UnitViewPools
+        private Dictionary<UnitType, BaseGOPool<EnemyUnitView>> UnitViewPools
         {
             get
             {
                 if (_unitViewPools == null)
                 {
-                    _unitViewPools = new Dictionary<UnitType, BaseGOPool<UnitView>>();
+                    _unitViewPools = new Dictionary<UnitType, BaseGOPool<EnemyUnitView>>();
 
                     foreach(var item in _config.Units)
                     {
                         _unitViewPools.Add
                         (
                             item.Type, 
-                            new BaseGOPool<UnitView>(item.Prefab, item.StartCount, item.MaxPoolCount, $"UNITS_POOL[{item.Type}]")
+                            new BaseGOPool<EnemyUnitView>(item.Prefab, item.StartCount, item.MaxPoolCount, $"UNITS_POOL[{item.Type}]")
                         );
                     }
                 }
@@ -73,7 +73,7 @@ namespace SA.FPS
 
 
         private Dictionary<DecalType, BaseGOPool<Decal>> _decalPools;
-        private Dictionary<UnitType, BaseGOPool<UnitView>> _unitViewPools;
+        private Dictionary<UnitType, BaseGOPool<EnemyUnitView>> _unitViewPools;
         private BaseGOPool<UIWeaponView> _uiWeaponViewPool;
         private PoolObjectConfig _config;
 
@@ -90,7 +90,7 @@ namespace SA.FPS
         public UIWeaponView GetUIWeaponView() => UIWeaponViewPool.Get();
 
 
-        public UnitView GetUnitView(UnitType type)
+        public EnemyUnitView GetUnitView(UnitType type)
         {
             if (UnitViewPools.TryGetValue(type, out var pool))
             {

@@ -33,7 +33,7 @@ namespace SA.FPS
         [Serializable]
         public class UnitViewItem
         {
-            [field: SerializeField] public UnitView Prefab {get; private set;}
+            [field: SerializeField] public EnemyUnitView Prefab {get; private set;}
             [field: SerializeField] public UnitType Type {get; private set;}
             [field: SerializeField, Min(4)] public int StartCount {get; private set;} = 3;
             [field: SerializeField, Min(4)] public int MaxPoolCount {get; private set;} = 3;

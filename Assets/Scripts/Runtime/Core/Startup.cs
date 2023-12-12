@@ -68,6 +68,9 @@ namespace SA.FPS
 
                 //enemy
                 .Add(new UnitApplyDamageSystem())
+                .Add(new EnemyMoveToHeroSystem())
+                .Add(new EnemyStopSystem())
+                .Add(new EnemyAttackSystem())
                 .Add(new PushRagdollSystem())
                 .Add(new DeathEnemySystem())                  
                 .Add(new EnemyAnimationSystem())               
