@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5720431658717795553
 Transform:
@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2614978058294673226
 Transform:
@@ -134,7 +134,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6745119571476677967
 Transform:
@@ -219,7 +219,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7051749707108239839
 Transform:
@@ -302,7 +302,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &838445826250472561
 Transform:
@@ -335,7 +335,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6235203186286915427
 Transform:
@@ -369,7 +369,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4352706804058033107
 Transform:
@@ -454,7 +454,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6371347136090200396
 Transform:
@@ -539,7 +539,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7547108506242150247
 Transform:
@@ -624,7 +624,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1338879270801634076
 Transform:
@@ -709,7 +709,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8279405297092669856
 Transform:
@@ -794,7 +794,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &174740364064412907
 Transform:
@@ -877,7 +877,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &242104906919851214
 Transform:
@@ -915,7 +915,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6178406744747955232
 Transform:
@@ -998,7 +998,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5299369098787427739
 Transform:
@@ -1058,7 +1058,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1651497023266877112
 Transform:
@@ -1143,7 +1143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1392551488438480500
 Transform:
@@ -1226,7 +1226,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6182993227663340217
 Transform:
@@ -1262,7 +1262,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7937057283177284513
 Transform:
@@ -1345,7 +1345,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6648519605254299553
 Transform:
@@ -1445,7 +1445,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8793642742913356271
 Transform:
@@ -1480,7 +1480,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9073626045367356774
 Transform:
@@ -1563,7 +1563,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2745205668530616204
 Transform:
@@ -1596,7 +1596,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1141848060563520048
 Transform:
@@ -1679,7 +1679,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8335601127500649164
 Transform:
@@ -1715,7 +1715,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3858646705692688458
 Transform:
@@ -1800,7 +1800,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9200278263349801125
 Transform:
@@ -1885,7 +1885,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4286327080640057279
 Transform:
@@ -1968,7 +1968,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1030296914197344438
 Transform:
@@ -2001,7 +2001,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1255726115409366514
 Transform:
@@ -2043,7 +2043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2072055818584988707
 Transform:
@@ -2126,7 +2126,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1487251325811940214
 Transform:
@@ -2159,7 +2159,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8036900247427195362
 Transform:
@@ -2242,7 +2242,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9113372527619810517
 Transform:
@@ -2278,7 +2278,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3447513397935186204
 Transform:
@@ -2361,7 +2361,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1071166119724438496
 Transform:
@@ -2406,7 +2406,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6028539511778790532
 Transform:
@@ -2489,7 +2489,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5203306854447372411
 Transform:
@@ -2524,7 +2524,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3432132731057501637
 Transform:
@@ -2607,7 +2607,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3249992853254523197
 Transform:
@@ -2667,7 +2667,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5951945755062346975
 Transform:
@@ -2700,7 +2700,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3132068008324937469
 Transform:
@@ -2741,7 +2741,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4654106940630398949
 Transform:
@@ -2778,7 +2778,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5288519304072077509
 Transform:
@@ -2863,7 +2863,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9128931395969693457
 Transform:
@@ -2948,7 +2948,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7888047586658474991
 Transform:
@@ -3031,7 +3031,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7686473790751162659
 Transform:
@@ -3078,7 +3078,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1244223220569592838
 Transform:
@@ -3163,7 +3163,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &509558282045064631
 Transform:
@@ -3245,6 +3245,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave8 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
       propertyPath: m_RootOrder
@@ -3323,6 +3328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555352413405436104, guid: 3410fe058b03f6544a51196feb5df00c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2899684668293481074, guid: 3410fe058b03f6544a51196feb5df00c,
         type: 3}
@@ -3403,6 +3413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave8 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
       propertyPath: m_RootOrder
@@ -3482,6 +3497,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave8 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
       propertyPath: m_RootOrder
@@ -3560,6 +3580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477203725378770397, guid: 9f9bac2bf3030b0439706f487659e3b7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4254303996877836135, guid: 9f9bac2bf3030b0439706f487659e3b7,
         type: 3}
@@ -3695,6 +3720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3773,6 +3803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3853,6 +3888,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave5
       objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3931,6 +3971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4011,6 +4056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4090,6 +4140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4168,6 +4223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave11 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4263,6 +4323,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: street lamp1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6284469330886769869, guid: e46fda38e509f1a47ac8ed430ec0acb7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284469330886769871, guid: e46fda38e509f1a47ac8ed430ec0acb7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4341,6 +4411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4421,6 +4496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave5 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4499,6 +4579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4579,6 +4664,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4658,6 +4748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4681,6 +4776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -4760,6 +4860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -4895,6 +5000,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4988,6 +5098,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: street lamp1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284469330886769869, guid: e46fda38e509f1a47ac8ed430ec0acb7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284469330886769871, guid: e46fda38e509f1a47ac8ed430ec0acb7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5180,6 +5300,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave11
       objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5199,9 +5324,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 242104906919851214}
     m_Modifications:
+    - target: {fileID: 1231445132524416, guid: 69fc34dacc563124f9d53d366de4a6de, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1366994207890878, guid: 69fc34dacc563124f9d53d366de4a6de, type: 3}
       propertyPath: m_Name
       value: Graveyard_ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366994207890878, guid: 69fc34dacc563124f9d53d366de4a6de, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876466456533858, guid: 69fc34dacc563124f9d53d366de4a6de, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4685886571930254, guid: 69fc34dacc563124f9d53d366de4a6de, type: 3}
       propertyPath: m_RootOrder
@@ -5290,6 +5427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -5425,6 +5567,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5503,6 +5650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5583,6 +5735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5662,6 +5819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5685,6 +5847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -5820,6 +5987,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5898,6 +6070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5978,6 +6155,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6056,6 +6238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave9 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6136,6 +6323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6159,6 +6351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -6238,6 +6435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graveyard_wall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -6309,6 +6510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave4 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
@@ -6444,6 +6650,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave11
       objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6467,6 +6678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave4 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
@@ -6602,6 +6818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6681,6 +6902,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6704,6 +6930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -6839,6 +7070,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6862,6 +7098,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -6997,6 +7238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7020,6 +7266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -7100,6 +7351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave7 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
       propertyPath: m_RootOrder
@@ -7179,6 +7435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave7 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
       propertyPath: m_RootOrder
@@ -7257,6 +7518,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -7392,6 +7658,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7471,6 +7742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7494,6 +7770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -7573,6 +7854,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -7708,6 +7994,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7787,6 +8078,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7810,6 +8106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
@@ -7888,6 +8189,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -8016,6 +8321,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8094,6 +8404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8174,6 +8489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8197,6 +8517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -8275,6 +8600,18 @@ PrefabInstance:
     - target: {fileID: 1206442627522542, guid: b7296d5515d23844b88668359d702859, type: 3}
       propertyPath: m_Name
       value: Church
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206442627522542, guid: b7296d5515d23844b88668359d702859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419112328030898, guid: b7296d5515d23844b88668359d702859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781650814141418, guid: b7296d5515d23844b88668359d702859, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4063983631187228, guid: b7296d5515d23844b88668359d702859, type: 3}
       propertyPath: m_RootOrder
@@ -8478,6 +8815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8556,6 +8898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8636,6 +8983,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8659,6 +9011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -8794,6 +9151,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8817,6 +9179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -8952,6 +9319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9030,6 +9402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9110,6 +9487,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9189,6 +9571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9212,6 +9599,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -9347,6 +9739,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9370,6 +9767,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -9449,6 +9851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graveyard_wall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -9520,6 +9926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -9600,6 +10011,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave12 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
       propertyPath: m_RootOrder
@@ -9678,6 +10094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -9813,6 +10234,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave11
       objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9836,6 +10262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -9986,6 +10417,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: street lamp1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6284469330886769869, guid: e46fda38e509f1a47ac8ed430ec0acb7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284469330886769871, guid: e46fda38e509f1a47ac8ed430ec0acb7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10064,6 +10505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10144,6 +10590,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10167,6 +10618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -10247,6 +10703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave8 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
       propertyPath: m_RootOrder
@@ -10325,6 +10786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -10460,6 +10926,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10483,6 +10954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -10563,6 +11039,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave4 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
       propertyPath: m_RootOrder
@@ -10641,6 +11122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -10776,6 +11262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10854,6 +11345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave6 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10934,6 +11430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10957,6 +11458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -11036,6 +11542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Graveyard_wall (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -11106,6 +11616,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -11234,6 +11748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11313,6 +11832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11335,6 +11859,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -11402,6 +11930,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -11526,6 +12058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11548,6 +12085,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -11672,6 +12213,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11695,6 +12241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903863415414040596, guid: 861d87ac333a0e04e99afa0787681441,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6531746490558050990, guid: 861d87ac333a0e04e99afa0787681441,
         type: 3}
@@ -11830,6 +12381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11909,6 +12465,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11932,6 +12493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -12067,6 +12633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12146,6 +12717,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave11
       objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12169,6 +12745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -12304,6 +12885,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12382,6 +12968,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12462,6 +13053,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12541,6 +13137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave5 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5204624121627716598, guid: 9baa8ab1461320b46b3c8b4c0b0cfcb8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12564,6 +13165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
@@ -12644,6 +13250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave7 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
       propertyPath: m_RootOrder
@@ -12722,6 +13333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -12857,6 +13473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12936,6 +13557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave11
       objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12958,6 +13584,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -13026,6 +13656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -13161,6 +13796,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13239,6 +13879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13319,6 +13964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13397,6 +14047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13477,6 +14132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13500,6 +14160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -13579,6 +14244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -13714,6 +14384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13793,6 +14468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13816,6 +14496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -13951,6 +14636,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14030,6 +14720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14053,6 +14748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -14133,6 +14833,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave7 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
       propertyPath: m_RootOrder
@@ -14211,6 +14916,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -14291,6 +15001,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2555352413405436104, guid: 3410fe058b03f6544a51196feb5df00c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2899684668293481074, guid: 3410fe058b03f6544a51196feb5df00c,
         type: 3}
       propertyPath: m_RootOrder
@@ -14370,6 +15085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave8 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
       propertyPath: m_RootOrder
@@ -14448,6 +15168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -14583,6 +15308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14606,6 +15336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -14741,6 +15476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14819,6 +15559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14899,6 +15644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14978,6 +15728,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15001,6 +15756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -15136,6 +15896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15159,6 +15924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -15294,6 +16064,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15317,6 +16092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -15452,6 +16232,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave9 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5527805166191247851, guid: 6e360a62acd35c9449183c1bd5504098,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15531,6 +16316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15553,6 +16343,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -15620,6 +16414,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -15692,6 +16490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -15772,6 +16575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave7 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
       propertyPath: m_RootOrder
@@ -15850,6 +16658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -15985,6 +16798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave11
       objectReference: {fileID: 0}
+    - target: {fileID: 4238518675741935440, guid: 8f3dc99490e1dbf4d9b2514dab0f7226,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16008,6 +16826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477203725378770397, guid: 9f9bac2bf3030b0439706f487659e3b7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4254303996877836135, guid: 9f9bac2bf3030b0439706f487659e3b7,
         type: 3}
@@ -16143,6 +16966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16166,6 +16994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -16301,6 +17134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave6 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2165754370930130063, guid: 2afc9e68383e2b143b91f61d2333f251,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16380,6 +17218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16402,6 +17245,10 @@ PrefabInstance:
     - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_Name
       value: Graveyard_wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573284199375500, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4244268427382144, guid: 3da074a71c3410243bdd84d882fac08a, type: 3}
       propertyPath: m_RootOrder
@@ -16470,6 +17317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -16550,6 +17402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave8 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
       propertyPath: m_RootOrder
@@ -16628,6 +17485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave4 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
@@ -16708,6 +17570,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2652207577002842052, guid: b59cbd86aca4971449bf09c19f408f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3424239925404028286, guid: b59cbd86aca4971449bf09c19f408f2e,
         type: 3}
       propertyPath: m_RootOrder
@@ -16786,6 +17653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave8 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799414267125759215, guid: b85591a506aa1ca4f917a9609cc62f82,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3283780387301533269, guid: b85591a506aa1ca4f917a9609cc62f82,
         type: 3}
@@ -16921,6 +17793,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16944,6 +17821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -17023,6 +17905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668648533715950641, guid: eb6ec0f240ab7904a9a32d306650469b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4153014623610979979, guid: eb6ec0f240ab7904a9a32d306650469b,
         type: 3}
@@ -17158,6 +18045,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17236,6 +18128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave10 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17316,6 +18213,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grave10 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4215524695586645907, guid: eb0f0b6b32ad7d34fa85e9dcfa9f46e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17339,6 +18241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123801812386100255, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6897207720804019877, guid: 2b3bbfb616deb9f4ebb0c278e6d18cfe,
         type: 3}
@@ -17418,6 +18325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grave (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903863415414040596, guid: 861d87ac333a0e04e99afa0787681441,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6531746490558050990, guid: 861d87ac333a0e04e99afa0787681441,
         type: 3}

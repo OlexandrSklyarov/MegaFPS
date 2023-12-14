@@ -8,10 +8,23 @@ namespace SA.FPS
 {
     public class EnemyUnitView : MonoBehaviour, IPoolable<EnemyUnitView>
     {
+        #region Animation
+        public struct AnimationData
+        {
+            public int AttackPrm;    
+            public int AttackIndexPrm;  
+            public int DamagePrm;   
+            public int SpeedPrm;    
+            public int DeathForwardPrm;    
+            public int DeathBackwardPrm;
+        }
+        #endregion
+
         public EnemyUnitConfig Config => _config;
         public RagdollController Ragdoll => _ragdoll;
         public Animator Animator => _animator;
         public NavMeshAgent NavMeshAgent => _navAgent;
+        public AnimationData AnimationPrms {get; private set;}
 
         [SerializeField] private EnemyUnitConfig _config;
         [SerializeField] private BaseHitBox[] _hitBoxes;
@@ -21,12 +34,27 @@ namespace SA.FPS
 
         private IObjectPool<EnemyUnitView> _pool;
 
+        private void Awake()
+        {
+            OnValidate();
+        }
+
         private void OnValidate() 
         {
             _hitBoxes = GetComponentsInChildren<BaseHitBox>();
             _ragdoll = GetComponent<RagdollController>();
             _animator = GetComponentInChildren<Animator>();
             _navAgent = GetComponentInChildren<NavMeshAgent>();
+
+            AnimationPrms = new AnimationData()
+            {
+                AttackPrm = Animator.StringToHash("Attack"),    
+                AttackIndexPrm = Animator.StringToHash("Attack_index"),  
+                DamagePrm = Animator.StringToHash("Damage"),   
+                SpeedPrm = Animator.StringToHash("Speed"),    
+                DeathForwardPrm = Animator.StringToHash("Death_Forward"),    
+                DeathBackwardPrm = Animator.StringToHash("Death_Backward")
+            };
         }
 
         public void Init(EcsWorld world, EcsPackedEntity ownerEntity)

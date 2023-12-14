@@ -420,6 +420,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -4277760611513043768, guid: 602a0d389c4c6de4698305e175ee4d1a,
+        type: 3}
+      propertyPath: m_Quality
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4277760611513043768, guid: 602a0d389c4c6de4698305e175ee4d1a,
+        type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3799395697873186154, guid: 602a0d389c4c6de4698305e175ee4d1a,
         type: 3}
       propertyPath: m_Layer

@@ -82,12 +82,12 @@ namespace SA.FPS
             //animation
             ref var animation = ref _world.GetPool<EnemyAnimationComponent>().Add(ent);  
             animation.AnimatorRef = enemyView.Animator; 
-            animation.AttackPrm = Animator.StringToHash("Attack");     
-            animation.AttackIndexPrm = Animator.StringToHash("Attack_index");     
-            animation.DamagePrm = Animator.StringToHash("Damage");     
-            animation.SpeedPrm = Animator.StringToHash("Speed");     
-            animation.DeathForwardPrm = Animator.StringToHash("Death_Forward");     
-            animation.DeathBackwardPrm = Animator.StringToHash("Death_Backward");    
+            animation.AttackPrm = enemyView.AnimationPrms.AttackPrm;    
+            animation.AttackIndexPrm = enemyView.AnimationPrms.AttackIndexPrm;    
+            animation.DamagePrm = enemyView.AnimationPrms.DamagePrm;    
+            animation.SpeedPrm = enemyView.AnimationPrms.SpeedPrm;
+            animation.DeathForwardPrm = enemyView.AnimationPrms.DeathBackwardPrm;    
+            animation.DeathBackwardPrm = enemyView.AnimationPrms.DeathBackwardPrm;    
 
             //navigation
             ref var navigation = ref _world.GetPool<NavigationComponent>().Add(ent);  
