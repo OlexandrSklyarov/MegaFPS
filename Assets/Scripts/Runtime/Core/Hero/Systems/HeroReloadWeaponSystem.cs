@@ -39,7 +39,7 @@ namespace SA.FPS
                 var weaponEntity = weapon.MyWeaponCollections[weapon.CurrentUsedWeaponType];
                 world.GetOrAddComponent<WeaponReloadEvent>(weaponEntity); 
 
-                weapon.NextReloadTime = Time.time + 1f;
+                weapon.NextReloadTime = Time.time + 1f;                
             }
         }
     }

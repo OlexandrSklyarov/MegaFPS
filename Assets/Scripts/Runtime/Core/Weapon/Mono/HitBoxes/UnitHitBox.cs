@@ -12,7 +12,7 @@ namespace SA.FPS
 
             evt.DamageSource = weapon.FirePoint;
             evt.Damage = evt.Damage = weapon.DamageSettings.Damage;
-            evt.Power = weapon.DamageSettings.PushPower;
+            evt.Power = weapon.DamageSettings.MeleePushPower;
             evt.IsApplyPushForce = weapon.DamageSettings.IsUsedPushForce;
         }
         

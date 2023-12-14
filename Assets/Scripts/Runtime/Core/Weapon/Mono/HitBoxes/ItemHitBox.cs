@@ -11,7 +11,7 @@ namespace SA.FPS
             ref var evt = ref GetOverlapDamageEvent(unitEntity);
 
             evt.DamageSource = weapon.FirePoint;
-            evt.Power = weapon.DamageSettings.PushPower;
+            evt.Power = weapon.DamageSettings.MeleePushPower;
             evt.IsApplyPushForce = weapon.DamageSettings.IsUsedPushForce;
         }
         

@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _solverIterations: 6
   _solverVelocityIterations: 1
-  _rbDrag: 1.5
-  _rbAngularDrag: 1.5
+  _rbDrag: 2
+  _rbAngularDrag: 2
   _hipBoneRigidbody: {fileID: 7379352924114055328}
 --- !u!195 &3029285048520794846
 NavMeshAgent:

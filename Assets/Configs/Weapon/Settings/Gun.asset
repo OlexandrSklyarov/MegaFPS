@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8136334260ad4c4db1d1ece5d586fc2, type: 3}
   m_Name: Gun
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 15
-  <IsUsedPushForce>k__BackingField: 0
-  <PushPower>k__BackingField: 100
+  <Damage>k__BackingField: 20
+  <IsUsedPushForce>k__BackingField: 1
+  <PushPower>k__BackingField: 150
+  <MeleePushPower>k__BackingField: 100
   <Strength>k__BackingField: 0.01
   <Randomness>k__BackingField: 90
   <Vibrato>k__BackingField: 15
