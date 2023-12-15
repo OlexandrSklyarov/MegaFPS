@@ -1,3 +1,4 @@
+using System;
 using Leopotam.EcsLite;
 using Runtime.Extensions;
 using UnityEngine;
@@ -7,13 +8,14 @@ namespace SA.FPS
     public sealed class WeaponReloadSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsFilter _weaponFilter;
+        private EcsWorld _world;
         private EcsPool<WeaponComponent> _weaponPool;
         private EcsPool<WeaponOwnerComponent> _ownerPool;
         private EcsPool<AmmunitionComponent> _ammoPool;
         private EcsPool<WeaponReloadEvent> _evtPool;
 
         public void Init(IEcsSystems systems)
-        {
+        {        
             _weaponFilter = systems.GetWorld()
                 .Filter<WeaponComponent>()
                 .Inc<WeaponOwnerComponent>()
@@ -21,18 +23,16 @@ namespace SA.FPS
                 .Inc<WeaponReloadEvent>()
                 .End();
 
-            var world = systems.GetWorld();
-            _weaponPool = world.GetPool<WeaponComponent>();
-            _ownerPool = world.GetPool<WeaponOwnerComponent>();
-            _ammoPool = world.GetPool<AmmunitionComponent>();
-            _evtPool = world.GetPool<WeaponReloadEvent>();
+            _world = systems.GetWorld();
+            _weaponPool = _world.GetPool<WeaponComponent>();
+            _ownerPool = _world.GetPool<WeaponOwnerComponent>();
+            _ammoPool = _world.GetPool<AmmunitionComponent>();
+            _evtPool = _world.GetPool<WeaponReloadEvent>();           
         }
 
 
         public void Run(IEcsSystems systems)
-        {          
-            var world = systems.GetWorld();
-            
+        {                      
             //EVENT
             foreach(var ent in _weaponFilter)
             {
@@ -49,7 +49,7 @@ namespace SA.FPS
                     }
 
                     //update ui event
-                    world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent); 
+                    _world.GetOrAddComponent<WeaponChangeStateComponentTag>(ent); 
                 }
             }
         }
@@ -61,9 +61,14 @@ namespace SA.FPS
 
             if (weapon.View.Settings.IsRangeWeapon && 
                 need > 0 && 
-                ammo.ExtraCount > 0)
+                ammo.ExtraCount > 0 || IsInfinityAmmo())
             {
-                if (ammo.ExtraCount >= need)
+                if (IsInfinityAmmo())
+                {
+                    ammo.Count += need;
+                    ammo.ExtraCount = 0;
+                }
+                else if (ammo.ExtraCount >= need)
                 {
                     ammo.Count += need;
                     ammo.ExtraCount -= need;
@@ -78,6 +83,12 @@ namespace SA.FPS
             } 
 
             return false;
+        }
+
+
+        private bool IsInfinityAmmo()
+        {
+            return ServicesPool.Instance.GetService<GameConfig>().IsAmmoInfinity; 
         }
     }
 }

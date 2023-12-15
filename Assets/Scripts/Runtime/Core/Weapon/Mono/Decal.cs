@@ -5,6 +5,8 @@ namespace SA.FPS
 {
     public class Decal : MonoBehaviour, IPoolable<Decal>
     {
+        [SerializeField] private ParticleSystem _impactVFX;
+
         private IObjectPool<Decal> _pool;
 
         public void SetPool(IObjectPool<Decal> pool)
@@ -16,6 +18,9 @@ namespace SA.FPS
         {
             transform.rotation = Quaternion.LookRotation(normal);
             transform.position = point;
+
+            if (_impactVFX != null) _impactVFX.Play();
+
             ReleaseOverTimeAsync();
         }
 
@@ -27,6 +32,7 @@ namespace SA.FPS
 
         private void Release()
         {
+            if (_impactVFX != null) _impactVFX.Stop();
             _pool.Release(this);
         }
     }

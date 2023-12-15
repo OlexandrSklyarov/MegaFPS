@@ -35,11 +35,11 @@ MonoBehaviour:
   _isRangeWeapon: 1
   _startAmmo: 1
   _magAmountAmmo: 25
-  _rayCountPerShoot: 1
-  _distance: Infinity
+  _rayCountPerShoot: 6
+  _distance: 30
   _decalType: 0
-  _isUseSpread: 0
-  _spreadFactor: 0
+  _isUseSpread: 1
+  _spreadFactor: 0.15
   _isUseMeleeAttack: 1
   <OverlapDamage>k__BackingField: 3
   <OverlapRadius>k__BackingField: 1

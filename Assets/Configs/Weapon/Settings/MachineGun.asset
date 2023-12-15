@@ -39,7 +39,7 @@ MonoBehaviour:
   _distance: Infinity
   _decalType: 0
   _isUseSpread: 0
-  _spreadFactor: 0
+  _spreadFactor: 0.1
   _isUseMeleeAttack: 1
   <OverlapDamage>k__BackingField: 3
   <OverlapRadius>k__BackingField: 1

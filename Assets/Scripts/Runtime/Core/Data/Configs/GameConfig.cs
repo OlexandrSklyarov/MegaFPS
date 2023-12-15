@@ -11,5 +11,6 @@ namespace SA.FPS
         [field: Space, SerializeField] public GameAudioConfig Audio {get; private set;}
         [field: Space, SerializeField] public WeaponsConfig WeaponData {get; private set;}
         [field: Space, SerializeField] public PoolObjectConfig PoolData {get; private set;}        
+        [field: Space, Header("DEBUG"), SerializeField] public bool IsAmmoInfinity {get; private set;}        
     }
 }
