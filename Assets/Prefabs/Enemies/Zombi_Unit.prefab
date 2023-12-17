@@ -1355,6 +1355,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6190980545540295377}
+    - targetCorrespondingSourceObject: {fileID: -6170625038081293824, guid: 602a0d389c4c6de4698305e175ee4d1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5309548249154704767}
     - targetCorrespondingSourceObject: {fileID: -3086436065929644917, guid: 602a0d389c4c6de4698305e175ee4d1a,
         type: 3}
       insertIndex: -1
@@ -1387,6 +1391,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2014094007343079545}
+    - targetCorrespondingSourceObject: {fileID: -4332706925441422008, guid: 602a0d389c4c6de4698305e175ee4d1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4316638339933270633}
     - targetCorrespondingSourceObject: {fileID: -203856693384778745, guid: 602a0d389c4c6de4698305e175ee4d1a,
         type: 3}
       insertIndex: -1
@@ -1775,7 +1783,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -70
+    limit: -14.478162
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -1786,7 +1794,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 50
+    limit: 13.20993
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -1967,11 +1975,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: -17.41741
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 11.14037
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -2006,6 +2014,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b305b3fbfb55c7905b7b7e7862d057b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &5309548249154704767
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452877339338865382}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.07
+  m_Center: {x: 0, y: 0.58, z: 0.18}
 --- !u!1 &2581354468880511691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3135921509060577837, guid: 602a0d389c4c6de4698305e175ee4d1a,
@@ -2081,18 +2110,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -20
+    limit: -11.179578
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 70
+    limit: 19.09996
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 30
+    limit: 12.381897
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -2279,7 +2308,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -90
+    limit: -29.007008
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -2294,7 +2323,7 @@ CharacterJoint:
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 0
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 0
@@ -2423,11 +2452,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: -15.250588
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 6.1607685
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -2462,6 +2491,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b305b3fbfb55c7905b7b7e7862d057b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &4316638339933270633
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442870392557213102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.07
+  m_Center: {x: 0, y: 0.58, z: 0.18}
 --- !u!4 &5645798340984599728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5048025441337412694, guid: 602a0d389c4c6de4698305e175ee4d1a,
@@ -2615,18 +2665,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -20
+    limit: -10.329655
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 70
+    limit: 18.894836
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 30
+    limit: 10.36026
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -2781,18 +2831,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -40
+    limit: -17.92922
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 25
+    limit: 5.522474
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 25
+    limit: 8.782593
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -2901,7 +2951,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -70
+    limit: -17.437048
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -2912,7 +2962,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 50
+    limit: 16.186035
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -3015,7 +3065,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -90
+    limit: -18.239914
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -3127,11 +3177,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -20
+    limit: -12.534839
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 20
+    limit: 17.061409
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
